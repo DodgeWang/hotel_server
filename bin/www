@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const envConfig = require('../config/env_config');
+
+app.listen(envConfig.server.port,() => {
+	console.log('app started, listen on port:', envConfig.server.port);
+})
