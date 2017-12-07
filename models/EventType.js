@@ -1,3 +1,7 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
+
 //时间类型表
 module.exports=sequelize.define('event_type',{
 	eventTypeId: {

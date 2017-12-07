@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //员工教育经历表
 module.exports = sequelize.define('education_experience', {
 	eduId: {

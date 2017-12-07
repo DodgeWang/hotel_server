@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //工作排班表
 module.exports=sequelize.define('work_ schedule',{
 	scheduleId: {

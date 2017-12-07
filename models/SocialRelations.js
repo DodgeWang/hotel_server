@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //员工社会关系
 module.exports = sequelize.define('social_relations', {
 	relationId: {

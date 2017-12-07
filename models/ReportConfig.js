@@ -1,5 +1,9 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
+
 //时间报表配置表
-module.exports=sequelize.dedine('report_config',{
+module.exports=sequelize.define('report_config',{
 	reportId: {
 		type: Sequelize.INTEGER,
 		primaryKey: true,

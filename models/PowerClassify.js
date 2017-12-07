@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //权限分类表
 module.exports=sequelize.define('power_classify',{
 	powerClassifyId: {

@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //部门表
 module.exports=sequelize.define('department',{
 	departmentId: {

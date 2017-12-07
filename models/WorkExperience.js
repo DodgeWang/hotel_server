@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //员工工作经历表
 module.exports=sequelize.define('work_experience',{
 	workId:{

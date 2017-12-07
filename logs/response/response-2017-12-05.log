@@ -1,0 +1,56 @@
+[2017-12-05T15:03:05.875] [INFO] resLogger - 
+*************** response log start ***************
+request url: /users/doLogin
+request method: GET
+request client ip:  ::1
+response status: undefined
+response body: 
+{}
+*************** response log end ***************
+
+[2017-12-05T15:04:38.378] [INFO] resLogger - 
+*************** response log start ***************
+request url: undefined
+request method: undefined
+request client ip:  undefined
+response status: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-12-05T16:00:58.309] [INFO] resLogger - 
+*************** response log start ***************
+request url: undefined
+request method: undefined
+request client ip:  undefined
+response status: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-12-05T16:39:16.064] [INFO] resLogger - 
+*************** response log start ***************
+request url: /users/doLogin
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+response status: undefined
+response body: 
+{}
+*************** response log end ***************
+
+[2017-12-05T16:39:24.666] [INFO] resLogger - 
+*************** response log start ***************
+request url: /users/doLogin
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+response status: undefined
+response body: 
+{}
+*************** response log end ***************
+

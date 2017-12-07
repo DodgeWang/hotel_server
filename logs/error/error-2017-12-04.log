@@ -38,3 +38,23 @@ err stack: ReferenceError: cosn is not defined
     at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
 ***************  node  error log end ***************
 
+[2017-12-04T20:15:20.662] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /users/doLogin
+request method: GET
+request client ip:  ::1
+err name: ReferenceError
+err message: cosn is not defined
+err stack: ReferenceError: cosn is not defined
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/user.js:14:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+***************  node  error log end ***************
+

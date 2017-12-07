@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //任务详情表
 module.exports=sequelize.define('task',{
 	taskId: {

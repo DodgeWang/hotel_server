@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //入住登记表
 module.exports=sequelize.define('room_check_in',{
 	checkInId: {

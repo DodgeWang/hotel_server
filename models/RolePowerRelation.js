@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //角色和权限关联表
 module.exports=sequelize.define('role_power_relation',{
 	id: {

@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //角色表
 module.exports = sequelize.define('role', {
 	roleId: {

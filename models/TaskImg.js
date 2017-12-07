@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //任务图片表
 module.exports=sequelize.define('task_img',{
 	imgId: {

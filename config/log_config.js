@@ -39,6 +39,9 @@ module.exports = {
             "path": responsePath, //root path,
             "alwaysIncludePattern": true,
             "pattern": "-yyyy-MM-dd.log" //file extension
+        },
+        default: {
+            "type": "console"
         }
     },
     categories: {
@@ -48,11 +51,11 @@ module.exports = {
         },
         resLogger: {
             appenders: ["resLogger"],
-            level: "ALL"
+            level: "INFO"
         },
         default: {
-            appenders: ["resLogger"],
-            level: "ALL"
-        },
+            appenders: ["default"],
+            level: "DEBUG"
+        }
     }
 };

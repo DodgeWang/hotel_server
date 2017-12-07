@@ -7,7 +7,7 @@ module.exports = {
     },
     //测试数据库配置
     database: {
-        database: 'test', // 使用哪个数据库
+        database: 'hotel', // 使用哪个数据库
         username: 'root', // 用户名
         password: '000000', // 口令
         host: 'localhost', // 主机名
@@ -17,5 +17,8 @@ module.exports = {
     //日志配置
     log: {
         SYSTEMLOGPATH: path.resolve(__dirname, '../../logs') // 服务器日志保存目录
-    }
+    },
+
+    //默认语言设置（1代表英文，2代表中文）
+    LANG: 1
 }

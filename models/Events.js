@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //事件表
 module.exports=sequelize.define('events',{
 	eventId: {

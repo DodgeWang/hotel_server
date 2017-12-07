@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize');
+let sequelize = require('../utils/db');
+
 //事件分享表
 module.exports=sequelize.define('event_share',{
 	eventShareId: {
