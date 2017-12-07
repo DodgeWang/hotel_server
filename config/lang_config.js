@@ -1,5 +1,5 @@
 var envConfig = require('./env_config');
-module.exports = (req) => {
+exports.langConfig = (req) => {
 	let langType = req.session.LANG || envConfig.LANG;
 	let lang = null;
     switch (langType)

@@ -1,6 +1,7 @@
 let { logUtil, service} = require("../utils");
 let { Employee } = require('../models');
 const staticSetting = require("../config/staticSetting");
+let { langConfig } = require("../config/lang_config");
 
 
 
@@ -12,8 +13,7 @@ const staticSetting = require("../config/staticSetting");
  * @return {null}     
  */
 exports.loginTest = (req, res, next) => {	
-	try{
-		const langConfig = require("../config/lang_config")(req);
+	try{		
 		const userObj = {
             userName: 'DaiQiang',
             password: service.encrypt('123', staticSetting.encrypt_key)
@@ -27,27 +27,29 @@ exports.loginTest = (req, res, next) => {
 	    	if(!result) {
 	    		return res.json({
 	    			state: 0,
-	    			msg: langConfig.resMsg.loginError
+	    			msg: langConfig(req).resMsg.loginError
 	    		})
-	    	}           
-            req.session.userInfo = result;
+	    	}    
+	    	result.dataValues.powerList = [3001,3002];       
+            req.session.userInfo = result.dataValues;
+            req.session.LANG = 2;
 	    	res.json({
 	    		state: 1,
-	    		msg: langConfig.resMsg.success
+	    		msg: langConfig(req).resMsg.success
 	    	})
 
         }).catch(err => {
         	logUtil.error(err, req);
 	    	return res.json({
 	    		state: 0,
-	    		msg: langConfig.resMsg.loginFailure
+	    		msg: langConfig(req).resMsg.loginFailure
 	    	})
         });
 	}catch(err){
         logUtil.error(err, req);
         return res.json({
 	    	state: 0,
-	    	msg: langConfig.resMsg.loginFailure
+	    	msg: langConfig(req).resMsg.loginFailure
 	    })   
 	}
 }
@@ -65,7 +67,6 @@ exports.loginTest = (req, res, next) => {
  */
 exports.loginAction = (req, res, next) => {	
 	try{
-		const langConfig = require("../config/lang_config")(req);
 		const userObj = {
             userName: req.body.username,
             password: service.encrypt(req.body.password, staticSetting.encrypt_key)
@@ -79,28 +80,28 @@ exports.loginAction = (req, res, next) => {
 	    	if(!result) {
 	    		return res.json({
 	    			state: 0,
-	    			msg: langConfig.resMsg.loginError
+	    			msg: langConfig(req).resMsg.loginError
 	    		})
 	    	}           
-            req.session.userInfo = result;
-            req.session.LANG = 2;
+            req.session.userInfo = result.dataValues;
+            // req.session.LANG = 2;
 	    	res.json({
 	    		state: 1,
-	    		msg: langConfig.resMsg.success
+	    		msg: langConfig(req).resMsg.success
 	    	})
 
         }).catch(err => {
         	logUtil.error(err, req);
 	    	return res.json({
 	    		state: 0,
-	    		msg: langConfig.resMsg.loginFailure
+	    		msg: langConfig(req).resMsg.loginFailure
 	    	})
         });
 	}catch(err){
         logUtil.error(err, req);
         return res.json({
 	    	state: 0,
-	    	msg: langConfig.resMsg.loginFailure
+	    	msg: langConfig(req).resMsg.loginFailure
 	    })   
 	}
 }
@@ -118,7 +119,7 @@ exports.loginAction = (req, res, next) => {
  */
 exports.logOut = (req, res, next) => {
 	try{
-		console.ss("haha")
+		console.log("haha")
 	}catch(err){
 		res.sendStatus(500)
 	}
@@ -136,16 +137,17 @@ exports.logOut = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.getEmployeeList = (req, res, next) => {
+exports.getEmployeeList = (req, res) => {
 	try{
-	   res.json({
-	    	state: 0,
-	    	msg: "oooo"
-	    })   
+		res.json({
+			a:langConfig(req).resMsg.loginError
+		})
 	}catch(err){
-	   
+		console.log(err);
+		res.json({
+			a:"err"
+		})
 	}
-
 }
 
 
@@ -157,14 +159,10 @@ exports.getEmployeeList = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.getEmployeeList = (req, res, next) => {
-	try{
-	   
-	}catch(err){
-	   
-	}
+// exports.getEmployeeList = (req, res, next) => {
 
-}
+
+// }
 
 
 
@@ -175,14 +173,9 @@ exports.getEmployeeList = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.editEmployeeById = (req, res, next) => {
-	try{
-	   
-	}catch(err){
-	   
-	}
+// exports.editEmployeeById = (req, res, next) => {
 
-}
+// }
 
 
 
@@ -193,14 +186,9 @@ exports.editEmployeeById = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.delEmployee = (req, res, next) => {
-	try{
-	   
-	}catch(err){
-	   
-	}
+// exports.delEmployee = (req, res, next) => {
 
-}
+// }
 
 
 

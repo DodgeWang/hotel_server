@@ -54,11 +54,6 @@ module.exports = () => {
 
 
 
-    //接口权限筛查
-    app.use((req,res,next) => {
-        next()
-    })
-
     //api路由   
     app.use('/api',router_api);
     app.use('/page',router_page);
