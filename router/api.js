@@ -1,4 +1,5 @@
 
+
 /**
  * api
  * 
@@ -80,8 +81,13 @@ router.post('/doLogin',Employee.loginAction);
 router.get('/logOut', Employee.logOut);
 
 
-// //获取员工信息列表
-router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
+//获取员工信息列表
+// router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
+router.get('/employee/list', Employee.getEmployeeList);
+
+
+//添加员工信息
+router.get('/employee/add', Employee.addEmployee);
 
 
 module.exports = router;
