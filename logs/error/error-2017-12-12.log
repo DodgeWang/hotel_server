@@ -1,0 +1,649 @@
+[2017-12-12T14:23:41.001] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /login
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.employeeId' in 'order clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.employeeId' in 'order clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T14:23:46.817] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /login
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.employeeId' in 'order clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.employeeId' in 'order clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T15:03:15.513] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.employeeId' in 'order clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.employeeId' in 'order clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T16:26:42.153] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: employee.getEduExperence is not a function
+err stack: TypeError: employee.getEduExperence is not a function
+    at /Users/user/workspace/hotel_server/controller/employee.js:93:15
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+***************  node  error log end ***************
+
+[2017-12-12T16:42:41.336] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/info?id=1
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: employee.getEduExperience is not a function
+err stack: TypeError: employee.getEduExperience is not a function
+    at Employee.findOne.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:133:16)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T16:49:16.592] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/info?id=1
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: employee.getEduExperience is not a function
+err stack: TypeError: employee.getEduExperience is not a function
+    at Employee.findOne.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:133:16)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T16:59:54.600] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T17:00:05.760] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T17:00:34.492] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T17:02:58.192] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list
+request method: GET
+request client ip:  ::1
+err name: ReferenceError
+err message: EduExperience is not defined
+err stack: ReferenceError: EduExperience is not defined
+    at exports.getEmployeeList (/Users/user/workspace/hotel_server/controller/employee.js:92:43)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at checkUserPower (/Users/user/workspace/hotel_server/router/api.js:56:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at checkUserSession (/Users/user/workspace/hotel_server/router/api.js:21:5)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+***************  node  error log end ***************
+
+[2017-12-12T17:08:43.584] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/info
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'getEduExperience' of null
+err stack: TypeError: Cannot read property 'getEduExperience' of null
+    at Employee.findOne.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:133:16)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:01:23.028] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:04:08.926] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:05:54.681] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=5&pageNum=0
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''5'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''5'' at line 1
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T18:07:12.632] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=5&pageNum=1
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''5'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''5'' at line 1
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T18:08:16.263] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:09:55.155] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=2&pageNum=1
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2'' at line 1
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-12T18:11:37.036] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cipher data must be a string or a buffer
+err stack: TypeError: Cipher data must be a string or a buffer
+    at Cipher.update (crypto.js:170:26)
+    at Object.encrypt (/Users/user/workspace/hotel_server/utils/service.js:9:26)
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:20:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:29:59.935] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: self._expandAttributes is not a function
+err stack: TypeError: self._expandAttributes is not a function
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:198:12)
+    at Function._conformInclude (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:264:12)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:59)
+    at Array.map (<anonymous>)
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1739:10)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:30:14.485] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=5&pageNum=0
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: self._expandAttributes is not a function
+err stack: TypeError: self._expandAttributes is not a function
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:198:12)
+    at Function._conformInclude (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:264:12)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:59)
+    at Array.map (<anonymous>)
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1739:10)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:33:46.694] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=10&pageNum=0
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: self._expandAttributes is not a function
+err stack: TypeError: self._expandAttributes is not a function
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:198:12)
+    at Function._conformInclude (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:264:12)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:59)
+    at Array.map (<anonymous>)
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1739:10)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T18:37:04.109] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?limit=8&pageNum=0
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: self._expandAttributes is not a function
+err stack: TypeError: self._expandAttributes is not a function
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:198:12)
+    at Function._conformInclude (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:264:12)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:59)
+    at Array.map (<anonymous>)
+    at Function._conformOptions (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:213:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1739:10)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T19:38:00.680] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /department/add
+request method: POST
+request client ip:  ::1
+err name: ReferenceError
+err message: departmentName is not defined
+err stack: ReferenceError: departmentName is not defined
+    at exports.addDepartment (/Users/user/workspace/hotel_server/controller/department.js:59:38)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-12T19:54:49.971] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /department/edit
+request method: POST
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'NaN' in 'where clause'
+err stack: SequelizeDatabaseError: Unknown column 'NaN' in 'where clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

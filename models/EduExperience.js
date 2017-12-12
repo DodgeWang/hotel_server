@@ -1,13 +1,12 @@
 //员工教育经历表
 module.exports = (sequelize, DataTypes) => {
-	return
-	sequelize.define('education_experience', {
-	eduId: {
+	return sequelize.define('EduExperience', {
+	id: {
 		type: DataTypes.INTEGER,
 		primaryKey: true,
 		autoIncrement: true,
 		allowNull: false,
-		field: 'edu_id',
+		field: 'id',
 		comment: '教育经历id'
 	},
 	schName: {
@@ -39,14 +38,11 @@ module.exports = (sequelize, DataTypes) => {
 		type: DataTypes.INTEGER,
 		field: 'sch_stage',
 		comment: '教育阶段，1高中，2大学'
-	},
-	employeeIdcode: {
-		type: DataTypes.STRING(100),
-		field: 'employee_idcode',
-		comment: '用户唯一识别码'
 	}
 }, {
-	freezeTableName: true,
-	timestamps: true
+	tableName: 'edu_experience',
+	timestamps: true,
+	charset: 'utf8',
+    collate: 'utf8_general_ci'
 })
 }

@@ -1,25 +1,23 @@
-//部门表
+//员工社会关系
 module.exports = (sequelize, DataTypes) => {
-	return sequelize.define('Department',{
+	return sequelize.define('SocialRelations', {
 	    id: {
 		    type: DataTypes.INTEGER,
 		    primaryKey: true,
 		    autoIncrement: true,
 		    allowNull: false,
 		    field: 'id',
-		    comment: '部门id'
+		    comment: '社会关系id'
 	    },
-	    departmentName: {
-		    type: DataTypes.STRING(50),
-		    field: 'department_name',
-		    comment: '部门名称'
+	    relationContent: {
+		    type: DataTypes.STRING(500),
+		    field: 'relation_content',
+		    comment: '熟人详细信息'
 	    }
     }, {
-	    tableName: 'department',
+	    tableName: 'social_relations',
 	    timestamps: true,
 	    charset: 'utf8',
         collate: 'utf8_general_ci'
     })
 }
-
-

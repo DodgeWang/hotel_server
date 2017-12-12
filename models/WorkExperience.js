@@ -1,0 +1,89 @@
+//员工工作经历表
+module.exports = (sequelize, DataTypes) => {
+	return sequelize.define('WorkExperience',{
+	id:{
+		type:DataTypes.INTEGER,
+		primaryKey:true,
+		autoIncrement:true,
+		allowNull:false,
+		field:'id',
+		comment:'工作经历id'
+	},
+	coName:{
+		type:DataTypes.STRING(100),
+		field:'co_name',
+		comment:'公司名称'
+	},
+	coSupervisor:{
+		type:DataTypes.STRING(50),
+		field:'co_supervisor',
+		comment:'主管名称'
+	},
+	coAddress:{
+		type:DataTypes.STRING(200),
+		field:'co_address',
+		comment:'公司地址'
+	},
+	coZipCode:{
+		type:DataTypes.STRING(50),
+		field:'co_zip_code',
+		comment:'公司邮政编码'
+	},
+	coPhone:{
+		type:DataTypes.STRING(50),
+		field:'co_phone',
+		comment:'公司电话号码'
+	},
+	coWorkHours:{
+		type:DataTypes.STRING(50),
+		field:'co_work_hours',
+		comment:'上班时长（小时/周）'
+	},
+	coPosition:{
+		type:DataTypes.STRING(50),
+		field:'co_position',
+		comment:'职位'
+	},
+	coStartTime:{
+		type:DataTypes.STRING(50),
+		field:'co_start_time',
+		comment:'上班开始日期，格式yyyy-dd-mm'
+	},
+	coEndTime:{
+		type:DataTypes.STRING(50),
+		field:'co_end_time',
+		comment:'离职日期，格式yyyy-dd-mm'
+	},
+	coStartSalary:{
+		type:DataTypes.STRING(20),
+		field:'co_start_salary',
+		comment:'上班初薪资'
+	},
+	coEndSalary:{
+		type:DataTypes.STRING(20),
+		field:'co_end_salary',
+		comment:'离职时薪资'
+	},
+	coLeaveReason:{
+		type:DataTypes.STRING(500),
+		field:'co_leave_reason',
+		comment:'离职原因'
+	},
+	coSummary:{
+		type:DataTypes.STRING(500),
+		field:'co_summary',
+		comment:'自我描述'
+	},
+	coCanContact:{
+		type:DataTypes.INTEGER,
+		field:'co_can_contact',
+		comment:'是否可以打电话给上一家公司，1可以，0不可以'
+	}
+},{
+	tableName: 'work_experience',
+	timestamps: true,
+	charset: 'utf8',
+    collate: 'utf8_general_ci'
+})
+
+}

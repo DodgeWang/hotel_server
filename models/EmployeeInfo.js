@@ -1,12 +1,6 @@
 //员工基本信息表
 module.exports = (sequelize, DataTypes) => {
 	return sequelize.define('EmployeeInfo', {
-	// employeeIdcode: {
-	// 	type: DataTypes.STRING(100),
-	// 	primaryKey: true,
-	// 	field: 'employee_idcode',
-	// 	comment: '员工唯一标识符'
-	// },
 	id: {
 		type: DataTypes.INTEGER,
 		primaryKey: true,
@@ -119,21 +113,14 @@ module.exports = (sequelize, DataTypes) => {
 		type: DataTypes.STRING(50),
 		field: 'military_specialty',
 		comment: '军事专业'
-	},
-	// employeeId: { 
-	// 		type: DataTypes.INTEGER, 
-	// 		field: 'employee_id',
-	// 		references: {
-	// 			model: 'Employee',
-	// 			key: 'id'
-	// 		},
-	// 		comment:'用户Id' },
+	}
 
 
 }, {
-	tableName: 'EmployeeInfo',
+	tableName: 'employee_info',
 	timestamps: true,
-	// underscored: true
+	charset: 'utf8',
+    collate: 'utf8_general_ci'
 
 })
 }

@@ -1,70 +1,7 @@
 let { logUtil, service} = require("../utils");
-let { Employee, EmployeeInfo } = require('../models');
-let modelt = require('../models');
-
-// let Employee = require('../models').Employee;
-// let EmployeeInfo = require('../models').EmployeeInfo;
+let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
-
-
-
-var User = require('../models').User;
-var UserCheckin = require('../models').UserCheckin;
-// let sequelize = require('../utils/db');
-
-
-
-/**
- * 登录测试接口
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-exports.loginTest = (req, res, next) => {	
-	try{		
-		const userObj = {
-            userName: 'DaiQiang',
-            password: service.encrypt('123', staticSetting.encrypt_key)
-        }
-
-	    Employee.findOne({
-	      attributes: ['userName','password','roleId'],
-	 	  where: userObj,
-	 	  order: [['employeeId', 'DESC']]
-	    }).then(result => {
-	    	if(!result) {
-	    		return res.json({
-	    			state: 0,
-	    			msg: langConfig(req).resMsg.loginError
-	    		})
-	    	}    
-	    	result.dataValues.powerList = [2001,3002];       
-            req.session.userInfo = result.dataValues;
-            req.session.LANG = 2;
-	    	res.json({
-	    		state: 1,
-	    		msg: langConfig(req).resMsg.success
-	    	})
-
-        }).catch(err => {
-        	logUtil.error(err, req);
-	    	return res.json({
-	    		state: 0,
-	    		msg: langConfig(req).resMsg.loginFailure
-	    	})
-        });
-	}catch(err){
-        logUtil.error(err, req);
-        return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.loginFailure
-	    })   
-	}
-}
-
-
 
 
 
@@ -83,17 +20,19 @@ exports.loginAction = (req, res, next) => {
         }
 
 	    Employee.findOne({
-	      attributes: ['userName','password','roleId'],
+	      attributes: ['username','password','roleId'],
 	 	  where: userObj,
-	 	  order: [['employeeId', 'DESC']]
+	 	  order: [['id', 'DESC']]
 	    }).then(result => {
 	    	if(!result) {
 	    		return res.json({
 	    			state: 0,
 	    			msg: langConfig(req).resMsg.loginError
 	    		})
-	    	}           
+	    	}
+
             req.session.userInfo = result.dataValues;
+            result.dataValues.powerList = [2001,3002];
             // req.session.LANG = 2;
 	    	res.json({
 	    		state: 1,
@@ -149,20 +88,86 @@ exports.logOut = (req, res, next) => {
  */
 exports.getEmployeeList = (req, res) => {
 	try{
-		Employee.findAll({include:[EmployeeInfo]}).then(function(employee){
-  employee = JSON.stringify(employee)
-    res.send(employee)
-}).catch(function(err){
-	console.log("***************")
-	res.send(err)
-});
+        let limit = req.query.limit ? parseInt(req.query.limit) : 20;
+        let offset = req.query.pageNum ? parseInt(req.query.pageNum) * limit : 0;
+
+		Employee.findAndCountAll({
+			include:[{
+				model: EmployeeInfo,
+				// attributes: ['name']
+			}],
+			// include:[{
+			// 	model: 'EmployeeInfo'
+			// 	// attributes: []
+			// }],
+			attributes: ['id','username'],
+			limit: limit,
+			offset: offset
+		}).then(employee => {
+              res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success,
+	    	  data: JSON.stringify(employee)
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
 	}catch(err){
-		console.log(err);
-		res.json({
-			a:"err"
-		})
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
 	}
 }
+
+
+
+
+/**
+ * 根据ID获取员工信息
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.getEmployeeById = (req, res) => {
+	try{
+		let id = req.query.id;
+		Employee.findOne({
+		  include:[EmployeeInfo,EduExperience,WorkExperience,SocialRelations],
+	 	  where: {
+	 	  	id: id
+	 	  },
+	 	  order: [['id', 'DESC']]
+	    }).then(employee => {
+	    	console.log(employee)
+            res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success,
+	    	  data: employee === null ? null : JSON.stringify(employee)
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
+
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+}
+
 
 
 
@@ -174,7 +179,7 @@ exports.getEmployeeList = (req, res) => {
  * @return {null}     
  */
 exports.addEmployee = (req, res, next) => {
-     	Employee.create({username:'itbilu', password:'itbilu.com'}).then(employee => { 		
+     	Employee.create({username:'wang', password:service.encrypt("123", staticSetting.encrypt_key)}).then(employee => { 		
 
             console.log("***************")
 
@@ -184,6 +189,7 @@ exports.addEmployee = (req, res, next) => {
             console.log("***************")
 
      		var s = EmployeeInfo.build({name:'123'});
+
             employee.setEmployeeInfo(s);
             console.log(employee.get("username"))
 		    res.send('ok');
@@ -194,17 +200,6 @@ exports.addEmployee = (req, res, next) => {
             res.send("error")
      
 	    })
-
-	//     User.create({username:'itbilu', password:'itbilu.com'}).then(function(user){
-		
-	// 	var userCheckin = UserCheckin.build({loginIp:'127.0.0.1'});
-	// 	user.setUserCheckin(userCheckin);
-
-	// 	res.set('Content-Type', 'text/html; charset=utf-8');
-	// 	res.end('UserCheckin 插入数据成功');
-	// }).catch(err => {
-	// 	console.log(err)
-	// });
 }
 
 

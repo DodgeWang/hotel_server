@@ -7,7 +7,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee } = require('../controller');
+const { Employee, Department } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -71,9 +71,6 @@ function checkUserPower(req, res, next) {
 // });
 
 
-//员工登录测试接口（测试接口）
-router.get('/login',Employee.loginTest);
-
 //员工登录
 router.post('/doLogin',Employee.loginAction);
 
@@ -82,12 +79,39 @@ router.get('/logOut', Employee.logOut);
 
 
 //获取员工信息列表
-// router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
-router.get('/employee/list', Employee.getEmployeeList);
+router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
+// router.get('/employee/list', Employee.getEmployeeList);
+
+
+//根据id获取员工信息
+router.get('/employee/info', Employee.getEmployeeById);
+
+
+
+
 
 
 //添加员工信息
 router.get('/employee/add', Employee.addEmployee);
 
+//获取部门列表信息
+router.get('/department/list', Department.getDepartmentList);
+
+//添加部门信息
+router.post('/department/add', Department.addDepartment);
+
+//修改部门信息
+router.post('/department/edit', Department.editDepartment);
+
+//删除部门信息
+router.post('/department/delete', Department.delDepartment);
+
+
+
 
 module.exports = router;
+
+
+
+
+
