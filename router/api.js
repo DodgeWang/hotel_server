@@ -1,5 +1,3 @@
-
-
 /**
  * api
  * 
@@ -80,7 +78,6 @@ router.get('/logOut', Employee.logOut);
 
 //获取员工信息列表
 router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
-// router.get('/employee/list', Employee.getEmployeeList);
 
 
 //根据id获取员工信息
@@ -92,19 +89,19 @@ router.get('/employee/info', Employee.getEmployeeById);
 
 
 //添加员工信息
-router.get('/employee/add', Employee.addEmployee);
+router.get('/employee/add', checkUserSession, checkUserPower, Employee.addEmployee);
 
 //获取部门列表信息
-router.get('/department/list', Department.getDepartmentList);
+router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
 
 //添加部门信息
-router.post('/department/add', Department.addDepartment);
+router.post('/department/add', checkUserSession, checkUserPower, Department.addDepartment);
 
 //修改部门信息
-router.post('/department/edit', Department.editDepartment);
+router.post('/department/edit', checkUserSession, checkUserPower, Department.editDepartment);
 
 //删除部门信息
-router.post('/department/delete', Department.delDepartment);
+router.post('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
 
 
 
