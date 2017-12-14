@@ -96,10 +96,6 @@ exports.getEmployeeList = (req, res) => {
 				model: EmployeeInfo,
 				// attributes: ['name']
 			}],
-			// include:[{
-			// 	model: 'EmployeeInfo'
-			// 	// attributes: []
-			// }],
 			attributes: ['id','username'],
 			limit: limit,
 			offset: offset

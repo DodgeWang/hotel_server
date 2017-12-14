@@ -9,7 +9,7 @@ module.exports = {
     	loginError: '用户名或密码错误',
     	loginFailure: '登录失败',
     	noLogin: '请登录',
-    	noPower: '你没有权限访问此接口'
-
+    	noPower: '你没有权限访问此接口',
+        paramError: '数据错误'
     }
 }

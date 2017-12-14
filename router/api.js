@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee, Department } = require('../controller');
+const { Employee, Department, Room, RoomArticle } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -102,6 +102,39 @@ router.post('/department/edit', checkUserSession, checkUserPower, Department.edi
 
 //删除部门信息
 router.post('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
+
+
+//添加房间类型
+router.post('/roomtype/add',Room.addRoomType);
+
+//查看房间类型列表
+router.get('/roomtype/list',Room.getRoomTypeList);
+
+//根据id修改房间类型信息
+router.post('/roomtype/edit',Room.editRoomType);
+
+
+//添加房间物品
+router.post('/roomarticle/add',RoomArticle.addArticle);
+
+//修改房间物品
+router.post('/roomarticle/edit',RoomArticle.editArticle);
+
+//获取物品列表
+router.get('/roomarticle/list',RoomArticle.getArticleList);
+
+//根据id获取物品详情
+router.get('/roomarticle/info',RoomArticle.getArticleById);
+
+
+
+//查看房间列表
+router.get('/room/list',Room.getRoomList);
+
+//添加房间
+router.post('/room/add', Room.addRoom);
+
+
 
 
 

@@ -16,11 +16,12 @@ let Department = sequelize.import('./Department');
 // let ReportConfig = sequelize.import('./ReportConfig');
 // let Role = sequelize.import('./Role');
 // let RolePowerRelation = sequelize.import('./RolePowerRelation');
-// let RoomArticle = sequelize.import('./RoomArticle');
+
 // let RoomArticleRelation = sequelize.import('./RoomArticleRelation');
 // let RoomCheckIn = sequelize.import('./RoomCheckIn');
-// let RoomInfo = sequelize.import('./RoomInfo');
-// let RoomType = sequelize.import('./RoomType');
+let RoomInfo = sequelize.import('./RoomInfo');
+let RoomType = sequelize.import('./RoomType');
+let RoomArticle = sequelize.import('./RoomArticle');
 
 // let Task = sequelize.import('./Task');
 // let TaskImg = sequelize.import('./TaskImg');
@@ -40,9 +41,18 @@ Employee.hasMany(EduExperience, {foreignKey:'employee_id'});
 Employee.hasMany(WorkExperience, {foreignKey:'employee_id'});
 Employee.hasMany(SocialRelations, {foreignKey:'employee_id'});
 
+//房间类型和房间关联关系
+RoomType.hasMany(RoomInfo, {foreignKey:'roomtype_id',as:'roomType'});
+RoomInfo.belongsTo(RoomType, {foreignKey:'roomtype_id',as:'roomType'});
+
+//
+RoomInfo.belongsToMany(RoomArticle, { as: 'roomArticleRel', through: 'room_article_relation'})
+RoomArticle.belongsToMany(RoomInfo, { as: 'roomArticleRel', through: 'room_article_relation'})
 
 // 同步模型到数据库中
+// sequelize.sync({force:true});
 sequelize.sync();
+
 
 
 
@@ -63,11 +73,12 @@ exports.Department = Department;
 // exports.ReportConfig = ReportConfig;
 // exports.Role = Role;
 // exports.RolePowerRelation = RolePowerRelation;
-// exports.RoomArticle = RoomArticle;
+
 // exports.RoomArticleRelation = RoomArticleRelation;
 // exports.RoomCheckIn = RoomCheckIn;
-// exports.RoomInfo = RoomInfo;
-// exports.RoomType = RoomType;
+exports.RoomInfo = RoomInfo;
+exports.RoomType = RoomType;
+exports.RoomArticle = RoomArticle;
 
 // exports.Task = Task;
 // exports.TaskImg = TaskImg;

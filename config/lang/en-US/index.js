@@ -9,6 +9,7 @@ module.exports = {
     	loginError: 'username or password error',
     	loginFailure: 'login failure',
     	noLogin: 'please login',
-    	noPower: 'You do not have permission to access this interface'
+    	noPower: 'You do not have permission to access this interface',
+    	paramError: 'param error'
     }
 }
