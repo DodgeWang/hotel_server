@@ -14,18 +14,25 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.getDepartmentList = (req, res) => {
 	try{
-        let limit = req.query.limit ? parseInt(req.query.limit) : 20;
-        let offset = req.query.pageNum ? parseInt(req.query.pageNum) * limit : 0;
 
-		Department.findAndCountAll({
+		let queryConfig = {
 			attributes: ['id','departmentName'],
-			limit: limit,
-			offset: offset
-		}).then(department => {
+			order: [['id', 'DESC']]
+		}
+		//如果有页数和条数限制
+		if(req.query.pageSize && req.query.pageNow ){
+			let limit = parseInt(req.query.pageSize);
+            let offset = (parseInt(req.query.pageNow)-1) * limit;
+            queryConfig.limit = limit;
+            queryConfig.offset = offset;
+		}
+
+		Department.findAndCountAll(queryConfig).then(department => {
+			console.log(department)
               res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: JSON.stringify(department)
+	    	  data: department
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);
@@ -55,7 +62,6 @@ exports.getDepartmentList = (req, res) => {
 exports.addDepartment = (req, res) => {
 	try{
         let departmentName = req.body.name;
-
 		Department.create({departmentName: departmentName}).then(department => {
             res.json({
 	    	  state: 1,
@@ -127,10 +133,7 @@ exports.editDepartment = (req, res) => {
  */
 exports.delDepartment = (req, res) => {
 	try{
-		let id = parseInt(req.body.id);
-        
-
-
+		let id = parseInt(req.query.id);
         res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success

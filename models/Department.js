@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 	    }
     }, {
 	    tableName: 'department',
-	    timestamps: true,
+	    timestamps: false,
 	    charset: 'utf8',
         collate: 'utf8_general_ci'
     })

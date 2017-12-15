@@ -10,11 +10,6 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '员工id',
 	},
-	employeeIdcode: {
-		type: DataTypes.STRING(100),
-		field: 'employee_idcode',
-		comment: '员工唯一标识符'
-	},
 	username: {
 		type: DataTypes.STRING(100),
 		field: 'username',

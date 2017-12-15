@@ -1,5 +1,5 @@
 let { logUtil, service} = require("../utils");
-let { RoomType, RoomInfo } = require('../models');
+let { RoomType, RoomInfo,RoomArticle } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
 
@@ -173,6 +173,8 @@ exports.getRoomList = (req, res, next) => {
 				model: RoomType,
 				as: 'roomType',
 				attributes: [['id','roomtypeId'],'roomtypeName']
+			},{
+				model: RoomArticle
 			}],
 			limit: limit,
 			offset: offset,
@@ -181,7 +183,7 @@ exports.getRoomList = (req, res, next) => {
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: JSON.stringify(roomlist)
+	    	  data: roomlist
 	        })
 	    }).catch(err => {
 	       logUtil.error(err, req);
@@ -210,18 +212,47 @@ exports.getRoomList = (req, res, next) => {
  */
 exports.addRoom = (req, res, next) => { 	
 	try{
-		RoomInfo.create({roomNumber:'102', roomQrCode:'111',roomtypeId:2}).then(roominfo => { 
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
+		// RoomInfo.create({roomNumber:'102', roomQrCode:'111',roomtypeId:1}).then(roominfo => { 
+		// 	RoomArticle.findOne({
+	 // 	       where: {id:1}
+	 //        },function(roomarticle){
+	 //        	roominfo.addRoomArticle(roomarticle)
+	 //        	res.json({
+	 //    	       state: 1,
+	 //    	       msg: langConfig(req).resMsg.success
+	 //            })
+	 //        })
+
+			
+		    
+	 //    }).catch(err => {
+	 //       logUtil.error(err, req);
+  //          return res.json({
+	 //    	  state: 0,
+	 //    	  msg: langConfig(req).resMsg.error
+	 //       })  
+	 //    })
+
+Promise.all([
+     RoomInfo.create({roomNumber:'102', roomQrCode:'111',roomtypeId:1}),
+     RoomArticle.findAll()
+])
+     .then(function(results){
+            var roominfo = results[0];
+            var article= results[1];
+            roominfo.addRoomArticles(article);
+                   	res.json({
+	    	       state: 1,
+	    	       msg: langConfig(req).resMsg.success
+	            })
 	        })
-	    }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+     
+
+
+
+
+
+
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({

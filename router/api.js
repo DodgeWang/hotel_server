@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee, Department, Room, RoomArticle } = require('../controller');
+const { Employee, Department, Room, RoomArticle, Role } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -77,7 +77,7 @@ router.get('/logOut', Employee.logOut);
 
 
 //获取员工信息列表
-router.get('/employee/list', checkUserSession, checkUserPower, Employee.getEmployeeList);
+router.get('/employee/list', Employee.getEmployeeList);
 
 
 //根据id获取员工信息
@@ -89,7 +89,7 @@ router.get('/employee/info', Employee.getEmployeeById);
 
 
 //添加员工信息
-router.get('/employee/add', checkUserSession, checkUserPower, Employee.addEmployee);
+router.get('/employee/add', Employee.addEmployee);
 
 //获取部门列表信息
 router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
@@ -101,7 +101,7 @@ router.post('/department/add', checkUserSession, checkUserPower, Department.addD
 router.post('/department/edit', checkUserSession, checkUserPower, Department.editDepartment);
 
 //删除部门信息
-router.post('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
+router.get('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
 
 
 //添加房间类型
@@ -132,7 +132,12 @@ router.get('/roomarticle/info',RoomArticle.getArticleById);
 router.get('/room/list',Room.getRoomList);
 
 //添加房间
-router.post('/room/add', Room.addRoom);
+router.get('/room/add', Room.addRoom);
+
+
+
+//添加角色
+router.get('/role/add', Role.addRole);
 
 
 

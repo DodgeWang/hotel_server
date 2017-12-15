@@ -81,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
 	}
 },{
 	tableName: 'work_experience',
-	timestamps: true,
+	timestamps: false,
 	charset: 'utf8',
     collate: 'utf8_general_ci'
 })

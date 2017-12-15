@@ -1,21 +1,26 @@
-//房间类型表
+//角色权限表
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('RoomType',{
+    return sequelize.define('RolePower',{
 	    id: {
 		    type: DataTypes.INTEGER,
 		    primaryKey: true,
 		    autoIncrement: true,
 		    allowNull: false,
 		    field: 'id',
-		    comment: '房间类型id'
+		    comment: '关联的id'
 	    },
-	    roomtypeName: {
+	    roleId: {
+		    type: DataTypes.INTEGER,
+		    field: 'role_id',
+		    comment: '角色id'
+	    },
+	    powerCode: {
 		    type: DataTypes.STRING(100),
-		    field: 'roomtype_name',
-		    comment: '类型名称'
+		    field: 'power_code',
+		    comment: '权限码'
 	    }
     }, {
-	    tableName: 'room_type',
+	    tableName: 'role_power',
     	timestamps: false,
 	    charset: 'utf8',
         collate: 'utf8_general_ci'

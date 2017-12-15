@@ -1,5 +1,5 @@
 let { logUtil, service} = require("../utils");
-let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations } = require('../models');
+let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Role } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
 
@@ -95,6 +95,8 @@ exports.getEmployeeList = (req, res) => {
 			include:[{
 				model: EmployeeInfo,
 				// attributes: ['name']
+			},{
+				model: Role
 			}],
 			attributes: ['id','username'],
 			limit: limit,
@@ -103,7 +105,7 @@ exports.getEmployeeList = (req, res) => {
               res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: JSON.stringify(employee)
+	    	  data: employee
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);

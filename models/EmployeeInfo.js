@@ -118,7 +118,7 @@ module.exports = (sequelize, DataTypes) => {
 
 }, {
 	tableName: 'employee_info',
-	timestamps: true,
+	timestamps: false,
 	charset: 'utf8',
     collate: 'utf8_general_ci'
 

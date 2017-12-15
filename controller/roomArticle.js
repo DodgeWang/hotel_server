@@ -99,15 +99,15 @@ exports.editArticle = (req, res, next) => {
  */
 exports.getArticleById = (req, res, next) => {
 	try{      
-		let id = parseInt(req.body.id);
-		RoomArticle.findOne(paramObj,{
-			where: {id: id}
+		let id = parseInt(req.query.id);
+		RoomArticle.findOne({
+			where: {id: id},
 	 	    order: [['id', 'DESC']]
-		}).then(roomtype => {
+		}).then(article => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: JSON.stringify(employee)
+	    	  data: JSON.stringify(article)
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);
