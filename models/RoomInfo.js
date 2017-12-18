@@ -22,12 +22,14 @@ module.exports = (sequelize, DataTypes) => {
 	roomStatus: {
 		type: DataTypes.INTEGER,
 		field: 'room_status',
-		comment: '房间状态，1已入住，0未入住'
+		comment: '房间状态，1已入住，0未入住',
+		defaultValue: 0
 	},
 	roomCleanStatus: {
 		type: DataTypes.INTEGER,
 		field: 'room_clean_status',
-		comment: '房间打扫状态，1已打扫，0未打扫'
+		comment: '房间打扫状态，1已打扫，0未打扫',
+		defaultValue: 0
 	},
 	roomtypeId: {
 		type: DataTypes.INTEGER,

@@ -13,13 +13,15 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.addArticle = (req, res, next) => {   	
 	try{
+
+		let { name, isCheck, isClean } = req.body;
         let paramObj = {
-        	articleName: req.body.name,
-        	articleCheck: req.body.check,
-        	articleClean: req.body.clean
+        	articleName: name,
+        	articleCheck: isCheck,
+        	articleClean: isClean
         }
 
-		RoomArticle.create(paramObj).then(roomtype => { 
+		RoomArticle.create(paramObj).then(article => { 
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -54,16 +56,17 @@ exports.addArticle = (req, res, next) => {
  */
 exports.editArticle = (req, res, next) => {
 	try{      
-		let id = parseInt(req.body.id);
+        let {id, name, isCheck, isClean} = req.body;
+
         let paramObj = {
-        	articleName: req.body.name,
-        	articleCheck: req.body.check,
-        	articleClean: req.body.clean
+        	articleName: name,
+        	articleCheck: isCheck,
+        	articleClean: isClean
         }
 
 		RoomArticle.update(paramObj,{
-			where: {id: id}
-		}).then(roomtype => {
+			where: {id: parseInt(id)}
+		}).then(article => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -100,6 +103,7 @@ exports.editArticle = (req, res, next) => {
 exports.getArticleById = (req, res, next) => {
 	try{      
 		let id = parseInt(req.query.id);
+
 		RoomArticle.findOne({
 			where: {id: id},
 	 	    order: [['id', 'DESC']]
@@ -141,15 +145,18 @@ exports.getArticleById = (req, res, next) => {
  * @return {null}     
  */
 exports.getArticleList = (req, res, next) => {    	
-	try{		
+	try{	
+
+	    let { pageNow,pageSize } = req.query;
+
         let queryConfig = {
 			attributes: ['id','articleName','articleCheck','articleClean'],
 			order: [['id', 'DESC']]
 		}
         //如果有页数和条数限制
-		if(req.query.pageSize && req.query.pageNow ){
-			let limit = parseInt(req.query.pageSize);
-            let offset = (parseInt(req.query.pageNow)-1) * limit;
+		if(pageSize && pageNow ){
+			let limit = parseInt(pageSize);
+            let offset = (parseInt(pageNow)-1) * limit;
             queryConfig.limit = limit;
             queryConfig.offset = offset;
 		}

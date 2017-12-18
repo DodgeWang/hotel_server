@@ -13,19 +13,28 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.addRole = (req, res, next) => {
 	try{
-		let roleName = "管理员";
-        let roleDes = "超级管理员";
-        // let roleName = req.body.roleName;
-        // let roleDes = req.body.roleDes;
+        let roleName = req.body.roleName;
+        let roleDes = req.body.roleDes;
+        let powers = req.body.powers.split('_&_');
+
+        let powerList  = [];
+        for(let i=0; i<powers.length; i++){
+        	let obj = {};
+        	obj.powerCode = powers[i];
+        	powerList.push(obj)
+        }
 
         let paramObj = {
         	roleName: roleName,
-        	roleDes: roleDes
+        	roleDes: roleDes,
+        	powers: powerList
         }
-		Role.create(paramObj).then(role => {
-			let s = RolePower.build({powerCode:'1002'});
-			// console.log(s)
-			role.setRolePower(s);
+		Role.create(paramObj,{
+			include: [{
+               model: RolePower,
+               as: 'powers'
+            }]
+		}).then(role => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -38,40 +47,148 @@ exports.addRole = (req, res, next) => {
 	       })   
         });
 
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+}
 
-        // let roleName = "管理员";
-        // let roleDes = "超级管理员";
-
-        // let paramObj = {
-        // 	roleName: roleName,
-        // 	roleDes: roleDes
-        // }
 
 
-        // async.series({
-        //     role: cb => {
-        //         Role.create(paramObj, (err, rows) => {
-        //             cb(err, rows)
-        //         })
-        //     },
-        //     powers: cb => {
-        //         RolePowers.findAll({
-        //         	where: {id:[1,2,3]}
-        //         },(err, rows) => {
-        //             cb(err, rows)
-        //         })
-        //     }
-        // }, (err, results) => {
-        // 	if(err){
-        // 		logUtil.error(err, req);
-        //         return res.json({
-	    	  //      state: 0,
-	    	  //      msg: langConfig(req).resMsg.error
-	       //      })
-        // 	}
-        //     role.setRolePowerss(results.powers)
 
-        // });
+/**
+ * 根据id修改角色信息
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.editRole = (req, res, next) => {
+	try{
+        let { id, roleName, roleDes } = req.body;
+
+        let paramObj = {
+        	roleName: roleName,
+        	roleDes: roleDes
+        }
+
+		Role.update(paramObj,{
+			where: {id: parseInt(id)}
+		}).then(role => {
+            res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+}
+
+
+
+
+
+/**
+ * 根据id获取角色信息
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.getRoleById = (req, res, next) => {
+	try{
+        let { id } = req.query;
+
+		Role.findOne({
+			where: {id: parseInt(id)},
+			include: [{
+				model: RolePower,
+				as: 'powers',
+				attributes: ['id','powerCode']
+			}]
+		}).then(role => {
+            res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success,
+	    	  data: role
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+}
+
+
+
+
+
+
+
+/**
+ * 获取角色列表
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.getRoleList = (req, res, next) => {
+	try{      
+        let { pageNow, pageSize } = req.query;
+
+		let queryConfig = {
+			attributes: ['id','roleName','roleDes'],
+			order: [['id', 'DESC']],
+			include: [{
+				model: RolePower,
+				as: 'powers',
+				attributes: ['id','powerCode']
+			}]
+		}
+		//如果有页数和条数限制
+		if(pageSize && pageNow ){
+			let limit = parseInt(pageSize);
+            let offset = (parseInt(pageNow)-1) * limit;
+            queryConfig.limit = limit;
+            queryConfig.offset = offset;
+		}
+
+		Role.findAndCountAll(queryConfig).then(role => {
+              res.json({
+	    	    state: 1,
+	    	    msg: langConfig(req).resMsg.success,
+	    	    data: role
+	          }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({

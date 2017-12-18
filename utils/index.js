@@ -5,3 +5,4 @@
 exports.db = require('./db');
 exports.service = require('./service');
 exports.logUtil = require('./logUtil');
+exports.dataUtil = require('./dataUtil')

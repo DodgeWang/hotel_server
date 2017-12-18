@@ -86,42 +86,42 @@ exports.logOut = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.getEmployeeList = (req, res) => {
-	try{
-        let limit = req.query.limit ? parseInt(req.query.limit) : 20;
-        let offset = req.query.pageNum ? parseInt(req.query.pageNum) * limit : 0;
+// exports.getEmployeeList = (req, res) => {
+// 	try{
+//         let limit = req.query.limit ? parseInt(req.query.limit) : 20;
+//         let offset = req.query.pageNum ? parseInt(req.query.pageNum) * limit : 0;
 
-		Employee.findAndCountAll({
-			include:[{
-				model: EmployeeInfo,
-				// attributes: ['name']
-			},{
-				model: Role
-			}],
-			attributes: ['id','username'],
-			limit: limit,
-			offset: offset
-		}).then(employee => {
-              res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: employee
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
-        });
-	}catch(err){
-		logUtil.error(err, req);
-        return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })   
-	}
-}
+// 		Employee.findAndCountAll({
+// 			include:[{
+// 				model: EmployeeInfo,
+// 				// attributes: ['name']
+// 			},{
+// 				model: Role
+// 			}],
+// 			attributes: ['id','username'],
+// 			limit: limit,
+// 			offset: offset
+// 		}).then(employee => {
+//               res.json({
+// 	    	  state: 1,
+// 	    	  msg: langConfig(req).resMsg.success,
+// 	    	  data: employee
+// 	        }) 
+//         }).catch(err => {
+// 	       logUtil.error(err, req);
+//            return res.json({
+// 	    	  state: 0,
+// 	    	  msg: langConfig(req).resMsg.error
+// 	       })   
+//         });
+// 	}catch(err){
+// 		logUtil.error(err, req);
+//         return res.json({
+// 	    	state: 0,
+// 	    	msg: langConfig(req).resMsg.error
+// 	    })   
+// 	}
+// }
 
 
 
@@ -133,38 +133,38 @@ exports.getEmployeeList = (req, res) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.getEmployeeById = (req, res) => {
-	try{
-		let id = req.query.id;
-		Employee.findOne({
-		  include:[EmployeeInfo,EduExperience,WorkExperience,SocialRelations],
-	 	  where: {
-	 	  	id: id
-	 	  },
-	 	  order: [['id', 'DESC']]
-	    }).then(employee => {
-	    	console.log(employee)
-            res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: employee === null ? null : JSON.stringify(employee)
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
-        });
+// exports.getEmployeeById = (req, res) => {
+// 	try{
+// 		let id = req.query.id;
+// 		Employee.findOne({
+// 		  include:[EmployeeInfo,EduExperience,WorkExperience,SocialRelations],
+// 	 	  where: {
+// 	 	  	id: id
+// 	 	  },
+// 	 	  order: [['id', 'DESC']]
+// 	    }).then(employee => {
+// 	    	console.log(employee)
+//             res.json({
+// 	    	  state: 1,
+// 	    	  msg: langConfig(req).resMsg.success,
+// 	    	  data: employee === null ? null : JSON.stringify(employee)
+// 	        }) 
+//         }).catch(err => {
+// 	       logUtil.error(err, req);
+//            return res.json({
+// 	    	  state: 0,
+// 	    	  msg: langConfig(req).resMsg.error
+// 	       })   
+//         });
 
-	}catch(err){
-		logUtil.error(err, req);
-        return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })   
-	}
-}
+// 	}catch(err){
+// 		logUtil.error(err, req);
+//         return res.json({
+// 	    	state: 0,
+// 	    	msg: langConfig(req).resMsg.error
+// 	    })   
+// 	}
+// }
 
 
 
@@ -177,54 +177,65 @@ exports.getEmployeeById = (req, res) => {
  * @return {null}     
  */
 exports.addEmployee = (req, res, next) => {
-     	Employee.create({username:'wang', password:service.encrypt("123", staticSetting.encrypt_key)}).then(employee => { 		
+    try{
+        let { username, password, departmentId, roleId, positionId } = req.body;
 
-            console.log("***************")
+    	let paramObj = {
+           username: username,  //用户名
+           password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
+           departmentId: departmentId,  //部门id
+           roleId: roleId,  //角色id
+           positionId: positionId,  //职位id
+           employeeStatus: 1  //用户状态
+    	}
 
-            console.log(employee)
-
-
-            console.log("***************")
-
-     		var s = EmployeeInfo.build({name:'123'});
-
-            employee.setEmployeeInfo(s);
-            console.log(employee.get("username"))
-		    res.send('ok');
-	    }).catch(err => {
-	    	console.log('*****************')
-            console.log(err)
-            console.log('*****************')
-            res.send("error")
-     
-	    })
+        //先判断用户是否存在
+    	Employee.findOne({
+    		where: { username: username},
+	 	    order: [['id', 'DESC']]
+	 	}).then(result => {
+	 		if(result) {
+	    		return res.json({
+	    			state: 0,
+	    			msg: langConfig(req).resMsg.hasUser
+	    		})
+	    	}
+	 	}).then(() => {
+	 		return Employee.create(paramObj)  //创建新用户
+	 	}).then(user => {
+           res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
+	        }) 
+        }).catch(err => {
+           logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        }) 
+    }catch(err){
+    	logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })  
+    }
 }
 
 
 
-/**
- * 编辑员工
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-// exports.editEmployeeById = (req, res, next) => {
-
-// }
 
 
 
-/**
- * 删除员工
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-// exports.delEmployee = (req, res, next) => {
 
-// }
+let strTo = str => {
+	let arrayList = str.split("_&_");
+    for(let i = 0; i<arrayList.length;i++){
+    	arrayList[i] = JSON.parse(arrayList[i]);
+    }
+    return arrayList;
+}
 
 
 

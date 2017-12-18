@@ -76,23 +76,16 @@ router.post('/doLogin',Employee.loginAction);
 router.get('/logOut', Employee.logOut);
 
 
-//获取员工信息列表
-router.get('/employee/list', Employee.getEmployeeList);
+// //获取员工信息列表
+// router.get('/employee/list', Employee.getEmployeeList);
 
-
-//根据id获取员工信息
-router.get('/employee/info', Employee.getEmployeeById);
-
-
+// //根据id获取员工信息
+// router.get('/employee/info', Employee.getEmployeeById);
 
 
 
-
-//添加员工信息
-router.get('/employee/add', Employee.addEmployee);
-
-//获取部门列表信息
-router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
+//添加员工
+router.post('/employee/add', checkUserSession, checkUserPower, Employee.addEmployee);
 
 //添加部门信息
 router.post('/department/add', checkUserSession, checkUserPower, Department.addDepartment);
@@ -100,24 +93,32 @@ router.post('/department/add', checkUserSession, checkUserPower, Department.addD
 //修改部门信息
 router.post('/department/edit', checkUserSession, checkUserPower, Department.editDepartment);
 
-//删除部门信息
-router.get('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
+//获取部门列表信息
+router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
+
+//添加角色
+router.post('/role/add', checkUserSession, checkUserPower, Role.addRole);
+
+//根据id获取角色信息
+router.get('/role/findbyid', checkUserSession, checkUserPower, Role.getRoleById);
+
+//获取角色列表
+router.get('/role/list', checkUserSession, checkUserPower, Role.getRoleList);
 
 
 //添加房间类型
 router.post('/roomtype/add',Room.addRoomType);
 
-//查看房间类型列表
+//获取房间类型列表
 router.get('/roomtype/list',Room.getRoomTypeList);
 
 //根据id修改房间类型信息
 router.post('/roomtype/edit',Room.editRoomType);
 
-
 //添加房间物品
 router.post('/roomarticle/add',RoomArticle.addArticle);
 
-//修改房间物品
+//根据id修改房间物品
 router.post('/roomarticle/edit',RoomArticle.editArticle);
 
 //获取物品列表
@@ -126,19 +127,34 @@ router.get('/roomarticle/list',RoomArticle.getArticleList);
 //根据id获取物品详情
 router.get('/roomarticle/info',RoomArticle.getArticleById);
 
+//添加房间
+router.post('/room/add', Room.addRoom);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //查看房间列表
 router.get('/room/list',Room.getRoomList);
 
-//添加房间
-router.get('/room/add', Room.addRoom);
 
 
 
-//添加角色
-router.get('/role/add', Role.addRole);
 
+
+
+//删除部门信息
+router.get('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
 
 
 

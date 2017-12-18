@@ -45,33 +45,28 @@ let RoomArticleRel = sequelize.import('./RoomArticleRel');
 Employee.hasOne(EmployeeInfo,{foreignKey: 'employee_id'});
 EmployeeInfo.belongsTo(Employee,{foreignKey: 'employee_id'});
 
-//员工与教育经验关联关系（一对多）
-Employee.hasMany(EduExperience, {foreignKey:'employee_id'});
-EduExperience.belongsTo(Employee, {foreignKey:'employee_id',as:'eduExperience'});
-
-//员工与工作经验关联关系（一对多）
-Employee.hasMany(WorkExperience, {foreignKey:'employee_id'});
-WorkExperience.belongsTo(Employee, {foreignKey:'employee_id',as:'workExperience'});
-
-//员工与社会关系关联关系（一对多）
-Employee.hasMany(SocialRelations, {foreignKey:'employee_id'});
-SocialRelations.belongsTo(Employee, {foreignKey:'employee_id',as:'socialRelations'});
-
 //员工与角色关联关系（多对一）
 Role.hasMany(Employee, {foreignKey:'role_id'});
 Employee.belongsTo(Role, {foreignKey:'role_id'});
 
-//角色与权限关联关系（一对多）
-Role.hasMany(RolePower, {foreignKey:'role_id'});
-RolePower.belongsTo(Role, {foreignKey:'role_id'});
-
-
-
 //员工与部门关联关系（多对一）
 Department.hasMany(Employee, {foreignKey:'department_id'});
-Employee.belongsTo(Department, {foreignKey:'department_id'});
 
 
+//员工与教育经验关联关系（一对多）
+Employee.hasMany(EduExperience, {foreignKey:'employee_id',as:'eduExperience'});
+
+//员工与工作经验关联关系（一对多）
+Employee.hasMany(WorkExperience, {foreignKey:'employee_id',as:'workExperience'});
+
+//员工与社会关系关联关系（一对多）
+Employee.hasMany(SocialRelations, {foreignKey:'employee_id',as:'socialRelations'});
+
+
+
+
+//角色与权限关联关系（一对多）
+Role.hasMany(RolePower, {foreignKey:'role_id',as:'powers'});
 
 
 //房间类型和房间关联关系（一对多）

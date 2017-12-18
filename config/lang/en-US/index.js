@@ -10,6 +10,7 @@ module.exports = {
     	loginFailure: 'login failure',
     	noLogin: 'please login',
     	noPower: 'You do not have permission to access this interface',
-    	paramError: 'param error'
+    	paramError: 'param error',
+    	hasUser: 'The user has already existed'
     }
 }
