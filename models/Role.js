@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '角色id'
 	},
-	roleName: {
+	name: {
 		type: DataTypes.STRING(50),
-		field: 'role_name',
+		field: 'name',
 		comment: '角色名称'
 	},
-	roleDes: {
+	describe: {
 		type: DataTypes.STRING(255),
-		field: 'role_des',
+		field: 'describe',
 		comment: '角色描述'
 	}
 }, {

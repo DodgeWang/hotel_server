@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'id',
 		    comment: '部门id'
 	    },
-	    departmentName: {
+	    name: {
 		    type: DataTypes.STRING(50),
-		    field: 'department_name',
+		    field: 'name',
 		    comment: '部门名称'
 	    }
     }, {

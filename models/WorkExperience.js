@@ -9,75 +9,80 @@ module.exports = (sequelize, DataTypes) => {
 		field:'id',
 		comment:'工作经历id'
 	},
-	coName:{
+	name:{
 		type:DataTypes.STRING(100),
-		field:'co_name',
+		field:'name',
 		comment:'公司名称'
 	},
-	coSupervisor:{
+	supervisor:{
 		type:DataTypes.STRING(50),
-		field:'co_supervisor',
+		field:'supervisor',
 		comment:'主管名称'
 	},
-	coAddress:{
+	address:{
 		type:DataTypes.STRING(200),
-		field:'co_address',
+		field:'address',
 		comment:'公司地址'
 	},
-	coZipCode:{
+	zipCode:{
 		type:DataTypes.STRING(50),
-		field:'co_zip_code',
+		field:'zip_code',
 		comment:'公司邮政编码'
 	},
-	coPhone:{
+	phone:{
 		type:DataTypes.STRING(50),
-		field:'co_phone',
+		field:'phone',
 		comment:'公司电话号码'
 	},
-	coWorkHours:{
+	workHours:{
 		type:DataTypes.STRING(50),
-		field:'co_work_hours',
+		field:'work_hours',
 		comment:'上班时长（小时/周）'
 	},
-	coPosition:{
+	position:{
 		type:DataTypes.STRING(50),
-		field:'co_position',
+		field:'position',
 		comment:'职位'
 	},
-	coStartTime:{
+	startTime:{
 		type:DataTypes.STRING(50),
-		field:'co_start_time',
+		field:'start_time',
 		comment:'上班开始日期，格式yyyy-dd-mm'
 	},
-	coEndTime:{
+	endTime:{
 		type:DataTypes.STRING(50),
-		field:'co_end_time',
+		field:'end_time',
 		comment:'离职日期，格式yyyy-dd-mm'
 	},
-	coStartSalary:{
+	startSalary:{
 		type:DataTypes.STRING(20),
-		field:'co_start_salary',
+		field:'start_salary',
 		comment:'上班初薪资'
 	},
-	coEndSalary:{
+	endSalary:{
 		type:DataTypes.STRING(20),
-		field:'co_end_salary',
+		field:'end_salary',
 		comment:'离职时薪资'
 	},
-	coLeaveReason:{
+	leaveReason:{
 		type:DataTypes.STRING(500),
-		field:'co_leave_reason',
+		field:'leave_reason',
 		comment:'离职原因'
 	},
-	coSummary:{
+	summary:{
 		type:DataTypes.STRING(500),
-		field:'co_summary',
+		field:'summary',
 		comment:'自我描述'
 	},
-	coCanContact:{
+	canContact:{
 		type:DataTypes.INTEGER,
-		field:'co_can_contact',
+		field:'can_contact',
 		comment:'是否可以打电话给上一家公司，1可以，0不可以'
+	},
+	employeeId: {
+		type: DataTypes.INTEGER,
+		field: 'employee_id',
+		comment: '员工id'
 	}
 },{
 	tableName: 'work_experience',

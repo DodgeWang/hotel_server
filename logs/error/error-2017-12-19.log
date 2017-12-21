@@ -1,0 +1,619 @@
+[2017-12-19T10:35:48.978] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=1&pageNow=2&_=1513650451701
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T10:36:32.534] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451702
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T10:37:49.543] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451703
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T11:06:10.331] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451708
+request method: GET
+request client ip:  ::1
+err name: ReferenceError
+err message: RoomArticleRel is not defined
+err stack: ReferenceError: RoomArticleRel is not defined
+    at exports.getRoomList (/Users/user/workspace/hotel_server/controller/room.js:166:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T11:07:23.200] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451709
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticleRel is not associated to RoomInfo!
+err stack: SequelizeEagerLoadingError: RoomArticleRel is not associated to RoomInfo!
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:582:13)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T11:08:03.387] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451710
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticleRel is not associated to RoomInfo!
+err stack: SequelizeEagerLoadingError: RoomArticleRel is not associated to RoomInfo!
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:582:13)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T11:30:35.034] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451717
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T11:33:21.337] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451719
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: roomlist.getRoomArticles is not a function
+err stack: TypeError: roomlist.getRoomArticles is not a function
+    at RoomInfo.findAndCount.then.roomlist (/Users/user/workspace/hotel_server/controller/room.js:177:13)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+***************  node  error log end ***************
+
+[2017-12-19T11:34:20.686] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451720
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: roomlist.getRoomArticle is not a function
+err stack: TypeError: roomlist.getRoomArticle is not a function
+    at RoomInfo.findAndCount.then.roomlist (/Users/user/workspace/hotel_server/controller/room.js:177:13)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+***************  node  error log end ***************
+
+[2017-12-19T11:40:54.910] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513650451721
+request method: GET
+request client ip:  ::1
+err name: TypeError
+err message: roomlist.getRoomArticle is not a function
+err stack: TypeError: roomlist.getRoomArticle is not a function
+    at RoomInfo.findAndCount.then.roomlist (/Users/user/workspace/hotel_server/controller/room.js:177:13)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+***************  node  error log end ***************
+
+[2017-12-19T15:08:22.352] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageNow=1&pageSize=10
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (article), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (article), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T16:21:52.060] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?pageNow=1&pageSize=10
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: SocialRelations is associated to Employee using an alias. You've included an alias (SocialRelations), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: SocialRelations is associated to Employee using an alias. You've included an alias (SocialRelations), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T16:32:03.240] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/list?pageNow=1&pageSize=10
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: Department is not associated to Employee!
+err stack: SequelizeEagerLoadingError: Department is not associated to Employee!
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:582:13)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T16:52:20.157] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-19T16:52:57.389] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-19T18:01:44.114] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/resetpassword
+request method: POST
+request client ip:  ::1
+err name: AssertionError [ERR_ASSERTION]
+err message: Missing where attribute in the options parameter
+err stack: AssertionError [ERR_ASSERTION]: Missing where attribute in the options parameter
+    at Function._optionsMustContainWhere (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2954:5)
+    at Function.update (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2607:10)
+    at exports.resetPassword (/Users/user/workspace/hotel_server/controller/employee.js:261:18)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T18:03:37.883] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/resetpassword
+request method: POST
+request client ip:  ::1
+err name: AssertionError [ERR_ASSERTION]
+err message: Missing where attribute in the options parameter
+err stack: AssertionError [ERR_ASSERTION]: Missing where attribute in the options parameter
+    at Function._optionsMustContainWhere (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2954:5)
+    at Function.update (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2607:10)
+    at exports.resetPassword (/Users/user/workspace/hotel_server/controller/employee.js:262:18)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T18:04:38.897] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/resetpassword
+request method: POST
+request client ip:  ::1
+err name: AssertionError [ERR_ASSERTION]
+err message: Missing where attribute in the options parameter
+err stack: AssertionError [ERR_ASSERTION]: Missing where attribute in the options parameter
+    at Function._optionsMustContainWhere (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2954:5)
+    at Function.update (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2607:10)
+    at exports.resetPassword (/Users/user/workspace/hotel_server/controller/employee.js:262:18)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T18:42:14.896] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/resetpassword
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Support for literal replacements in the `where` object has been removed.
+err stack: Error: Support for literal replacements in the `where` object has been removed.
+    at Object.whereItemQuery (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2047:15)
+    at Object.whereItemsQuery (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1947:23)
+    at Object.whereQuery (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1915:24)
+    at Object.updateQuery (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/abstract/query-generator.js:367:19)
+    at QueryInterface.bulkUpdate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/query-interface.js:948:37)
+    at Promise.try.then.then.then.results (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:2766:34)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T19:38:46.017] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/add
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Can't set headers after they are sent.
+err stack: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:494:11)
+    at ServerResponse.setHeader (_http_outgoing.js:501:3)
+    at ServerResponse.header (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:267:15)
+    at Employee.findOne.then.then.then.user (/Users/user/workspace/hotel_server/controller/employee.js:158:16)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-19T19:38:56.483] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/basicinfo/edit
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-19T19:41:15.202] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/add
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Can't set headers after they are sent.
+err stack: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:494:11)
+    at ServerResponse.setHeader (_http_outgoing.js:501:3)
+    at ServerResponse.header (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:267:15)
+    at Employee.findOne.then.then.then.user (/Users/user/workspace/hotel_server/controller/employee.js:158:16)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+

@@ -13,28 +13,8 @@ let RoomInfo = sequelize.import('./RoomInfo');
 let RoomType = sequelize.import('./RoomType');
 let RoomArticle = sequelize.import('./RoomArticle');
 let RoomArticleRel = sequelize.import('./RoomArticleRel');
+let RoomCheckIn = sequelize.import('./RoomCheckIn');
 
-
-
-// let Events = sequelize.import('./Events');
-// let EventShare = sequelize.import('./EventShare');
-// let EventType = sequelize.import('./EventType');
-// let Position = sequelize.import('./Position');
-// let Power = sequelize.import('./Power');
-// let PowerClassify = sequelize.import('./PowerClassify');
-// let ReportConfig = sequelize.import('./ReportConfig');
-// let Role = sequelize.import('./Role');
-// let RolePowerRelation = sequelize.import('./RolePowerRelation');
-
-// let RoomArticleRelation = sequelize.import('./RoomArticleRelation');
-// let RoomCheckIn = sequelize.import('./RoomCheckIn');
-
-
-// let Task = sequelize.import('./Task');
-// let TaskImg = sequelize.import('./TaskImg');
-// let TaskType = sequelize.import('./TaskType');
-
-// let WorkSchedule = sequelize.import('./WorkSchedule');
 
 
 
@@ -45,12 +25,19 @@ let RoomArticleRel = sequelize.import('./RoomArticleRel');
 Employee.hasOne(EmployeeInfo,{foreignKey: 'employee_id'});
 EmployeeInfo.belongsTo(Employee,{foreignKey: 'employee_id'});
 
+
+//角色与权限关联关系（一对多）
+Role.hasMany(RolePower, {foreignKey:'role_id',as:'powerList'});
+
+
+//员工与部门关联关系（多对一）
+Department.hasMany(Employee, {foreignKey:'department_id',as: { singular: 'employee', plural: 'employeeList' }});
+Employee.belongsTo(Department, {foreignKey:'department_id'});
+
 //员工与角色关联关系（多对一）
 Role.hasMany(Employee, {foreignKey:'role_id'});
 Employee.belongsTo(Role, {foreignKey:'role_id'});
 
-//员工与部门关联关系（多对一）
-Department.hasMany(Employee, {foreignKey:'department_id'});
 
 
 //员工与教育经验关联关系（一对多）
@@ -65,17 +52,20 @@ Employee.hasMany(SocialRelations, {foreignKey:'employee_id',as:'socialRelations'
 
 
 
-//角色与权限关联关系（一对多）
-Role.hasMany(RolePower, {foreignKey:'role_id',as:'powers'});
+
 
 
 //房间类型和房间关联关系（一对多）
-RoomType.hasMany(RoomInfo, {foreignKey:'roomtype_id',as:'roomType'});
+RoomType.hasMany(RoomInfo, {foreignKey:'roomtype_id',as:'roomInfo'});
 RoomInfo.belongsTo(RoomType, {foreignKey:'roomtype_id',as:'roomType'});
 
 //房间和物品关联关系（多对多）
-RoomInfo.belongsToMany(RoomArticle, { through: RoomArticleRel,foreignKey:'room_id'})
-RoomArticle.belongsToMany(RoomInfo, { through: RoomArticleRel,foreignKey:'article_id'})
+RoomInfo.belongsToMany(RoomArticle, { through: RoomArticleRel,foreignKey:'room_id',as: { singular: 'article', plural: 'articles' }})
+RoomArticle.belongsToMany(RoomInfo, { through: RoomArticleRel,foreignKey:'article_id'});
+
+//房间和入住信息关联关系（一对多）
+RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id',as:'roomCheckIn'});
+RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
 
 
 // 同步模型到数据库中
@@ -101,22 +91,6 @@ exports.RolePower = RolePower;
 exports.RoomInfo = RoomInfo;
 exports.RoomType = RoomType;
 exports.RoomArticle = RoomArticle;
+exports.RoomArticleRel = RoomArticleRel;
+exports.RoomCheckIn = RoomCheckIn;
 
-// exports.Events = Events;
-// exports.EventShare = EventShare;
-// exports.EventType = EventType;
-// exports.Position = Position;
-// exports.Power = Power;
-// exports.PowerClassify = PowerClassify;
-// exports.ReportConfig = ReportConfig;
-// exports.Role = Role;
-// exports.RolePowerRelation = RolePowerRelation;
-
-// exports.RoomArticleRelation = RoomArticleRelation;
-// exports.RoomCheckIn = RoomCheckIn;
-
-
-// exports.Task = Task;
-// exports.TaskImg = TaskImg;
-// exports.TaskType = TaskType;
-// exports.WorkSchedule = WorkSchedule;

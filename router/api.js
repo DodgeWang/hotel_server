@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee, Department, Room, RoomArticle, Role } = require('../controller');
+const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -76,8 +76,8 @@ router.post('/doLogin',Employee.loginAction);
 router.get('/logOut', Employee.logOut);
 
 
-// //获取员工信息列表
-// router.get('/employee/list', Employee.getEmployeeList);
+//获取员工信息列表
+router.get('/employee/list', Employee.getEmployeeList);
 
 // //根据id获取员工信息
 // router.get('/employee/info', Employee.getEmployeeById);
@@ -85,10 +85,16 @@ router.get('/logOut', Employee.logOut);
 
 
 //添加员工
-router.post('/employee/add', checkUserSession, checkUserPower, Employee.addEmployee);
+router.post('/employee/add', Employee.addEmployee);
+
+//编辑员工基本信息
+router.post('/employee/basicinfo/edit',Employee.editBasicInfo);
+
+//批量重置用户密码
+router.post('/employee/resetpassword', Employee.resetPassword);
 
 //添加部门信息
-router.post('/department/add', checkUserSession, checkUserPower, Department.addDepartment);
+router.post('/department/add', Department.addDepartment);
 
 //修改部门信息
 router.post('/department/edit', checkUserSession, checkUserPower, Department.editDepartment);
@@ -97,7 +103,7 @@ router.post('/department/edit', checkUserSession, checkUserPower, Department.edi
 router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
 
 //添加角色
-router.post('/role/add', checkUserSession, checkUserPower, Role.addRole);
+router.post('/role/add', Role.addRole);
 
 //根据id获取角色信息
 router.get('/role/findbyid', checkUserSession, checkUserPower, Role.getRoleById);
@@ -130,22 +136,24 @@ router.get('/roomarticle/info',RoomArticle.getArticleById);
 //添加房间
 router.post('/room/add', Room.addRoom);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//查看房间列表
+//分页房间列表
 router.get('/room/list',Room.getRoomList);
+
+//入住登记
+router.post('/checkin/add',RoomCheckIn.addCheckIn);
+
+//退房
+router.post('/checkin/checkout',RoomCheckIn.roomCheckOut);
+
+//分页获取所有入住房间信息
+router.get('/checkin/list',RoomCheckIn.checkInRoomList)
+
+
+
+
+
+
+
 
 
 

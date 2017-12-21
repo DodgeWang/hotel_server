@@ -14,13 +14,13 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.addRoomType = (req, res, next) => {   	
 	try{
-		let typeName = req.body.typeName
+		let name = req.body.name
         
         let paramObj = {
-        	roomtypeName: typeName
+        	name: name
         }
 
-		RoomType.create(paramObj).then(roomtype => { 
+		RoomType.create(paramObj).then(roomtype => {
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -56,7 +56,7 @@ exports.getRoomTypeList = (req, res, next) => {
 	    let { pageNow, pageSize } = req.query;
 
         let queryConfig = {
-			attributes: ['id','roomtypeName'],
+			attributes: ['id','name'],
 			order: [['id', 'DESC']]
 		}
 
@@ -68,11 +68,11 @@ exports.getRoomTypeList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		RoomType.findAndCountAll(queryConfig).then(roomtypelist => { 
+		RoomType.findAndCountAll(queryConfig).then(result => { 
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: roomtypelist
+	    	  data: result
 	        })
 	    }).catch(err => {
 	       logUtil.error(err, req);
@@ -103,9 +103,9 @@ exports.getRoomTypeList = (req, res, next) => {
 exports.editRoomType = (req, res) => {
 	try{       
 		let id = parseInt(req.body.id);
-        let { typeName } = req.body;
+        let { name } = req.body;
         let paramObj = {
-        	roomtypeName: typeName
+        	name: name
         }
 
 		RoomType.update(paramObj,{
@@ -137,13 +137,6 @@ exports.editRoomType = (req, res) => {
 
 
 
-
-
-
-
-
-
-
 /**
  * 分页查询客房列表
  * @param  {object}   req  the request object
@@ -157,22 +150,29 @@ exports.getRoomList = (req, res, next) => {
 		let limit = pageSize ? parseInt(pageSize) : 20;
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		RoomInfo.findAndCountAll({
+		RoomInfo.findAll({
+		    limit: limit,
+			offset: offset,
+			order: [['id', 'DESC']],
 			include:[{
 				model: RoomType,
 				as: 'roomType',
-				attributes: [['id','roomtypeId'],'roomtypeName']
-			},{
-				model: RoomArticle
-			}],
-			limit: limit,
-			offset: offset,
-			order: [['id', 'DESC']]
-		}).then(roomlist => { 
+				attributes: ['id','name']
+			}
+			,{
+				model: RoomArticle,
+				as: 'articles',
+				through: {
+					attributes: []
+				}
+			  }
+			],
+			
+		}).then(result => { 
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: roomlist
+	    	  data: result
 	        })
 	    }).catch(err => {
 	       logUtil.error(err, req);
@@ -192,6 +192,8 @@ exports.getRoomList = (req, res, next) => {
 
 
 
+
+
 /**
  * 添加客房
  * @param  {object}   req  the request object
@@ -200,15 +202,14 @@ exports.getRoomList = (req, res, next) => {
  * @return {null}     
  */
 exports.addRoom = (req, res, next) => { 	
-	try{
-     
-     let { roomNumber, roomQrCode, roomtypeId, articleList } = req.body;
+	try{    
+     let { number, qrCode, typeId, articleList } = req.body;
      let artList = [];
      artList = dataUtil.strToArray(articleList)
      let paramObj = {
-     	roomNumber: roomNumber,
-     	roomQrCode: roomQrCode,
-     	roomtypeId: roomtypeId
+     	number: number,
+     	qrCode: qrCode,
+     	typeId: typeId
      }
 
      Promise.all([
@@ -221,7 +222,7 @@ exports.addRoom = (req, res, next) => {
      ]).then(results => {
          let roominfo = results[0];
          let articles= results[1];
-         roominfo.addRoomArticles(articles);
+         roominfo.addArticles(articles);
          res.json({
 	    	    state: 1,
 	    	    msg: langConfig(req).resMsg.success

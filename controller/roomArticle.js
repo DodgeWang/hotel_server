@@ -16,12 +16,12 @@ exports.addArticle = (req, res, next) => {
 
 		let { name, isCheck, isClean } = req.body;
         let paramObj = {
-        	articleName: name,
-        	articleCheck: isCheck,
-        	articleClean: isClean
+        	name: name,
+        	isCheck: isCheck,
+        	isClean: isClean
         }
 
-		RoomArticle.create(paramObj).then(article => { 
+		RoomArticle.create(paramObj).then(result => { 
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -59,9 +59,9 @@ exports.editArticle = (req, res, next) => {
         let {id, name, isCheck, isClean} = req.body;
 
         let paramObj = {
-        	articleName: name,
-        	articleCheck: isCheck,
-        	articleClean: isClean
+        	name: name,
+        	isCheck: isCheck,
+        	isClean: isClean
         }
 
 		RoomArticle.update(paramObj,{
@@ -150,7 +150,7 @@ exports.getArticleList = (req, res, next) => {
 	    let { pageNow,pageSize } = req.query;
 
         let queryConfig = {
-			attributes: ['id','articleName','articleCheck','articleClean'],
+			attributes: ['id','name','isCheck','isClean'],
 			order: [['id', 'DESC']]
 		}
         //如果有页数和条数限制
@@ -161,11 +161,11 @@ exports.getArticleList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		RoomArticle.findAndCountAll(queryConfig).then(getArticleList => { 
+		RoomArticle.findAndCountAll(queryConfig).then(result => { 
 		    res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: JSON.stringify(getArticleList)
+	    	  data: result
 	        })
 	    }).catch(err => {
 	       logUtil.error(err, req);

@@ -9,10 +9,15 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'id',
 		    comment: '社会关系id'
 	    },
-	    relationContent: {
+	    content: {
 		    type: DataTypes.STRING(500),
-		    field: 'relation_content',
+		    field: 'content',
 		    comment: '熟人详细信息'
+	    },
+	    employeeId: {
+		    type: DataTypes.INTEGER,
+		    field: 'employee_id',
+		    comment: '员工id'
 	    }
     }, {
 	    tableName: 'social_relations',

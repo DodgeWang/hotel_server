@@ -9,19 +9,19 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '物品id'
 	},
-	articleName: {
+	name: {
 		type: DataTypes.STRING(20),
-		field: 'article_name',
+		field: 'name',
 		comment: '物品名称'
 	},
-	articleCheck: {
+	isCheck: {
 		type: DataTypes.INTEGER,
-		field: 'article_check',
+		field: 'is_check',
 		comment: '是否需要检查，1:true需要，0：false不需要'
 	},
-	articleClean: {
+	isClean: {
 		type: DataTypes.INTEGER,
-		field: 'article_clean',
+		field: 'is_clean',
 		comment: '是否需要打扫，1:true需要，0：false不需要'
 	}
 }, {

@@ -11,6 +11,7 @@ module.exports = {
     	noLogin: 'please login',
     	noPower: 'You do not have permission to access this interface',
     	paramError: 'param error',
-    	hasUser: 'The user has already existed'
+    	hasUser: 'The user has already existed',
+        roomHasCheckIn: 'This room has been check-in by other people'
     }
 }

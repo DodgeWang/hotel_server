@@ -9,35 +9,40 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '教育经历id'
 	},
-	schName: {
+	name: {
 		type: DataTypes.STRING(50),
-		field: 'sch_name',
+		field: 'name',
 		comment: '学校名称'
 	},
-	schAddress: {
+	address: {
 		type: DataTypes.STRING(50),
-		field: 'sch_address',
+		field: 'address',
 		comment: '学校地址'
 	},
-	schMajor: {
+	major: {
 		type: DataTypes.STRING(50),
-		field: 'sch_major',
+		field: 'major',
 		comment: '所学专业'
 	},
-	schDegree: {
+	degree: {
 		type: DataTypes.STRING(50),
-		field: 'sch_degree',
+		field: 'degree',
 		comment: '学位或文凭'
 	},
-	schGraduationTime: {
+	graduationTime: {
 		type: DataTypes.STRING(50),
-		field: 'sch_graduation_time',
+		field: 'graduation_time',
 		comment: '毕业时间，格式yyyy-dd-mm'
 	},
-	schStage: {
+	stage: {
 		type: DataTypes.INTEGER,
-		field: 'sch_stage',
+		field: 'stage',
 		comment: '教育阶段，1高中，2大学'
+	},
+	employeeId: {
+		type: DataTypes.INTEGER,
+		field: 'employee_id',
+		comment: '员工id'
 	}
 }, {
 	tableName: 'edu_experience',

@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'id',
 		    comment: '房间类型id'
 	    },
-	    roomtypeName: {
+	    name: {
 		    type: DataTypes.STRING(100),
-		    field: 'roomtype_name',
+		    field: 'name',
 		    comment: '类型名称'
 	    }
     }, {

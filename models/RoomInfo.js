@@ -9,31 +9,31 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '房间id'
 	},
-	roomNumber: {
+	number: {
 		type: DataTypes.STRING(20),
-		field: 'room_number',
+		field: 'number',
 		comment: '房间号'
 	},
-	roomQrCode: {
+	qrCode: {
 		type: DataTypes.STRING(200),
-		field: 'room_qr_code',
+		field: 'qr_code',
 		comment: '二维码'
 	},
-	roomStatus: {
+	status: {
 		type: DataTypes.INTEGER,
-		field: 'room_status',
+		field: 'status',
 		comment: '房间状态，1已入住，0未入住',
 		defaultValue: 0
 	},
-	roomCleanStatus: {
+	cleanStatus: {
 		type: DataTypes.INTEGER,
-		field: 'room_clean_status',
+		field: 'clean_status',
 		comment: '房间打扫状态，1已打扫，0未打扫',
 		defaultValue: 0
 	},
-	roomtypeId: {
+	typeId: {
 		type: DataTypes.INTEGER,
-		field: 'roomtype_id',
+		field: 'type_id',
 		comment: '房间类型'
 	}
 }, {

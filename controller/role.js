@@ -13,26 +13,26 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.addRole = (req, res, next) => {
 	try{
-        let roleName = req.body.roleName;
-        let roleDes = req.body.roleDes;
-        let powers = req.body.powers.split('_&_');
+        let name = req.body.name;
+        let describe = req.body.describe;
+        let powerList = req.body.powerList.split('_&_');
 
-        let powerList  = [];
-        for(let i=0; i<powers.length; i++){
+        let newPowerList  = [];
+        for(let i=0; i<powerList.length; i++){
         	let obj = {};
-        	obj.powerCode = powers[i];
-        	powerList.push(obj)
+        	obj.powerCode = powerList[i];
+        	newPowerList.push(obj)
         }
 
         let paramObj = {
-        	roleName: roleName,
-        	roleDes: roleDes,
-        	powers: powerList
+        	name: name,
+        	describe: describe,
+        	powerList: newPowerList
         }
 		Role.create(paramObj,{
 			include: [{
                model: RolePower,
-               as: 'powers'
+               as: 'powerList'
             }]
 		}).then(role => {
             res.json({
@@ -68,16 +68,16 @@ exports.addRole = (req, res, next) => {
  */
 exports.editRole = (req, res, next) => {
 	try{
-        let { id, roleName, roleDes } = req.body;
+        let { id, name, describe } = req.body;
 
         let paramObj = {
-        	roleName: roleName,
-        	roleDes: roleDes
+        	name: name,
+        	describe: describe
         }
 
 		Role.update(paramObj,{
 			where: {id: parseInt(id)}
-		}).then(role => {
+		}).then(result => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -117,14 +117,14 @@ exports.getRoleById = (req, res, next) => {
 			where: {id: parseInt(id)},
 			include: [{
 				model: RolePower,
-				as: 'powers',
+				as: 'powerList',
 				attributes: ['id','powerCode']
 			}]
-		}).then(role => {
+		}).then(result => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: role
+	    	  data: result
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);
@@ -160,11 +160,11 @@ exports.getRoleList = (req, res, next) => {
         let { pageNow, pageSize } = req.query;
 
 		let queryConfig = {
-			attributes: ['id','roleName','roleDes'],
+			attributes: ['id','name','describe'],
 			order: [['id', 'DESC']],
 			include: [{
 				model: RolePower,
-				as: 'powers',
+				as: 'powerList',
 				attributes: ['id','powerCode']
 			}]
 		}
@@ -176,11 +176,11 @@ exports.getRoleList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		Role.findAndCountAll(queryConfig).then(role => {
+		Role.findAndCountAll(queryConfig).then(result => {
               res.json({
 	    	    state: 1,
 	    	    msg: langConfig(req).resMsg.success,
-	    	    data: role
+	    	    data: result
 	          }) 
         }).catch(err => {
 	       logUtil.error(err, req);

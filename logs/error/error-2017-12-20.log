@@ -1,0 +1,264 @@
+[2017-12-20T13:59:42.272] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_checkin`, CONSTRAINT `room_checkin_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_checkin`, CONSTRAINT `room_checkin_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T14:00:48.136] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`roomtype_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`roomtype_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T14:01:12.860] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: roominfo.addRoomArticles is not a function
+err stack: TypeError: roominfo.addRoomArticles is not a function
+    at Promise.all.then.results (/Users/user/workspace/hotel_server/controller/room.js:225:19)
+    at <anonymous>
+***************  node  error log end ***************
+
+[2017-12-20T14:05:11.850] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: roominfo.addRoomArticles is not a function
+err stack: TypeError: roominfo.addRoomArticles is not a function
+    at Promise.all.then.results (/Users/user/workspace/hotel_server/controller/room.js:225:19)
+    at <anonymous>
+***************  node  error log end ***************
+
+[2017-12-20T14:08:03.352] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: roominfo.addRoomArticle is not a function
+err stack: TypeError: roominfo.addRoomArticle is not a function
+    at Promise.all.then.results (/Users/user/workspace/hotel_server/controller/room.js:225:19)
+    at <anonymous>
+***************  node  error log end ***************
+
+[2017-12-20T14:11:16.222] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list?pageSize=10&pageNow=1&_=1513738985738
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomArticle is associated to RoomInfo using an alias. You've included an alias (articles), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-20T14:15:22.375] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: roominfo.addarticles is not a function
+err stack: TypeError: roominfo.addarticles is not a function
+    at Promise.all.then.results (/Users/user/workspace/hotel_server/controller/room.js:225:19)
+    at <anonymous>
+***************  node  error log end ***************
+
+[2017-12-20T16:11:37.426] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985740
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomCheckIn is associated to RoomInfo using an alias. You must use the 'as' keyword to specify the alias within your include statement.
+err stack: SequelizeEagerLoadingError: RoomCheckIn is associated to RoomInfo using an alias. You must use the 'as' keyword to specify the alias within your include statement.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:590:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function.aggregate (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1744:12)
+    at Promise.try.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1817:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-20T16:14:28.729] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985742
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Undeclared variable: NaN
+err stack: SequelizeDatabaseError: Undeclared variable: NaN
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T16:15:26.692] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985743
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Undeclared variable: NaN
+err stack: SequelizeDatabaseError: Undeclared variable: NaN
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T16:16:22.670] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985744
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Undeclared variable: NaN
+err stack: SequelizeDatabaseError: Undeclared variable: NaN
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T16:20:11.825] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985746
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Undeclared variable: NaN
+err stack: SequelizeDatabaseError: Undeclared variable: NaN
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-20T16:21:06.827] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /checkin/list?pageNow=1&pageSize=10&_=1513738985747
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Undeclared variable: NaN
+err stack: SequelizeDatabaseError: Undeclared variable: NaN
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

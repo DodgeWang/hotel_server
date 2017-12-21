@@ -11,6 +11,7 @@ module.exports = {
     	noLogin: '请登录',
     	noPower: '你没有权限访问此接口',
         paramError: '数据错误',
-        hasUser: '用户已经存在'
+        hasUser: '用户已经存在',
+        roomHasCheckIn: '该房间已经有人入住'
     }
 }

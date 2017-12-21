@@ -17,9 +17,9 @@ exports.addDepartment = (req, res, next) => {
 	try{
         let name = req.body.name;
         let paramObj = {
-        	departmentName: name
+        	name: name
         }
-		Department.create(paramObj).then(department => {
+		Department.create(paramObj).then(result => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -56,12 +56,12 @@ exports.editDepartment = (req, res, next) => {
         let { id, name } = req.body;
 
         let paramObj = {
-        	departmentName: name
+        	name: name
         }
 
 		Department.update(paramObj,{
 			where: {id: parseInt(id)}
-		}).then(department => {
+		}).then(result => {
             res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
@@ -102,7 +102,7 @@ exports.getDepartmentList = (req, res, next) => {
         let { pageNow, pageSize } = req.query;
 
 		let queryConfig = {
-			attributes: ['id','departmentName'],
+			attributes: ['id','name'],
 			order: [['id', 'DESC']]
 		}
 		//如果有页数和条数限制
@@ -113,11 +113,11 @@ exports.getDepartmentList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		Department.findAndCountAll(queryConfig).then(department => {
+		Department.findAndCountAll(queryConfig).then(result => {
               res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
-	    	  data: department
+	    	  data: result
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);
