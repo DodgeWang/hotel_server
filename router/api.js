@@ -99,6 +99,9 @@ router.post('/department/add', Department.addDepartment);
 //修改部门信息
 router.post('/department/edit', Department.editDepartment);
 
+//批量删除部门信息
+router.post('/department/delete', Department.deleteDepartment);
+
 //获取部门列表信息
 // router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
 router.get('/department/list', Department.getDepartmentList);
