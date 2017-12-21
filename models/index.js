@@ -56,8 +56,8 @@ Employee.hasMany(SocialRelations, {foreignKey:'employee_id',as:'socialRelations'
 
 
 //房间类型和房间关联关系（一对多）
-RoomType.hasMany(RoomInfo, {foreignKey:'roomtype_id',as:'roomInfo'});
-RoomInfo.belongsTo(RoomType, {foreignKey:'roomtype_id',as:'roomType'});
+RoomType.hasMany(RoomInfo, {foreignKey:'type_id',as:'roomInfo'});
+RoomInfo.belongsTo(RoomType, {foreignKey:'type_id',as:'roomType'});
 
 //房间和物品关联关系（多对多）
 RoomInfo.belongsToMany(RoomArticle, { through: RoomArticleRel,foreignKey:'room_id',as: { singular: 'article', plural: 'articles' }})
@@ -71,6 +71,7 @@ RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
 // 同步模型到数据库中
 sequelize.sync();
 // sequelize.sync({force:true});
+// RoomArticle.sync({force:true});
 
 
 

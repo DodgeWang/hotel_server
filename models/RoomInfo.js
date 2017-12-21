@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
 		comment: '房间打扫状态，1已打扫，0未打扫',
 		defaultValue: 0
 	},
-	typeId: {
+    typeId: {
 		type: DataTypes.INTEGER,
 		field: 'type_id',
 		comment: '房间类型'

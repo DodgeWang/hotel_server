@@ -42,3 +42,131 @@ err stack: ReferenceError: roomCheckIn is not defined
     at processImmediate [as _immediateCallback] (timers.js:722:5)
 ***************  node  error log end ***************
 
+[2017-12-21T20:02:14.026] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-21T20:03:21.171] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`room_info`, CONSTRAINT `room_info_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `room_type` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-21T20:12:56.904] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /roomarticle/delete
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'split' of undefined
+err stack: TypeError: Cannot read property 'split' of undefined
+    at Object.exports.strToArray.str [as strToArray] (/Users/user/workspace/hotel_server/utils/dataUtil.js:2:22)
+    at exports.deleteArticle (/Users/user/workspace/hotel_server/controller/roomArticle.js:148:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-21T20:13:41.757] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /roomarticle/delete
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'split' of undefined
+err stack: TypeError: Cannot read property 'split' of undefined
+    at Object.exports.strToArray.str [as strToArray] (/Users/user/workspace/hotel_server/utils/dataUtil.js:2:22)
+    at exports.deleteArticle (/Users/user/workspace/hotel_server/controller/roomArticle.js:148:31)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-21T20:14:36.378] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /roomarticle/delete
+request method: POST
+request client ip:  ::1
+err name: ReferenceError
+err message: article is not defined
+err stack: ReferenceError: article is not defined
+    at RoomArticle.destroy.then.result (/Users/user/workspace/hotel_server/controller/roomArticle.js:158:30)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+

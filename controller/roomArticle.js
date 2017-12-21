@@ -1,4 +1,4 @@
-let { logUtil, service} = require("../utils");
+let { logUtil, service, dataUtil} = require("../utils");
 let { RoomArticle } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
@@ -112,6 +112,49 @@ exports.getArticleById = (req, res, next) => {
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,
 	    	  data: JSON.stringify(article)
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+}
+
+
+
+
+
+
+
+/**
+ * 批量删除物品
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.deleteArticle = (req, res, next) => {
+	try{      
+		let ids = req.body.ids;
+        let idList = dataUtil.strToArray(ids);
+		
+		RoomArticle.destroy({
+			where: {
+				id: idList
+			}
+		}).then(result => {
+            res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
 	        }) 
         }).catch(err => {
 	       logUtil.error(err, req);

@@ -176,7 +176,7 @@ exports.getRoleList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		Role.findAndCountAll(queryConfig).then(result => {
+		Role.findAll(queryConfig).then(result => {
               res.json({
 	    	    state: 1,
 	    	    msg: langConfig(req).resMsg.success,

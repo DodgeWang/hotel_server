@@ -91,7 +91,6 @@ let { langConfig } = require("../config/lang_config");
     try{
         let { roomId, checkOutTime } = req.body;
         let paramObj = {
-            // roomId: parseInt(roomId),
             checkOutTime: checkOutTime
         }
         
@@ -182,7 +181,7 @@ let { langConfig } = require("../config/lang_config");
         let limit = parseInt(pageSize);
         let offset = (parseInt(pageNow)-1) * limit;
 
-        RoomInfo.findAndCount({
+        RoomInfo.findAll({
         	where:{
         		roomStatus: 1
         	},
