@@ -113,6 +113,11 @@ module.exports = (sequelize, DataTypes) => {
 		type: DataTypes.STRING(50),
 		field: 'military_specialty',
 		comment: '军事专业'
+	},
+	employeeId: {
+		type: DataTypes.INTEGER,
+		field: 'employee_id',
+		comment: '员工id'
 	}
 
 

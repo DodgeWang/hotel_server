@@ -90,6 +90,9 @@ router.post('/employee/add', Employee.addEmployee);
 //编辑员工基本信息
 router.post('/employee/basicinfo/edit',Employee.editBasicInfo);
 
+//编辑员工个人信息
+router.post('/employee/personalinfo/edit',Employee.editPersonalInfo)
+
 //批量重置用户密码
 router.post('/employee/resetpassword', Employee.resetPassword);
 
@@ -108,6 +111,9 @@ router.get('/department/list', Department.getDepartmentList);
 
 //添加角色
 router.post('/role/add', Role.addRole);
+
+//根据id角色
+router.post('/role/edit', Role.editRole);
 
 //根据id获取角色信息
 router.get('/role/findbyid', Role.getRoleById);

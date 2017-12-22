@@ -1,0 +1,731 @@
+[2017-12-22T10:55:59.691] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-22T10:55:59.863] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/basicinfo/edit
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`employee`, CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2017-12-22T10:58:38.493] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'setEmployeeInfo' of null
+err stack: TypeError: Cannot read property 'setEmployeeInfo' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:00:44.843] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'socialRelations' of null
+err stack: TypeError: Cannot read property 'socialRelations' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:01:10.732] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'setsocialRelations' of null
+err stack: TypeError: Cannot read property 'setsocialRelations' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:01:31.351] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'setSocialRelations' of null
+err stack: TypeError: Cannot read property 'setSocialRelations' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:01:46.861] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'setSocialRelation' of null
+err stack: TypeError: Cannot read property 'setSocialRelation' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:02:19.921] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addSocialRelation' of null
+err stack: TypeError: Cannot read property 'addSocialRelation' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:02:51.364] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addSocialRelations' of null
+err stack: TypeError: Cannot read property 'addSocialRelations' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:03:01.913] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addsocialRelations' of null
+err stack: TypeError: Cannot read property 'addsocialRelations' of null
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromiseCtx (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:606:10)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:138:12)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:03:59.827] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.addsocialRelations is not a function
+err stack: TypeError: employee.addsocialRelations is not a function
+    at Employee.findById.then.employee (/Users/user/workspace/hotel_server/controller/employee.js:250:22)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:55:28.758] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setworkExperience is not a function
+err stack: TypeError: employee.setworkExperience is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:56:50.149] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setworkExperiences is not a function
+err stack: TypeError: employee.setworkExperiences is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T11:57:17.561] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setWorkExperiences is not a function
+err stack: TypeError: employee.setWorkExperiences is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T13:42:51.019] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setWorkExperience is not a function
+err stack: TypeError: employee.setWorkExperience is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T13:43:28.242] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setWorkExperience is not a function
+err stack: TypeError: employee.setWorkExperience is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T13:45:59.728] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.createWorkExperiences is not a function
+err stack: TypeError: employee.createWorkExperiences is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T13:51:02.355] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: this.build(...).save is not a function
+err stack: TypeError: this.build(...).save is not a function
+    at Function.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1994:8)
+    at HasMany.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/has-many.js:459:31)
+    at model.obj.(anonymous function) [as createWorkExperience] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/helpers.js:69:40)
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:319:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T13:56:52.856] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setWorkExperience is not a function
+err stack: TypeError: employee.setWorkExperience is not a function
+    at EmployeeInfo.destroy.then.then (/Users/user/workspace/hotel_server/controller/employee.js:319:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:01:11.093] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: this.build(...).save is not a function
+err stack: TypeError: this.build(...).save is not a function
+    at Function.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1994:8)
+    at HasMany.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/has-many.js:459:31)
+    at model.obj.(anonymous function) [as createWorkExperience] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/helpers.js:69:40)
+    at EmployeeInfo.destroy.then.then (/Users/user/workspace/hotel_server/controller/employee.js:319:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:07:20.207] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.setWorkExperience is not a function
+err stack: TypeError: employee.setWorkExperience is not a function
+    at EmployeeInfo.destroy.then.then (/Users/user/workspace/hotel_server/controller/employee.js:319:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:16:38.421] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: this.build(...).save is not a function
+err stack: TypeError: this.build(...).save is not a function
+    at Function.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1994:8)
+    at HasMany.create (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/has-many.js:459:31)
+    at model.obj.(anonymous function) [as createWorkExperience] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/associations/helpers.js:69:40)
+    at EmployeeInfo.destroy.then.then (/Users/user/workspace/hotel_server/controller/employee.js:320:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:19:27.276] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'split' of undefined
+err stack: TypeError: Cannot read property 'split' of undefined
+    at Object.exports.strToArray.str [as strToArray] (/Users/user/workspace/hotel_server/utils/dataUtil.js:2:22)
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:294:37)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:20:12.950] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'split' of undefined
+err stack: TypeError: Cannot read property 'split' of undefined
+    at Object.exports.strToArray.str [as strToArray] (/Users/user/workspace/hotel_server/utils/dataUtil.js:2:22)
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:294:37)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:20:54.568] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.bulkCreateWorkExperience is not a function
+err stack: TypeError: employee.bulkCreateWorkExperience is not a function
+    at EmployeeInfo.destroy.then.then.then (/Users/user/workspace/hotel_server/controller/employee.js:318:26)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T14:23:35.490] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employee/personalinfo/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: employee.WorkExperience is not a function
+err stack: TypeError: employee.WorkExperience is not a function
+    at EmployeeInfo.destroy.then.then.then.then.result (/Users/user/workspace/hotel_server/controller/employee.js:323:33)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:02:05.864] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: ReferenceError
+err message: dataUtil is not defined
+err stack: ReferenceError: dataUtil is not defined
+    at RolePower.destroy.then (/Users/user/workspace/hotel_server/controller/role.js:90:25)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:02:50.594] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setpowerLists is not a function
+err stack: TypeError: role.setpowerLists is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:102:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:03:54.031] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setPowerList is not a function
+err stack: TypeError: role.setPowerList is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:102:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:07:34.622] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setRolePowers is not a function
+err stack: TypeError: role.setRolePowers is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:101:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:08:47.356] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setRolePowers is not a function
+err stack: TypeError: role.setRolePowers is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:102:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:09:31.611] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setRolePowers is not a function
+err stack: TypeError: role.setRolePowers is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:102:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2017-12-22T15:11:24.952] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/edit
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: role.setRolePowers is not a function
+err stack: TypeError: role.setRolePowers is not a function
+    at RolePower.destroy.then.then.result (/Users/user/workspace/hotel_server/controller/role.js:103:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+

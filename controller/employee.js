@@ -244,36 +244,185 @@ exports.editBasicInfo = (req, res, next) => {
  */
 exports.editPersonalInfo = (req, res, next) => {
     try{
-        let { id, name, ssn, homeAddress, zipCode, age, email, phone, workDay, workHoursWeek, canNight, workNature, workTime, isLegalStatus, haveCriminalRecord, criminalRecord, haveDl, dlNumber, dlIssuedStatus, isJoinedArmy, isMemberNg, militarySpecialty } = req.body;
+        let { id, 
+              name, 
+              ssn, 
+              homeAddress, 
+              zipCode, 
+              age, 
+              email, 
+              phone, 
+              workDay, 
+              workHoursWeek, 
+              canNight, 
+              workNature, 
+              workTime, 
+              isLegalStatus, 
+              haveCriminalRecord, 
+              criminalRecord, 
+              haveDl, 
+              dlNumber, 
+              dlIssuedStatus, 
+              isJoinedArmy, 
+              isMemberNg, 
+              militarySpecialty, 
+              workExperienceList, 
+              eduExperienceList, 
+              socialRelationList 
+            } = req.body;
 
+        let employeeId = parseInt(id);
+        Employee.findById(employeeId)
+        .then(employee => {
+            //先删除此用户的个人信息
+            EmployeeInfo.destroy({
+               where: {
+                  employeeId: employeeId
+               }
+            })
+            .then(() => {
+                //创建用户个人信息新实例
+                let info = EmployeeInfo.build({
+                   name: name,
+                   ssn: ssn,
+                   homeAddress: homeAddress,
+                   zipCode: zipCode,
+                   age: age,
+                   email: email,
+                   phone: phone,
+                   workDay: workDay,
+                   workHoursWeek: workHoursWeek,
+                   canNight: canNight,
+                   workNature: workNature,
+                   workTime: workTime,
+                   isLegalStatus: isLegalStatus,
+                   haveCriminalRecord: haveCriminalRecord,
+                   criminalRecord: criminalRecord,
+                   haveDl: haveDl,
+                   dlNumber: dlNumber,
+                   dlIssuedStatus: dlIssuedStatus,
+                   isJoinedArmy: isJoinedArmy,
+                   isMemberNg: isMemberNg,
+                   militarySpecialty: militarySpecialty
+                })
+                //新实例与用户关联
+                return employee.setEmployeeInfo(info)
+            })
+            .then(() => {
+                //删除所有的此员工的工作经历
+                return WorkExperience.destroy({
+                   where: {
+                      employeeId: employeeId
+                   }
+                })
+            })
+            .then(() => {
+                //批量添加员工工作经历
+                let list = dataUtil.strToArray(workExperienceList);
+                let dataObj = [];
+                for(let i = 0; i < list.length; i++){
+                   let obj = WorkExperience.build({
+                       name: list[i].name,
+                       supervisor: list[i].supervisor,
+                       address: list[i].address,
+                       zipCode: list[i].zipCode,
+                       phone: list[i].phone,
+                       workHours: list[i].workHours,
+                       position: list[i].position,
+                       startTime: list[i].startTime,
+                       endTime: list[i].endTime,
+                       startSalary: list[i].startSalary,
+                       endSalary: list[i].endSalary,
+                       leaveReason: list[i].leaveReason,
+                       summary: list[i].summary,
+                       canContact: list[i].canContact
+                   })
+                   dataObj.push(obj)
+                } 
+                return WorkExperience.bulkCreate(dataObj)
+                
+            })
+            .then(result => {
+                //绑定员工与新添加的工作经历关联
+                return employee.setWorkExperiences(result)
+            })
+            .then(() => {
+                //删除所有的此员工的教育经历
+                return EduExperience.destroy({
+                   where: {
+                      employeeId: employeeId
+                   }
+                })
+            })
+            .then(() => {
+                //批量添加员工教育经历
+                let list = dataUtil.strToArray(SocialRelations);
+                let dataObj = [];
+                for(let i = 0; i < list.length; i++){
+                   let obj = {
+                       name: list[i].name,
+                       address: list[i].address,
+                       major: list[i].major,
+                       degree: list[i].degree,
+                       graduationTime: list[i].graduationTime,
+                       stage: list[i].stage
+                   }
+                   dataObj.push(obj)
+                } 
+                return EduExperience.bulkCreate(dataObj)
+                
+            })
+            .then(result => {
+                //绑定员工与新添加的教育经历关联
+                return employee.setEduExperiences(result)
+            })
+            .then(() => {
+                //删除所有的此员工的社会关系
+                return SocialRelations.destroy({
+                   where: {
+                      employeeId: employeeId
+                   }
+                })
+            })
+            .then(() => {
+                //批量添加员工社会关系
+                let list = dataUtil.strToArray(socialRelationList);
+                let dataObj = [];
+                for(let i = 0; i < list.length; i++){
+                   let obj = {
+                       content: list[i].content
+                   }
+                   dataObj.push(obj)
+                } 
+                return SocialRelations.bulkCreate(dataObj)
+                
+            })
+            .then(result => {
+                //绑定员工与新添加的社会关系关联
+                return employee.setSocialRelationss(result)
+            })
+            .then(() => {
+                res.json({
+                   state: 1,
+                   msg: langConfig(req).resMsg.success
+                }) 
+            })
+            .catch(err => {
+                logUtil.error(err, req);
+                return res.json({
+                    state: 0,
+                    msg: langConfig(req).resMsg.error
+                  }) 
+            })                     
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.error
+              }) 
+        })
 
-
-     //    id = parseInt(id)
-
-    	// let paramObj = {
-     //       username: username,  //用户名
-     //       password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
-     //       departmentId: departmentId,  //部门id
-     //       roleId: roleId,  //角色id
-     //       positionId: positionId//职位id
-    	// }
-
-    	// Employee.update(paramObj,{
-    	// 	where: {
-    	// 		id: id
-    	// 	}
-    	// }).then(employee => {
-     //        res.json({
-	    // 	  state: 1,
-	    // 	  msg: langConfig(req).resMsg.success
-	    //     }) 
-    	// }).catch(err => {
-    	// 	logUtil.error(err, req);
-     //        return res.json({
-	    // 	   state: 0,
-	    // 	   msg: langConfig(req).resMsg.error
-	    //     }) 
-    	// })
     }catch(err){
     	logUtil.error(err, req);
         return res.json({
@@ -310,14 +459,11 @@ exports.getEmployeeList = (req, res, next) => {
            },{
            	   model: EmployeeInfo,
            },{
-               model: EduExperience,
-               as: 'eduExperience'
+               model: EduExperience
            },{
-               model: WorkExperience,
-               as: 'workExperience'
+               model: WorkExperience
            },{
-               model: SocialRelations,
-               as: 'socialRelations'
+               model: SocialRelations
            }]
         }).then(result => {
             res.json({

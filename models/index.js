@@ -27,7 +27,8 @@ EmployeeInfo.belongsTo(Employee,{foreignKey: 'employee_id'});
 
 
 //角色与权限关联关系（一对多）
-Role.hasMany(RolePower, {foreignKey:'role_id',as:'powerList'});
+Role.hasMany(RolePower, {foreignKey:'role_id'});
+RolePower.belongsTo(Role, {foreignKey:'role_id'});
 
 
 //员工与部门关联关系（多对一）
@@ -41,13 +42,17 @@ Employee.belongsTo(Role, {foreignKey:'role_id'});
 
 
 //员工与教育经验关联关系（一对多）
-Employee.hasMany(EduExperience, {foreignKey:'employee_id',as:'eduExperience'});
+Employee.hasMany(EduExperience, {foreignKey:'employee_id'});
+
 
 //员工与工作经验关联关系（一对多）
-Employee.hasMany(WorkExperience, {foreignKey:'employee_id',as:'workExperience'});
+// Employee.hasMany(WorkExperience, {foreignKey:'employee_id',as:'workExperience'});
+Employee.hasMany(WorkExperience, {foreignKey:'employee_id'});
+WorkExperience.belongsTo(Employee, {foreignKey:'employee_id'})
+
 
 //员工与社会关系关联关系（一对多）
-Employee.hasMany(SocialRelations, {foreignKey:'employee_id',as:'socialRelations'});
+Employee.hasMany(SocialRelations, {foreignKey:'employee_id'});
 
 
 

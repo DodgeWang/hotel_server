@@ -1,4 +1,4 @@
-let { logUtil, service} = require("../utils");
+let { logUtil, service, dataUtil} = require("../utils");
 let { Role, RolePower } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
@@ -31,8 +31,7 @@ exports.addRole = (req, res, next) => {
         }
 		Role.create(paramObj,{
 			include: [{
-               model: RolePower,
-               as: 'powerList'
+               model: RolePower
             }]
 		}).then(role => {
             res.json({
@@ -59,6 +58,9 @@ exports.addRole = (req, res, next) => {
 
 
 
+
+
+
 /**
  * 根据id修改角色信息
  * @param  {object}   req  the request object
@@ -68,21 +70,58 @@ exports.addRole = (req, res, next) => {
  */
 exports.editRole = (req, res, next) => {
 	try{
-        let { id, name, describe } = req.body;
-
+        let { id, name, describe, powerList } = req.body;
+        
+        let roleId = parseInt(id);
         let paramObj = {
         	name: name,
         	describe: describe
         }
 
+
 		Role.update(paramObj,{
-			where: {id: parseInt(id)}
-		}).then(result => {
-            res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
+			where: {id: roleId}
+		})
+		.then(() => {
+			return Role.findById(roleId)
+		})
+		.then(role => {
+            RolePower.destroy({
+            	where: {
+            		role_id: roleId
+            	}
+            })
+            .then(() => {
+            	let list = dataUtil.strToArray(powerList);
+                let dataObj = [];
+                for(let i = 0; i < list.length; i++){
+                   let obj = {
+                       powerCode: list[i],
+                   }
+                   dataObj.push(obj)
+                } 
+                return RolePower.bulkCreate(dataObj)
+            })
+            .then(result => {
+                //绑定员工与新添加的权限关联
+                return role.setRolePowers(result)
+            })
+            .then(() => {
+            	res.json({
+	    	      state: 1,
+	    	      msg: langConfig(req).resMsg.success
+	            }) 
+            })
+            .catch(err => {
+	           logUtil.error(err, req);
+               return res.json({
+	    	      state: 0,
+	    	      msg: langConfig(req).resMsg.error
+	           })   
+            }); 
+
+        })
+        .catch(err => {
 	       logUtil.error(err, req);
            return res.json({
 	    	  state: 0,
@@ -97,6 +136,9 @@ exports.editRole = (req, res, next) => {
 	    })   
 	}
 }
+
+
+
 
 
 
@@ -117,7 +159,6 @@ exports.getRoleById = (req, res, next) => {
 			where: {id: parseInt(id)},
 			include: [{
 				model: RolePower,
-				as: 'powerList',
 				attributes: ['id','powerCode']
 			}]
 		}).then(result => {
@@ -164,7 +205,6 @@ exports.getRoleList = (req, res, next) => {
 			order: [['id', 'DESC']],
 			include: [{
 				model: RolePower,
-				as: 'powerList',
 				attributes: ['id','powerCode']
 			}]
 		}
