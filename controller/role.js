@@ -187,6 +187,46 @@ exports.getRoleById = (req, res, next) => {
 
 
 
+/**
+ * 删除角色列表
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+ exports.deleteRole = (req, res, next) => {
+ 	try{
+        let id = parseInt(req.query.id);
+        Role.destroy({
+        	where: {
+        		id: id
+        	}
+        })
+        .then(() => {
+        	res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
+	        }) 
+        })
+        .catch(err => {
+           logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       }) 
+        })
+ 	}catch(err){
+ 		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    }) 
+ 	}
+ }
+
+
+
+
 
 
 /**

@@ -729,3 +729,26 @@ err stack: TypeError: role.setRolePowers is not a function
     at processImmediate [as _immediateCallback] (timers.js:722:5)
 ***************  node  error log end ***************
 
+[2017-12-22T16:48:48.875] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /role/list?pageSize=10&pageNow=1&_=1513911304926
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Role.deletedAt' in 'where clause'
+err stack: SequelizeDatabaseError: Unknown column 'Role.deletedAt' in 'where clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

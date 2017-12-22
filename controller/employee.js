@@ -21,9 +21,10 @@ exports.loginAction = (req, res, next) => {
 
 	    Employee.findOne({
 	      attributes: ['username','password','roleId'],
-	 	  where: userObj,
-	 	  order: [['id', 'DESC']]
-	    }).then(result => {
+	 	    where: userObj,
+	 	    order: [['id', 'DESC']]
+	    })
+      .then(result => {
 	    	if(!result) {
 	    		return res.json({
 	    			state: 0,
@@ -39,16 +40,17 @@ exports.loginAction = (req, res, next) => {
 	    		msg: langConfig(req).resMsg.success
 	    	})
 
-        }).catch(err => {
+        })
+      .catch(err => {
         	logUtil.error(err, req);
-	    	return res.json({
-	    		state: 0,
-	    		msg: langConfig(req).resMsg.loginFailure
-	    	})
+	    	  return res.json({
+	    		  state: 0,
+	    		  msg: langConfig(req).resMsg.loginFailure
+	    	  })
         });
 	}catch(err){
-        logUtil.error(err, req);
-        return res.json({
+      logUtil.error(err, req);
+      return res.json({
 	    	state: 0,
 	    	msg: langConfig(req).resMsg.loginFailure
 	    })   
@@ -505,13 +507,15 @@ exports.resetPassword = (req, res, next) => {
            where: {
            	   id: idList
            }
-        }).then(result => {
+        })
+        .then(result => {
         	res.json({
 	    	    state: 1,
 	    	    msg: langConfig(req).resMsg.success
 	        })
-        }).catch(err => {
-        	logUtil.error(err, req);
+        })
+        .catch(err => {
+        	  logUtil.error(err, req);
             return res.json({
 	    	              state: 0,
 	    	              msg: langConfig(req).resMsg.error
