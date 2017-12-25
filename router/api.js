@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn } = require('../controller');
+const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn, Task, Event } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -24,6 +24,7 @@ function checkUserSession(req, res, next) {
     })
   }
 }
+
 
 
 //权限判断
@@ -76,16 +77,16 @@ router.post('/doLogin',Employee.loginAction);
 router.get('/logOut', Employee.logOut);
 
 
-//获取员工信息列表
-router.get('/employee/list', Employee.getEmployeeList);
 
-// //根据id获取员工信息
-// router.get('/employee/info', Employee.getEmployeeById);
+
 
 
 
 //添加员工
 router.post('/employee/add', Employee.addEmployee);
+
+//获取员工信息列表
+router.get('/employee/list', Employee.getEmployeeList);
 
 //编辑员工基本信息
 router.post('/employee/basicinfo/edit',Employee.editBasicInfo);
@@ -95,6 +96,14 @@ router.post('/employee/personalinfo/edit',Employee.editPersonalInfo)
 
 //批量重置用户密码
 router.post('/employee/resetpassword', Employee.resetPassword);
+
+//根据id获取员工信息
+// router.get('/employee/info', Employee.getEmployeeById);
+
+
+
+
+
 
 //添加部门信息
 router.post('/department/add', Department.addDepartment);
@@ -109,6 +118,10 @@ router.post('/department/delete', Department.deleteDepartment);
 // router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
 router.get('/department/list', Department.getDepartmentList);
 
+
+
+
+
 //添加角色
 router.post('/role/add', Role.addRole);
 
@@ -121,6 +134,12 @@ router.get('/role/findbyid', Role.getRoleById);
 //获取角色列表
 router.get('/role/list', Role.getRoleList);
 
+//根据id删除角色
+router.get('/role/delete', Role.deleteRole);
+
+
+
+
 
 //添加房间类型
 router.post('/roomtype/add',Room.addRoomType);
@@ -130,6 +149,14 @@ router.get('/roomtype/list',Room.getRoomTypeList);
 
 //根据id修改房间类型信息
 router.post('/roomtype/edit',Room.editRoomType);
+
+//批量删除房间类型
+router.post('/roomtype/delete',Room.deleteRoomType);
+
+
+
+
+
 
 //添加房间物品
 router.post('/roomarticle/add',RoomArticle.addArticle);
@@ -146,38 +173,49 @@ router.get('/roomarticle/list',RoomArticle.getArticleList);
 //根据id获取物品详情
 router.get('/roomarticle/info',RoomArticle.getArticleById);
 
+
+
+
+
+
 //添加房间
 router.post('/room/add', Room.addRoom);
 
+//根据id编辑房间信息
+router.post('/room/edit', Room.editRoomById);
+
+//批量删除房间
+router.post('/room/delete', Room.deleteRoom);
+
 //分页房间列表
-router.get('/room/list',Room.getRoomList);
+router.get('/room/list', Room.getRoomList);
+
+
+
+
 
 //入住登记
-router.post('/checkin/add',RoomCheckIn.addCheckIn);
+router.post('/checkin/add', RoomCheckIn.addCheckIn);
 
 //退房
-router.post('/checkin/checkout',RoomCheckIn.roomCheckOut);
+router.post('/checkin/checkout', RoomCheckIn.roomCheckOut);
 
 //分页获取所有入住房间信息
-router.get('/checkin/list',RoomCheckIn.checkInRoomList)
+router.get('/checkin/list', RoomCheckIn.checkInRoomList);
 
 
 
 
 
+//创建任务
+router.post('/task/add', Task.addTask);
+
+//查看任务列表
+router.get('/task/list', Task.getTaskList);
 
 
-
-
-
-
-
-
-
-//删除部门信息
-router.get('/department/delete', checkUserSession, checkUserPower, Department.delDepartment);
-
-
+//创建事件
+router.get('/event/add', Event.addEvent)
 
 
 

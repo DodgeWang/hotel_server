@@ -43,6 +43,46 @@ exports.addRoomType = (req, res, next) => {
 
 
 
+/**
+ * 批量删除房间类型
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+ exports.deleteRoomType = (req, res, next) => {
+ 	try{
+		let ids = req.body.ids;
+        let idList = dataUtil.strToArray(ids);
+
+		RoomType.destroy({
+        	where: {
+        		id: idList
+        	}
+        })
+		.then(roomtype => {
+		    res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
+	        })
+	    })
+	    .catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })  
+	    })
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+ }
+
+
 
 /**
  * 获取房间类型列表
@@ -244,6 +284,107 @@ exports.addRoom = (req, res, next) => {
 	    })   
 	}
 }
+
+
+
+/**
+ * 根据id编辑客房
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+ exports.editRoomById = (req, res, next) => {
+ 	try{
+ 		let { id, number, qrCode, typeId, articleList } = req.body;
+ 		id = parseInt(req.body.id);
+ 		artList = dataUtil.strToArray(articleList);
+        let paramObj = {
+     	   number: number,
+     	   qrCode: qrCode,
+     	   typeId: typeId
+        }
+
+		RoomInfo.findById(id)
+		.then(result => { 
+			RoomInfo.update(paramObj,{
+				where: {
+					id: id
+				}
+			})
+			.then(() => {
+				return result.setArticles([]);
+			})
+			.then(() => {
+				return RoomArticle.findAll({
+         	       where:{
+         		       id: artList
+         	       }
+                })
+			})
+			.then(articles => {
+				return result.addArticles(articles);
+			})
+			.then(() => {
+				res.json({
+	    	      state: 1,
+	    	      msg: langConfig(req).resMsg.success
+	            })
+			})    
+	    }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })  
+	    })
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+ }
+
+
+
+ /**
+ * 批量删除客房
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+ exports.deleteRoom = (req, res, next) => {
+ 	try{      
+		let ids = req.body.ids;
+        let idList = dataUtil.strToArray(ids);
+		
+		RoomInfo.destroy({
+			where: {
+				id: idList
+			}
+		}).then(result => {
+            res.json({
+	    	  state: 1,
+	    	  msg: langConfig(req).resMsg.success
+	        }) 
+        }).catch(err => {
+	       logUtil.error(err, req);
+           return res.json({
+	    	  state: 0,
+	    	  msg: langConfig(req).resMsg.error
+	       })   
+        });
+	}catch(err){
+		logUtil.error(err, req);
+        return res.json({
+	    	state: 0,
+	    	msg: langConfig(req).resMsg.error
+	    })   
+	}
+ }
 
 
 

@@ -86,7 +86,7 @@ exports.editDepartment = (req, res, next) => {
 
 
 /**
- * 根据id删除部门
+ * 批量删除部门
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -180,30 +180,7 @@ exports.getDepartmentList = (req, res, next) => {
 
 
 
-/**
- * 删除部门信息
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-exports.delDepartment = (req, res) => {
-	try{
-		let id = parseInt(req.query.id);
-        res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
 
-		
-	}catch(err){
-		logUtil.error(err, req);
-        return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })   
-	}
-}
 
 
 

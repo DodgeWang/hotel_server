@@ -188,7 +188,7 @@ exports.getRoleById = (req, res, next) => {
 
 
 /**
- * 删除角色列表
+ * 根据id删除角色
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func

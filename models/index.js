@@ -14,6 +14,8 @@ let RoomType = sequelize.import('./RoomType');
 let RoomArticle = sequelize.import('./RoomArticle');
 let RoomArticleRel = sequelize.import('./RoomArticleRel');
 let RoomCheckIn = sequelize.import('./RoomCheckIn');
+let Task = sequelize.import('./Task');
+let Event = sequelize.import('./Event');
 
 
 
@@ -92,11 +94,11 @@ exports.SocialRelations = SocialRelations;
 exports.Department = Department;
 exports.Role = Role;
 exports.RolePower = RolePower;
-
-
 exports.RoomInfo = RoomInfo;
 exports.RoomType = RoomType;
 exports.RoomArticle = RoomArticle;
 exports.RoomArticleRel = RoomArticleRel;
 exports.RoomCheckIn = RoomCheckIn;
+exports.Task = Task;
+exports.Event = Event;
 
