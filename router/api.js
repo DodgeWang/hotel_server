@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn, Task, Event } = require('../controller');
+const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn, Task, Event, WorkSchedule } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
 const apiPowerConfig = require('../config/apiPowerConfig')();
@@ -216,6 +216,13 @@ router.get('/task/list', Task.getTaskList);
 
 //创建事件
 router.get('/event/add', Event.addEvent)
+
+
+
+
+
+//获取起止时间内所有的工作安排
+router.get('/schedule/list', WorkSchedule.getScheduleByTime)
 
 
 

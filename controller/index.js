@@ -6,3 +6,4 @@ exports.Role = require('./role');
 exports.RoomCheckIn = require('./roomCheckIn');
 exports.Task = require('./task');
 exports.Event = require('./event');
+exports.WorkSchedule = require('./workSchedule');

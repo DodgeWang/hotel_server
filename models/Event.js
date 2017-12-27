@@ -40,8 +40,11 @@ module.exports = (sequelize, DataTypes) => {
 		    comment: '员工id'
 	    }
     }, {
-	    freezeTableName: true,
-	    timestamps: true
+	    tableName: 'event',
+	   // timestamps: true,
+	   // paranoid: true,
+	   charset: 'utf8',
+       collate: 'utf8_general_ci'
     })
 }
     

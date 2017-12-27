@@ -16,6 +16,7 @@ let RoomArticleRel = sequelize.import('./RoomArticleRel');
 let RoomCheckIn = sequelize.import('./RoomCheckIn');
 let Task = sequelize.import('./Task');
 let Event = sequelize.import('./Event');
+let WorkSchedule = sequelize.import('./WorkSchedule');
 
 
 
@@ -59,6 +60,10 @@ Employee.hasMany(SocialRelations, {foreignKey:'employee_id'});
 
 
 
+//员工与排班关联关系（一对多）
+Employee.hasMany(WorkSchedule, {foreignKey:'employee_id'});
+WorkSchedule.belongsTo(Employee, {foreignKey:'employee_id'});
+
 
 
 
@@ -101,4 +106,5 @@ exports.RoomArticleRel = RoomArticleRel;
 exports.RoomCheckIn = RoomCheckIn;
 exports.Task = Task;
 exports.Event = Event;
+exports.WorkSchedule = WorkSchedule;
 
