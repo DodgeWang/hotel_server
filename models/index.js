@@ -17,6 +17,7 @@ let RoomCheckIn = sequelize.import('./RoomCheckIn');
 let Task = sequelize.import('./Task');
 let Event = sequelize.import('./Event');
 let WorkSchedule = sequelize.import('./WorkSchedule');
+let TaskType = sequelize.import('./TaskType');
 
 
 
@@ -80,9 +81,36 @@ RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id',as:'roomCheckIn'});
 RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
 
 
+
+
+
+//任务链与角色关联
+TaskType.belongsTo(Role,{foreignKey:'allocator_role'});
+TaskType.belongsTo(Role,{foreignKey:'executor_role'});
+TaskType.belongsTo(Role,{foreignKey:'examiner_role'});
+
+
+//任务与员工关联
+Task.belongsTo(Employee,{foreignKey:'submitter_id',as:'submitter'});
+Task.belongsTo(Employee,{foreignKey:'allocator_id',as:'allocator'});
+Task.belongsTo(Employee,{foreignKey:'executor_id',as:'executor'});
+Task.belongsTo(Employee,{foreignKey:'examiner_id',as:'examiner'});
+
+//任务与房间的关联关系
+Task.belongsTo(Room,{foreignKey:'room_id'});
+
+//任务与任务链的关联关系
+Task.belongsTo(TaskType,{foreignKey:'tasktype_id'});
+
+
+
+
+
+
+
 // 同步模型到数据库中
-sequelize.sync();
-// sequelize.sync({force:true});
+// sequelize.sync();
+sequelize.sync({force:true});
 // RoomArticle.sync({force:true});
 
 
@@ -107,4 +135,5 @@ exports.RoomCheckIn = RoomCheckIn;
 exports.Task = Task;
 exports.Event = Event;
 exports.WorkSchedule = WorkSchedule;
+exports.TaskType = TaskType;
 

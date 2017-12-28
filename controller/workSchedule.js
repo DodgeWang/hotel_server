@@ -11,7 +11,7 @@ let { langConfig } = require("../config/lang_config");
  * @param  {Function} next the next func
  * @return {null}     
  */
- exports.addSchedule = (req, res, next) => {
+exports.addSchedule = (req, res, next) => {
  	try{
  		let { employeeId, startTime, endTime, dateTime } = req.body;
 
@@ -42,11 +42,7 @@ let { langConfig } = require("../config/lang_config");
 	    	msg: langConfig(req).resMsg.error
 	    })  
  	} 	
- }
-
-
-
-
+}
 
 
 
@@ -63,10 +59,10 @@ let { langConfig } = require("../config/lang_config");
  */
  exports.getScheduleByTime = (req, res, next) => {
  	try{
- 		// let _StartTime = parseInt(req.query.startTime);
- 		// let _EndTime = parseInt(req.query.endTime);
- 		let _StartTime = 1514304000;
- 		let _EndTime = 1514563200;
+ 		let _StartTime = parseInt(req.query.startTime);
+ 		let _EndTime = parseInt(req.query.endTime);
+ 		// let _StartTime = 1514304000;
+ 		// let _EndTime = 1514563200;
 
  		WorkSchedule.findAll({
             where: {
@@ -122,7 +118,7 @@ let { langConfig } = require("../config/lang_config");
  				}
  			}
 
-            return res.json({
+          return res.json({
 	    	    state: 0,
 	    	    msg: langConfig(req).resMsg.success,
 	    	    data: dataList

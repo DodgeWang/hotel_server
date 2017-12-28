@@ -9,10 +9,25 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'id',
 		    comment: '任务id'
 	    },
-	    employeeId: {
+	    submitterId: {
 		    type: DataTypes.INTEGER,
-		    field: 'employee_id',
-		    comment: '员工id'
+		    field: 'submitter_id',
+		    comment: '提交申请任务员工id'
+	    },
+	    allocatorId: {
+		    type: DataTypes.INTEGER,
+		    field: 'allocator_id',
+		    comment: '分配任务人员id'
+	    },
+	    executorId: {
+		    type: DataTypes.INTEGER,
+		    field: 'executor_id',
+		    comment: '执行人员id'
+	    },
+	    examinerId: {
+		    type: DataTypes.INTEGER,
+		    field: 'examiner_id',
+		    comment: '检查人员id'
 	    },
 	    roomId: {
 		    type: DataTypes.INTEGER,
@@ -29,16 +44,6 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'describe',
 		    comment: '任务描述'
 	    },
-	    createTime: {
-		    type: DataTypes.STRING(50),
-		    field: 'create_time',
-		    comment: '任务创建时间，时间戳'
-	    },
-	    completionTime: {
-		    type: DataTypes.STRING(50),
-		    field: 'completion_time',
-		    comment: '任务完成时间，时间戳'
-	    },
 	    status: {
 		    type: DataTypes.INTEGER,
 		    field: 'status',
@@ -46,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 	    }
     }, {
     	tableName: 'task',
+    	timestamps: false,
 	    charset: 'utf8',
         collate: 'utf8_general_ci'
     })
