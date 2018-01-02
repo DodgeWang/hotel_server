@@ -173,7 +173,7 @@ exports.addTask = (req, res, next) => {
         Task.findAll({
             attributes: ['id','roomId','tasktypeId','describe','status'],
             where: {
-                //未完成
+                ////未完成
                 // $or: [{
                 //         allocatorId: employeeId,
                 //         status: 1
@@ -184,7 +184,7 @@ exports.addTask = (req, res, next) => {
                 //         examinerId: employeeId,
                 //         status: 3
                 //       }],
-                //已完成
+                ////已完成
                 // $or: [{
                 //         allocatorId: employeeId,
                 //         status: 2
@@ -203,7 +203,7 @@ exports.addTask = (req, res, next) => {
                       },{
                         examinerId: employeeId
                       }]
-                      
+
             }
         })
         .then(result => {
