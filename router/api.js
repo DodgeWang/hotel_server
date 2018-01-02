@@ -213,6 +213,9 @@ router.post('/task/add', Task.addTask);
 //查看任务列表
 router.get('/task/list', Task.getTaskList);
 
+//获取自己的任务
+router.get('/task/self', Task.selfTaskList);
+
 
 //创建事件
 router.get('/event/add', Event.addEvent)

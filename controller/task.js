@@ -153,6 +153,11 @@ exports.addTask = (req, res, next) => {
 
 
 
+
+
+
+
+
 /**
  * 获取自身的任务列表
  * @param  {object}   req  the request object
@@ -160,6 +165,69 @@ exports.addTask = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
+ exports.selfTaskList = (req, res, next) => {
+    try{
+        // let employeeId  = req.session.userInfo.id;
+        let employeeId = 2;
+        // let nowDate = Date.parse(new Date())/1000;
+        Task.findAll({
+            attributes: ['id','roomId','tasktypeId','describe','status'],
+            where: {
+                //未完成
+                // $or: [{
+                //         allocatorId: employeeId,
+                //         status: 1
+                //       },{
+                //         executorId: employeeId,
+                //         status: 2
+                //       },{
+                //         examinerId: employeeId,
+                //         status: 3
+                //       }],
+                //已完成
+                // $or: [{
+                //         allocatorId: employeeId,
+                //         status: 2
+                //       },{
+                //         executorId: employeeId,
+                //         status: 3
+                //       },{
+                //         examinerId: employeeId,
+                //         status: 4
+                //       }],
+                //全部
+                $or: [{
+                        allocatorId: employeeId
+                      },{
+                        executorId: employeeId
+                      },{
+                        examinerId: employeeId
+                      }]
+                      
+            }
+        })
+        .then(result => {
+            return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.success,
+                data: result
+            })
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.error
+            })
+        })
+    }catch(err){
+        logUtil.error(err, req);
+        return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.error
+        })  
+    }
+ }
 
 
 
