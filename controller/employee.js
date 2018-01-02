@@ -141,7 +141,7 @@ exports.addEmployee = (req, res, next) => {
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
            positionId: positionId,  //职位id
-           employeeStatus: 1  //用户状态
+           status: 1  //用户状态
     	}
         //先判断用户是否存在
     	Employee.findOne({
@@ -452,20 +452,18 @@ exports.getEmployeeList = (req, res, next) => {
         let limit = pageSize ? parseInt(pageSize) : 20;
         let offset = pageNow ? parseInt(pageNow) * limit : 0;
         Employee.findAndCountAll({
-           attributes: ['username','password','employeeStatus'],
+           attributes: ['id','username','password','status'],
+           order: [['id', 'DESC']],
            include: [
            {
                model: Role,
+               attributes: ['id','name']
            },{
            	   model: Department,
+               attributes: ['id','name']
            },{
            	   model: EmployeeInfo,
-           },{
-               model: EduExperience
-           },{
-               model: WorkExperience
-           },{
-               model: SocialRelations
+               attributes: ['id','name','phone']
            }]
         }).then(result => {
             res.json({
@@ -488,6 +486,10 @@ exports.getEmployeeList = (req, res, next) => {
 	             })
     }
 }
+
+
+
+
 
 
 

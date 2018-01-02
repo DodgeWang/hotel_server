@@ -125,7 +125,7 @@ router.get('/department/list', Department.getDepartmentList);
 //添加角色
 router.post('/role/add', Role.addRole);
 
-//根据id角色
+//根据id编辑角色
 router.post('/role/edit', Role.editRole);
 
 //根据id获取角色信息

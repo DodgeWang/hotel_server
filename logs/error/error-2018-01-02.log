@@ -1,0 +1,353 @@
+[2018-01-02T14:27:33.286] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.claenStatus' in 'field list'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.claenStatus' in 'field list'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:28:09.831] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:29:43.929] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:30:38.513] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:31:13.952] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:31:25.703] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:31:53.146] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:35:04.296] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomType is associated to RoomInfo using an alias. You've included an alias (roomType), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomType is associated to RoomInfo using an alias. You've included an alias (roomType), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-02T14:35:27.687] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeEagerLoadingError
+err message: RoomType is associated to RoomInfo using an alias. You've included an alias (roomType), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RoomType is associated to RoomInfo using an alias. You've included an alias (roomType), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-02T14:35:55.827] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:43:02.866] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:43:39.368] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:43:54.270] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:44:59.575] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-02T14:51:36.991] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /room/list
+request method: GET
+request client ip:  ::1
+err name: SequelizeDatabaseError
+err message: Unknown column 'RoomInfo.type_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'RoomInfo.type_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

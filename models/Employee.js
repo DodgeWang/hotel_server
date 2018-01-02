@@ -35,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'role_id',
 		comment: '角色id'
 	},
-	employeeStatus: {
+	status: {
 		type: DataTypes.INTEGER,
-		field: 'employee_status',
+		field: 'status',
 		comment: '用户状态，1正常，2禁用，3删除'
 	}
 }, {

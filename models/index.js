@@ -69,8 +69,8 @@ WorkSchedule.belongsTo(Employee, {foreignKey:'employee_id'});
 
 
 //房间类型和房间关联关系（一对多）
-RoomType.hasMany(RoomInfo, {foreignKey:'type_id',as:'roomInfo'});
-RoomInfo.belongsTo(RoomType, {foreignKey:'type_id',as:'roomType'});
+RoomType.hasMany(RoomInfo, {foreignKey:'type_id'});
+RoomInfo.belongsTo(RoomType, {foreignKey:'type_id'});
 
 //房间和物品关联关系（多对多）
 RoomInfo.belongsToMany(RoomArticle, { through: RoomArticleRel,foreignKey:'room_id',as: { singular: 'article', plural: 'articles' }})
@@ -97,7 +97,7 @@ Task.belongsTo(Employee,{foreignKey:'executor_id',as:'executor'});
 Task.belongsTo(Employee,{foreignKey:'examiner_id',as:'examiner'});
 
 //任务与房间的关联关系
-Task.belongsTo(Room,{foreignKey:'room_id'});
+Task.belongsTo(RoomInfo,{foreignKey:'room_id'});
 
 //任务与任务链的关联关系
 Task.belongsTo(TaskType,{foreignKey:'tasktype_id'});
@@ -109,8 +109,8 @@ Task.belongsTo(TaskType,{foreignKey:'tasktype_id'});
 
 
 // 同步模型到数据库中
-// sequelize.sync();
-sequelize.sync({force:true});
+sequelize.sync();
+// sequelize.sync({force:true});
 // RoomArticle.sync({force:true});
 
 

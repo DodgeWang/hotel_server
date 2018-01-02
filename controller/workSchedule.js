@@ -13,13 +13,12 @@ let { langConfig } = require("../config/lang_config");
  */
 exports.addSchedule = (req, res, next) => {
  	try{
- 		let { employeeId, startTime, endTime, dateTime } = req.body;
+ 		let { employeeId, startTime, endTime } = req.body;
 
  		let paramObj = {
  			employeeId: employeeId,
  			startTime: startTime,
- 			endTime: endTime,
- 			dateTime: dateTime 
+ 			endTime: endTime 
  		}
  		WorkSchedule.create(paramObj)
  	    .then(result => {
@@ -59,18 +58,18 @@ exports.addSchedule = (req, res, next) => {
  */
  exports.getScheduleByTime = (req, res, next) => {
  	try{
- 		let _StartTime = parseInt(req.query.startTime);
- 		let _EndTime = parseInt(req.query.endTime);
- 		// let _StartTime = 1514304000;
- 		// let _EndTime = 1514563200;
+ 		// let _StartTime = parseInt(req.query.startTime);
+ 		// let _EndTime = parseInt(req.query.endTime);
+ 		let _StartTime = 1514304000;
+ 		let _EndTime = 1514563200;
 
  		WorkSchedule.findAll({
             where: {
-               dateTime: {
-                  $and: {
-                  	 $gte: _StartTime,
-                  	 $lte: _EndTime
-                  }
+               startTime: {
+                  $gte: _StartTime
+               },
+               endTime: {
+                  $lte: _EndTime
                }
             },
             include: [{

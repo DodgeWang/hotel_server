@@ -1,4 +1,4 @@
-//房间物品表
+//角色表
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('Role',{
 	   id: {
@@ -21,8 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 	   }
    }, {
 	   tableName: 'role',
-	   timestamps: false,
-	   // paranoid: true,
+	   timestamps: true,
 	   charset: 'utf8',
        collate: 'utf8_general_ci'
    })

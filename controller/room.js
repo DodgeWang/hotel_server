@@ -191,22 +191,24 @@ exports.getRoomList = (req, res, next) => {
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
 		RoomInfo.findAll({
-		    limit: limit,
-			offset: offset,
+			// attributes: ['id','number','status','cleanStatus'],	    
 			order: [['id', 'DESC']],
+			limit: limit,
+			offset: offset,
 			include:[{
 				model: RoomType,
-				as: 'roomType',
 				attributes: ['id','name']
 			}
 			,{
 				model: RoomArticle,
 				as: 'articles',
+				attributes: ['id','name','isCheck','isClean'],
 				through: {
 					attributes: []
 				}
 			  }
 			],
+
 			
 		}).then(result => { 
 		    res.json({

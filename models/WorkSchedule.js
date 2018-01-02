@@ -21,13 +21,8 @@ module.exports = (sequelize, DataTypes) => {
 	   },
 	   endTime: {
 		   type: DataTypes.INTEGER,
-		   field: 'endTime',
+		   field: 'end_time',
 		   comment: '下班时间'
-	   },
-	   dateTime: {
-	   	   type: DataTypes.INTEGER,
-		   field: 'dateTime',
-		   comment: '日期'
 	   }
    }, {
 	   tableName: 'work_schedule',
