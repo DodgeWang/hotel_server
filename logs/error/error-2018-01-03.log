@@ -1,0 +1,802 @@
+[2018-01-03T14:12:11.065] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:12:11.087] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: result.addTaskFlow is not a function
+err stack: TypeError: result.addTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:31)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:14:29.956] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:14:29.971] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: result.addTaskFlow is not a function
+err stack: TypeError: result.addTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:31)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:15:52.783] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:15:53.036] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: result.addTaskFlows is not a function
+err stack: TypeError: result.addTaskFlows is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:31)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:21:11.882] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:21:11.927] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: result.addTaskFlow is not a function
+err stack: TypeError: result.addTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:31)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:23:54.233] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:23:54.300] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: result.addTaskFlow is not a function
+err stack: TypeError: result.addTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:31)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:25:36.057] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:152:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:25:36.154] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Can't set headers after they are sent.
+err stack: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:494:11)
+    at ServerResponse.setHeader (_http_outgoing.js:501:3)
+    at ServerResponse.header (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:267:15)
+    at Task.create.then.then (/Users/user/workspace/hotel_server/controller/task.js:135:21)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:27:40.580] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:27:40.708] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Can't set headers after they are sent.
+err stack: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:494:11)
+    at ServerResponse.setHeader (_http_outgoing.js:501:3)
+    at ServerResponse.header (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:267:15)
+    at Task.create.then.then (/Users/user/workspace/hotel_server/controller/task.js:134:28)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:29:21.009] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: Cannot read property 'addTaskFlow' of undefined
+err stack: TypeError: Cannot read property 'addTaskFlow' of undefined
+    at TaskType.findById.then.then.then.result (/Users/user/workspace/hotel_server/controller/task.js:151:27)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:29:21.288] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: Error
+err message: Can't set headers after they are sent.
+err stack: Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:494:11)
+    at ServerResponse.setHeader (_http_outgoing.js:501:3)
+    at ServerResponse.header (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/user/workspace/hotel_server/node_modules/express/lib/response.js:267:15)
+    at Task.create.then.then.cb (/Users/user/workspace/hotel_server/controller/task.js:134:28)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:34:35.694] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: task.setTaskFlow is not a function
+err stack: TypeError: task.setTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:34:50.319] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: TypeError
+err message: task.setTaskFlow is not a function
+err stack: TypeError: task.setTaskFlow is not a function
+    at Task.create.then.task (/Users/user/workspace/hotel_server/controller/task.js:131:29)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-03T14:45:27.015] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T14:46:29.827] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T14:48:18.705] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T14:52:08.835] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T14:54:29.464] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T14:55:04.729] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:03:55.309] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:05:21.769] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:05:59.345] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:07:53.466] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:08:29.203] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:09:00.945] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:09:33.433] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:09:57.710] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:10:25.762] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:11:34.976] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-03T15:12:14.771] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

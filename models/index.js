@@ -18,6 +18,7 @@ let Task = sequelize.import('./Task');
 let Event = sequelize.import('./Event');
 let WorkSchedule = sequelize.import('./WorkSchedule');
 let TaskType = sequelize.import('./TaskType');
+let TaskFlow = sequelize.import('./TaskFlow');
 
 
 
@@ -90,11 +91,12 @@ TaskType.belongsTo(Role,{foreignKey:'executor_role'});
 TaskType.belongsTo(Role,{foreignKey:'examiner_role'});
 
 
-//任务与员工关联
-Task.belongsTo(Employee,{foreignKey:'submitter_id',as:'submitter'});
-Task.belongsTo(Employee,{foreignKey:'allocator_id',as:'allocator'});
-Task.belongsTo(Employee,{foreignKey:'executor_id',as:'executor'});
-Task.belongsTo(Employee,{foreignKey:'examiner_id',as:'examiner'});
+//任务流程与员工关联
+TaskFlow.belongsTo(Employee, {foreignKey:'employee_id'});
+// Task.belongsTo(Employee,{foreignKey:'submitter_id',as:'submitter'});
+// Task.belongsTo(Employee,{foreignKey:'allocator_id',as:'allocator'});
+// Task.belongsTo(Employee,{foreignKey:'executor_id',as:'executor'});
+// Task.belongsTo(Employee,{foreignKey:'examiner_id',as:'examiner'});
 
 //任务与房间的关联关系
 Task.belongsTo(RoomInfo,{foreignKey:'room_id'});
@@ -102,6 +104,9 @@ Task.belongsTo(RoomInfo,{foreignKey:'room_id'});
 //任务与任务链的关联关系
 Task.belongsTo(TaskType,{foreignKey:'tasktype_id'});
 
+//任务与任务流程的关联关系
+Task.hasMany(TaskFlow, {foreignKey:'task_id'});
+// TaskFlow.belongsTo(Task, {foreignKey:'task_id'});
 
 
 
@@ -136,4 +141,5 @@ exports.Task = Task;
 exports.Event = Event;
 exports.WorkSchedule = WorkSchedule;
 exports.TaskType = TaskType;
+exports.TaskFlow = TaskFlow;
 
