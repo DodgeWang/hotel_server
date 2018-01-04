@@ -29,19 +29,19 @@ module.exports = (sequelize, DataTypes) => {
 		    field: 'is_report',
 		    comment: '是否报表，1是，0否'
 	    },
-	    isShare: {
-		    type: DataTypes.INTEGER,
-		    field: 'is_share',
-		    comment: '是否分享，1是，0否'
-	    },
+	    // isShare: {
+		   //  type: DataTypes.INTEGER,
+		   //  field: 'is_share',
+		   //  comment: '是否分享，1是，0否'
+	    // },
 	    employeeId: {
 		    type: DataTypes.INTEGER,
 		    field: 'employee_id',
-		    comment: '员工id'
+		    comment: '发布者id'
 	    }
     }, {
-	    tableName: 'event',
-	   // timestamps: true,
+	   tableName: 'event',
+	   timestamps: false,
 	   // paranoid: true,
 	   charset: 'utf8',
        collate: 'utf8_general_ci'

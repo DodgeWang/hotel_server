@@ -217,9 +217,21 @@ router.get('/task/list', Task.getTaskList);
 router.get('/task/self', Task.selfTaskList);
 
 
-//创建事件
-router.get('/event/add', Event.addEvent)
 
+//创建事件
+router.post('/event/create', Event.createEvent);
+
+//分享事件给所有人
+router.post('/event/share/all', Event.shareEventToAll);
+
+//分享事件给指定的人
+router.post('/event/share/point', Event.shareEventToPoint);
+
+//获取自己发布的事件
+router.get('/event/getshare/publish', Event.allPublishEvent);
+
+//获取自己被分享的事件
+router.get('/event/getshare/shared', Event.allSharedEvent);
 
 
 
