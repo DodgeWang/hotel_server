@@ -32,11 +32,9 @@ let EventShare = sequelize.import('./EventShare');
 Employee.hasOne(EmployeeInfo,{foreignKey: 'employee_id'});
 EmployeeInfo.belongsTo(Employee,{foreignKey: 'employee_id'});
 
-
 //角色与权限关联关系（一对多）
 Role.hasMany(RolePower, {foreignKey:'role_id'});
 RolePower.belongsTo(Role, {foreignKey:'role_id'});
-
 
 //员工与部门关联关系（多对一）
 Department.hasMany(Employee, {foreignKey:'department_id',as: { singular: 'employee', plural: 'employeeList' }});
@@ -46,11 +44,8 @@ Employee.belongsTo(Department, {foreignKey:'department_id'});
 Role.hasMany(Employee, {foreignKey:'role_id'});
 Employee.belongsTo(Role, {foreignKey:'role_id'});
 
-
-
 //员工与教育经验关联关系（一对多）
 Employee.hasMany(EduExperience, {foreignKey:'employee_id'});
-
 
 //员工与工作经验关联关系（一对多）
 // Employee.hasMany(WorkExperience, {foreignKey:'employee_id',as:'workExperience'});
@@ -83,15 +78,10 @@ RoomArticle.belongsToMany(RoomInfo, { through: RoomArticleRel,foreignKey:'articl
 RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id',as:'roomCheckIn'});
 RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
 
-
-
-
-
 //任务链与角色关联
 TaskType.belongsTo(Role,{foreignKey:'allocator_role'});
 TaskType.belongsTo(Role,{foreignKey:'executor_role'});
 TaskType.belongsTo(Role,{foreignKey:'examiner_role'});
-
 
 //任务流程与员工关联
 TaskFlow.belongsTo(Employee, {foreignKey:'employee_id'});
@@ -110,7 +100,6 @@ TaskFlow.belongsTo(Task, {foreignKey:'task_id'});
 EventType.hasMany(Event, {foreignKey:'type_id'});
 Event.belongsTo(EventType, {foreignKey:'type_id'});
 
-
 //事件与事件分享的关联关系
 Event.hasMany(EventShare, {foreignKey:'event_id'});
 EventShare.belongsTo(Event, {foreignKey:'event_id'});
@@ -123,11 +112,6 @@ EventShare.belongsTo(Event, {foreignKey:'event_id'});
 sequelize.sync();
 // sequelize.sync({force:true});
 // RoomArticle.sync({force:true});
-
-
-
-
-
 
 
 exports.Employee = Employee;

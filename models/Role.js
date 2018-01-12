@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
 		   field: 'describe',
 		   comment: '角色描述'
 	   }
-   }, {
+    }, {
 	   tableName: 'role',
 	   timestamps: true,
 	   charset: 'utf8',
        collate: 'utf8_general_ci'
-   })
+    })
 }
