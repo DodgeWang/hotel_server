@@ -22,5 +22,5 @@ module.exports = {
     LANG: 1,
 
     //后台默认显示数据条数
-    dataLimit: 15
+    dataLimit: 3
 }

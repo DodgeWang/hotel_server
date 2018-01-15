@@ -6,6 +6,8 @@ let helper = {
             this._sections[name] = options.fn(this);
             return null;
         }
+
+
 }
 
 module.exports = helper;

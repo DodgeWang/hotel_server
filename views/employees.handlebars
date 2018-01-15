@@ -34,11 +34,24 @@
                                <div class="dataTables_length" style="width: auto; margin-left: 15px;">
                                   <label>
                                      角色 
-                                     <select name="datatable_length" class="form-control input-sm">
+                                     <select name="datatable_length" id="roleSelect" class="form-control input-sm">
                                          <option value="">全部</option>
                                          {{#each roleList}}
                                          <option value={{id}}>{{name}}</option>
                                          {{/each}}
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     显示条数 
+                                     <select name="datatable_length" id="pageSizeSelect" class="form-control input-sm">
+                                         <option value="2">2</option>
+                                         <option value="3">3</option>
+                                         <option value="15">15</option>
+                                         <option value="20">20</option>
+                                         <option value="25">25</option>
+                                         <option value="30">30</option>
                                      </select>
                                    </label>
                                </div>
@@ -126,14 +139,15 @@
                       </div>
                       <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info">Showing 1 to 20 of {{allEmployeeCount}} entries</div>
+                            <div class="dataTables_info">总页数<span id="pageTotle"></span> 总条数<span id="dataTotle"></span></div>
                         </div>
                         <div class="col-sm-7">
                             <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                                <ul class="pagination" style="margin: 0px">
-                                    <li class="paginate_button previous disabled">
+                                <ul class="pagination" style="margin: 0px" id="paginationBox">
+                                    <li class="paginate_button previous disabled" id="previous_Btn">
                                        <a href="#">Previous</a>
                                     </li>
+
                                     <li class="paginate_button active">
                                        <a href="#">1</a>
                                     </li>
@@ -149,7 +163,7 @@
                                     <li class="paginate_button ">
                                        <a href="#">5</a>
                                     </li>
-                                    <li class="paginate_button next">
+                                    <li class="paginate_button next" id="next_Btn">
                                        <a href="#">Next</a>
                                     </li>
                                 </ul>

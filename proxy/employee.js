@@ -59,13 +59,29 @@ let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Ro
 
 
  /**
- * 查询所有员工总数
+ * 查询所有符合条件员工总数
  * @param  {Function} cb the next func
  * @return {null}     
  */
- exports.allEmployeeCount = cb => {
+ exports.allEmployeeCount = (queryCriteria, cb) => {
     try{
-        Employee.count()
+        let queryObj = {
+            order: [['id', 'DESC']],
+            where: {}
+        }
+
+        //根据部门查询
+        if(queryCriteria.departmentId){
+           queryObj.where.departmentId = queryCriteria.departmentId;
+        }
+
+        //根据角色查询
+        if(queryCriteria.roleId){
+           queryObj.where.roleId = queryCriteria.roleId;
+        }
+
+
+        Employee.count(queryObj)
         .then(result => {
             cb(null,result)
         })

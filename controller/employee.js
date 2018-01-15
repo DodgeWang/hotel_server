@@ -94,44 +94,7 @@ exports.logOut = (req, res, next) => {
  */
 exports.page_Employees = (req, res, next) => {
     try{
-        let { pageNow, pageSize, departmentId, roleId } = req.query;
-        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
-        let offset = pageNow ? parseInt(pageNow) * limit : 0;
-
-        let queryCriteria = { //员工列表查询条件
-           limit: limit,
-           offset: offset
-        }
-
-        //如果要根据部门查询
-        if(departmentId){
-           queryCriteria.departmentId = parseInt(departmentId);
-        }
-
-        //如果要根据角色查询
-        if(roleId){
-           queryCriteria.roleId = parseInt(roleId);
-        }
-
         async.series({
-            //员工列表
-            employeeList: cb => {
-                ProxyFunc.Employee.getEmployeeList(queryCriteria, (err,result) => {
-                    if(err){
-                       return cb(err,null)
-                    }
-                    cb(null,result)
-                })
-            },
-            //所有员工总数
-            allEmployeeCount: cb => {
-                ProxyFunc.Employee.allEmployeeCount((err, result) => {
-                    if(err){
-                       return cb(err,null)
-                    }
-                    cb(null,result)
-                })
-            },
             //全部角色列表
             allRoleList: cb => {
                 ProxyFunc.Role.getRoleList({},(err, result) => {
@@ -157,10 +120,8 @@ exports.page_Employees = (req, res, next) => {
                return res.render('page500',{layout: null});
             }
             res.render('employees',{
-               employeeList: results.employeeList,
-               departmentList: results.allDepartmentList,
-               roleList: results.allRoleList,
-               allEmployeeCount: results.allEmployeeCount
+               departmentList: results.allDepartmentList, //所有部门
+               roleList: results.allRoleList, //所有角色
             });
 
         });
@@ -187,8 +148,8 @@ exports.page_Employees = (req, res, next) => {
 exports.getEmployeeList = (req, res, next) => {
   try{
         let { pageNow, pageSize, departmentId, roleId } = req.query;
-        let limit = pageSize ? parseInt(pageSize) : 10;
-        let offset = pageNow ? parseInt(pageNow) * limit : 0;
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
         let queryCriteria = { //员工列表查询条件
            limit: limit,
@@ -215,9 +176,9 @@ exports.getEmployeeList = (req, res, next) => {
                     cb(null,result)
                 })
             },
-            //所有员工总数
+            //所有符合条件员工总数
             allEmployeeCount: cb => {
-                ProxyFunc.Employee.allEmployeeCount((err, result) => {
+                ProxyFunc.Employee.allEmployeeCount(queryCriteria, (err,result) => {
                     if(err){
                        return cb(err,null)
                     }
@@ -239,7 +200,7 @@ exports.getEmployeeList = (req, res, next) => {
               msg: langConfig(req).resMsg.success,
               data: {
                 datalist: results.employeeList, //查询的员工列表
-                allEmployeeCount: results.allEmployeeCount  //所有员工总数
+                allEmployeeCount: results.allEmployeeCount,  //所有符合条件员工总数
               }
             }) 
         });
