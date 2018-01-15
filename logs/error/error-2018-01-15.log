@@ -1,0 +1,756 @@
+[2018-01-15T14:59:31.154] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: console.lo is not a function
+err stack: TypeError: console.lo is not a function
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:549:17)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-15T15:21:19.702] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot read property 'dataValues' of undefined
+err stack: TypeError: Cannot read property 'dataValues' of undefined
+    at Employee.findAndCountAll.then.result (/Users/user/workspace/hotel_server/controller/employee.js:569:35)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+***************  node  error log end ***************
+
+[2018-01-15T15:38:13.801] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: ReferenceError
+err message: async is not defined
+err stack: ReferenceError: async is not defined
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:579:9)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-15T15:38:59.713] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: ReferenceError
+err message: async is not defined
+err stack: ReferenceError: async is not defined
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:580:9)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-15T16:38:30.349] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: ReferenceError
+err message: Role is not defined
+err stack: ReferenceError: Role is not defined
+    at Object.exports.getEmployeeList.cb [as getEmployeeList] (/Users/user/workspace/hotel_server/proxy/employee.js:22:24)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:24:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:21:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T16:40:23.299] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: ReferenceError
+err message: Role is not defined
+err stack: ReferenceError: Role is not defined
+    at Object.exports.getEmployeeList.cb [as getEmployeeList] (/Users/user/workspace/hotel_server/proxy/employee.js:22:24)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:24:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:21:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:20:08.654] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:39:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:36:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:20:44.342] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:39:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:36:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:21:07.080] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:39:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:36:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:24:58.755] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:40:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:37:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:32:20.069] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:44:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:41:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:44:40.127] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:49:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:46:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:45:59.817] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:49:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:46:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:47:04.061] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:49:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:46:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:47:43.227] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:49:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:46:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:48:08.577] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:36:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:49:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:46:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:53:40.438] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:38:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:56:18.494] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:41:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:56:47.154] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:41:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:57:17.609] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:41:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:57:30.420] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'departmentId' of undefined
+err stack: TypeError: Cannot set property 'departmentId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:41:40)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T17:57:49.040] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot set property 'roleId' of undefined
+err stack: TypeError: Cannot set property 'roleId' of undefined
+    at Object.exports.getEmployeeList (/Users/user/workspace/hotel_server/proxy/employee.js:46:34)
+    at employeeList (/Users/user/workspace/hotel_server/controller/employee.js:43:26)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:885:9
+    at eachOfLimit (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:912:22)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:917:16
+    at _parallel (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3685:5)
+    at Object.series (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:4525:3)
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:40:15)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+***************  node  error log end ***************
+
+[2018-01-15T19:50:32.128] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: ReferenceError
+err message: 如果有页数和条数限制 is not defined
+err stack: ReferenceError: 如果有页数和条数限制 is not defined
+    at Object.exports.getRoleList (/Users/user/workspace/hotel_server/proxy/role.js:20:3)
+    at allRoleList (/Users/user/workspace/hotel_server/controller/employee.js:136:32)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3686:9
+    at replenish (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:881:17)
+    at iterateeCallback (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:866:17)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:843:16
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:3691:13
+    at apply (/Users/user/workspace/hotel_server/node_modules/async/dist/async.js:21:25)
+    at /Users/user/workspace/hotel_server/node_modules/async/dist/async.js:56:12
+    at ProxyFunc.Employee.allEmployeeCount (/Users/user/workspace/hotel_server/controller/employee.js:131:21)
+    at Employee.count.then.result (/Users/user/workspace/hotel_server/proxy/employee.js:71:13)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-15T20:09:18.449] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /employees
+request method: GET
+request client ip:  ::ffff:192.168.1.9
+err name: TypeError
+err message: Cannot read property 'dataLimit' of undefined
+err stack: TypeError: Cannot read property 'dataLimit' of undefined
+    at exports.page_Employees (/Users/user/workspace/hotel_server/controller/employee.js:98:63)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+

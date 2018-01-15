@@ -1,5 +1,6 @@
 let { logUtil, service, dataUtil} = require("../utils");
 let { Role, RolePower } = require('../models');
+let ProxyFunc = require('../proxy');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
 
@@ -230,7 +231,7 @@ exports.getRoleById = (req, res, next) => {
 
 
 /**
- * 获取角色列表
+ * 分页获取角色列表
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func

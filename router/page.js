@@ -35,6 +35,24 @@ router.get('/login', (req, res) => {
 	res.render('login',{layout: null});
 });
 
+//员工管理页面
+router.get('/employees', Employee.page_Employees);
+
+//创建员工页面
+router.get('/employees/create', (req, res) => {
+	res.render('createEmployee');
+});
+
+//部门管理页面
+router.get('/departments', (req, res) => {
+	res.render('departments');
+});
+
+//角色管理页面
+router.get('/roles', (req, res) => {
+	res.render('roles');
+});
+
 //客房管理页面
 router.get('/rooms', checkUserSession, (req, res) => {
 	res.render('rooms');
@@ -50,10 +68,7 @@ router.get('/articles', (req, res) => {
 	res.render('articles');
 });
 
-//部门管理页面
-router.get('/departments', (req, res) => {
-	res.render('departments');
-});
+
 
 
 

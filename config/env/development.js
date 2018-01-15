@@ -20,5 +20,8 @@ module.exports = {
     },
 
     //默认语言设置（1代表英文，2代表中文）
-    LANG: 1
+    LANG: 1,
+
+    //后台默认显示数据条数
+    dataLimit: 15
 }

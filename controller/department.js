@@ -150,7 +150,8 @@ exports.getDepartmentList = (req, res, next) => {
             queryConfig.offset = offset;
 		}
 
-		Department.findAndCountAll(queryConfig).then(result => {
+		Department.findAndCountAll(queryConfig)
+		.then(result => {
               res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success,

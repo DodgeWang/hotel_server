@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 
 let logUtil = require("./utils/logUtil");
 const staticSetting = require("./config/staticSetting");
+const hbsHelper = require('./utils/hbsHelper');
 
 
 
@@ -25,7 +26,7 @@ module.exports = () => {
     // 引用 handlebars 模板引擎
     let handlebars = require('express3-handlebars').create({ 
                     defaultLayout:'main' ,
-                    // helpers: hbsHelper
+                    helpers: hbsHelper
                  });
     app.engine('handlebars', handlebars.engine);
     app.set('view engine', 'handlebars');

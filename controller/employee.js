@@ -1,7 +1,11 @@
 let { logUtil, service, dataUtil } = require("../utils");
 let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Role, Department } = require('../models');
+let ProxyFunc = require('../proxy');
 const staticSetting = require("../config/staticSetting");
+const async = require('async');  
 let { langConfig } = require("../config/lang_config");
+let envConfig = require("../config/env_config");
+
 
 
 
@@ -12,49 +16,49 @@ let { langConfig } = require("../config/lang_config");
  * @param  {Function} next the next func
  * @return {null}     
  */
-exports.loginAction = (req, res, next) => {	
-	try{
-		const userObj = {
+exports.loginAction = (req, res, next) => { 
+  try{
+    const userObj = {
             userName: req.body.username,
             password: service.encrypt(req.body.password, staticSetting.encrypt_key)
         }
 
-	    Employee.findOne({
-	      attributes: ['username','password','roleId'],
-	 	    where: userObj,
-	 	    order: [['id', 'DESC']]
-	    })
+      Employee.findOne({
+        attributes: ['username','password','roleId'],
+        where: userObj,
+        order: [['id', 'DESC']]
+      })
       .then(result => {
-	    	if(!result) {
-	    		return res.json({
-	    			state: 0,
-	    			msg: langConfig(req).resMsg.loginError
-	    		})
-	    	}
+        if(!result) {
+          return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.loginError
+          })
+        }
 
             req.session.userInfo = result.dataValues;
             result.dataValues.powerList = [2001,3002];
             // req.session.LANG = 2;
-	    	res.json({
-	    		state: 1,
-	    		msg: langConfig(req).resMsg.success
-	    	})
+        res.json({
+          state: 1,
+          msg: langConfig(req).resMsg.success
+        })
 
         })
       .catch(err => {
-        	logUtil.error(err, req);
-	    	  return res.json({
-	    		  state: 0,
-	    		  msg: langConfig(req).resMsg.loginFailure
-	    	  })
+          logUtil.error(err, req);
+          return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.loginFailure
+          })
         });
-	}catch(err){
+  }catch(err){
       logUtil.error(err, req);
       return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.loginFailure
-	    })   
-	}
+        state: 0,
+        msg: langConfig(req).resMsg.loginFailure
+      })   
+  }
 }
 
 
@@ -69,11 +73,11 @@ exports.loginAction = (req, res, next) => {
  * @return {null}     
  */
 exports.logOut = (req, res, next) => {
-	try{
-		console.log("haha")
-	}catch(err){
-		res.sendStatus(500)
-	}
+  try{
+    console.log("haha")
+  }catch(err){
+    res.sendStatus(500)
+  }
 
 }
 
@@ -82,44 +86,210 @@ exports.logOut = (req, res, next) => {
 
 
 /**
- * 根据ID获取员工信息
+ * 员工管理页面
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
  * @return {null}     
  */
-// exports.getEmployeeById = (req, res) => {
-// 	try{
-// 		let id = req.query.id;
-// 		Employee.findOne({
-// 		  include:[EmployeeInfo,EduExperience,WorkExperience,SocialRelations],
-// 	 	  where: {
-// 	 	  	id: id
-// 	 	  },
-// 	 	  order: [['id', 'DESC']]
-// 	    }).then(employee => {
-// 	    	console.log(employee)
-//             res.json({
-// 	    	  state: 1,
-// 	    	  msg: langConfig(req).resMsg.success,
-// 	    	  data: employee === null ? null : JSON.stringify(employee)
-// 	        }) 
-//         }).catch(err => {
-// 	       logUtil.error(err, req);
-//            return res.json({
-// 	    	  state: 0,
-// 	    	  msg: langConfig(req).resMsg.error
-// 	       })   
-//         });
+exports.page_Employees = (req, res, next) => {
+    try{
+        let { pageNow, pageSize, departmentId, roleId } = req.query;
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? parseInt(pageNow) * limit : 0;
 
-// 	}catch(err){
-// 		logUtil.error(err, req);
-//         return res.json({
-// 	    	state: 0,
-// 	    	msg: langConfig(req).resMsg.error
-// 	    })   
-// 	}
-// }
+        let queryCriteria = { //员工列表查询条件
+           limit: limit,
+           offset: offset
+        }
+
+        //如果要根据部门查询
+        if(departmentId){
+           queryCriteria.departmentId = parseInt(departmentId);
+        }
+
+        //如果要根据角色查询
+        if(roleId){
+           queryCriteria.roleId = parseInt(roleId);
+        }
+
+        async.series({
+            //员工列表
+            employeeList: cb => {
+                ProxyFunc.Employee.getEmployeeList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有员工总数
+            allEmployeeCount: cb => {
+                ProxyFunc.Employee.allEmployeeCount((err, result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部角色列表
+            allRoleList: cb => {
+                ProxyFunc.Role.getRoleList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部部门列表
+            allDepartmentList: cb => {
+                ProxyFunc.Department.getDepartmentList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('employees',{
+               employeeList: results.employeeList,
+               departmentList: results.allDepartmentList,
+               roleList: results.allRoleList,
+               allEmployeeCount: results.allEmployeeCount
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+
+
+
+/**
+ * 根据条件分页获取员工列表
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.getEmployeeList = (req, res, next) => {
+  try{
+        let { pageNow, pageSize, departmentId, roleId } = req.query;
+        let limit = pageSize ? parseInt(pageSize) : 10;
+        let offset = pageNow ? parseInt(pageNow) * limit : 0;
+
+        let queryCriteria = { //员工列表查询条件
+           limit: limit,
+           offset: offset
+        }
+
+        //如果要根据部门查询
+        if(departmentId){
+           queryCriteria.departmentId = parseInt(departmentId);
+        }
+
+        //如果要根据角色查询
+        if(roleId){
+           queryCriteria.roleId = parseInt(roleId);
+        }
+
+        async.series({
+            //员工列表
+            employeeList: cb => {
+                ProxyFunc.Employee.getEmployeeList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有员工总数
+            allEmployeeCount: cb => {
+                ProxyFunc.Employee.allEmployeeCount((err, result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.employeeList, //查询的员工列表
+                allEmployeeCount: results.allEmployeeCount  //所有员工总数
+              }
+            }) 
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.json({
+          state: 0,
+          msg: langConfig(req).resMsg.error
+        })
+    }
+}
+
+
+
+
+
+
+
+
+/**
+ * 添加员工
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.addEmployee = (req, res, next) => {
+    try{
+      let { username, password, departmentId, roleId, positionId } = req.body;
+
+      let paramObj = {
+           username: username,  //用户名
+           password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
+           departmentId: departmentId,  //部门id
+           roleId: roleId,  //角色id
+           positionId: positionId,  //职位id
+           status: 1  //用户状态
+      }
+       
+    }catch(err){
+      logUtil.error(err, req);
+        return res.json({
+        state: 0,
+        msg: langConfig(req).resMsg.error
+      })  
+    }
+}
+
+
 
 
 
@@ -135,51 +305,51 @@ exports.addEmployee = (req, res, next) => {
     try{
         let { username, password, departmentId, roleId, positionId } = req.body;
 
-    	let paramObj = {
+      let paramObj = {
            username: username,  //用户名
            password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
            positionId: positionId,  //职位id
            status: 1  //用户状态
-    	}
+      }
         //先判断用户是否存在
-    	Employee.findOne({
-    		where: { username: username},
-	 	    order: [['id', 'DESC']]
-	 	  })
+      Employee.findOne({
+        where: { username: username},
+        order: [['id', 'DESC']]
+      })
       .then(result => {
-	 		    if(result) {
-	    		    return res.json({
-	    			    state: 0,
-	    			    msg: langConfig(req).resMsg.hasUser
-	    		    })
-	    	  }
-	    	  Employee.create(paramObj).then(user => {
+          if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasUser
+              })
+          }
+          Employee.create(paramObj).then(user => {
                 res.json({
-	    	        state: 1,
-	    	        msg: langConfig(req).resMsg.success
-	            }) 
+                state: 1,
+                msg: langConfig(req).resMsg.success
+              }) 
           }).catch(err => {
               logUtil.error(err, req);
                 return res.json({
-	    	            state: 0,
-	    	            msg: langConfig(req).resMsg.error
-	                })   
+                    state: 0,
+                    msg: langConfig(req).resMsg.error
+                  })   
           }) 
-	 	  }).catch(err => {
+      }).catch(err => {
           logUtil.error(err, req);
            return res.json({
-	    	        state: 0,
-	    	        msg: langConfig(req).resMsg.error
-	           })   
+                state: 0,
+                msg: langConfig(req).resMsg.error
+             })   
       }) 
     }catch(err){
-    	logUtil.error(err, req);
+      logUtil.error(err, req);
         return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })  
+        state: 0,
+        msg: langConfig(req).resMsg.error
+      })  
     }
 }
 
@@ -199,36 +369,36 @@ exports.editBasicInfo = (req, res, next) => {
 
         id = parseInt(id)
 
-    	let paramObj = {
+      let paramObj = {
            username: username,  //用户名
            password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
            positionId: positionId//职位id
-    	}
+      }
 
-    	Employee.update(paramObj,{
-    		where: {
-    			id: id
-    		}
-    	}).then(result => {
+      Employee.update(paramObj,{
+        where: {
+          id: id
+        }
+      }).then(result => {
             res.json({
-	    	       state: 1,
-	    	       msg: langConfig(req).resMsg.success
-	          }) 
-    	}).catch(err => {
-    		logUtil.error(err, req);
+               state: 1,
+               msg: langConfig(req).resMsg.success
+            }) 
+      }).catch(err => {
+        logUtil.error(err, req);
         return res.json({
-	    	    state: 0,
-	    	    msg: langConfig(req).resMsg.error
-	        }) 
-    	})
+            state: 0,
+            msg: langConfig(req).resMsg.error
+          }) 
+      })
     }catch(err){
-    	logUtil.error(err, req);
+      logUtil.error(err, req);
         return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })  
+        state: 0,
+        msg: langConfig(req).resMsg.error
+      })  
     }
 }
 
@@ -426,68 +596,13 @@ exports.editPersonalInfo = (req, res, next) => {
         })
 
     }catch(err){
-    	logUtil.error(err, req);
+      logUtil.error(err, req);
         return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })  
+        state: 0,
+        msg: langConfig(req).resMsg.error
+      })  
     }
 }
-
-
-
-
-
-
-/**
- * 分页获取员工列表
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-exports.getEmployeeList = (req, res, next) => {
-    try{
-    	let { pageNow,pageSize } = req.query;
-        let limit = pageSize ? parseInt(pageSize) : 20;
-        let offset = pageNow ? parseInt(pageNow) * limit : 0;
-        Employee.findAndCountAll({
-           attributes: ['id','username','password','status'],
-           order: [['id', 'DESC']],
-           include: [
-           {
-               model: Role,
-               attributes: ['id','name']
-           },{
-           	   model: Department,
-               attributes: ['id','name']
-           },{
-           	   model: EmployeeInfo,
-               attributes: ['id','name','phone']
-           }]
-        }).then(result => {
-            res.json({
-	    	      state: 1,
-	    	      msg: langConfig(req).resMsg.success,
-	    	      data: result
-	          })
-        }).catch(err => {
-           logUtil.error(err, req);
-           return res.json({
-	    	            state: 0,
-	    	            msg: langConfig(req).resMsg.error
-	                })   
-        })
-    }catch(err){
-        logUtil.error(err, req);
-        return res.json({
-	    	          state: 0,
-	    	          msg: langConfig(req).resMsg.error
-	             })
-    }
-}
-
-
 
 
 
@@ -507,35 +622,31 @@ exports.resetPassword = (req, res, next) => {
         let updateList = [];
         Employee.update({password:service.encrypt('111111', staticSetting.encrypt_key)},{
            where: {
-           	   id: idList
+               id: idList
            }
         })
         .then(result => {
-        	res.json({
-	    	    state: 1,
-	    	    msg: langConfig(req).resMsg.success
-	        })
+          res.json({
+            state: 1,
+            msg: langConfig(req).resMsg.success
+          })
         })
         .catch(err => {
-        	  logUtil.error(err, req);
+            logUtil.error(err, req);
             return res.json({
-	    	              state: 0,
-	    	              msg: langConfig(req).resMsg.error
-	                 })
-	    })
+                      state: 0,
+                      msg: langConfig(req).resMsg.error
+                   })
+      })
 
     }catch(err){
         logUtil.error(err, req);
         return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	      })
+          state: 0,
+          msg: langConfig(req).resMsg.error
+        })
     }
 }
-
-
-
-
 
 
 

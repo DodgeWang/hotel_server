@@ -79,9 +79,6 @@ router.get('/logOut', Employee.logOut);
 
 
 
-
-
-
 //添加员工
 router.post('/employee/add', Employee.addEmployee);
 
