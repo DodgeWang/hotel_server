@@ -1,6 +1,8 @@
 let { logUtil, service, dataUtil} = require("../utils");
 let { Department } = require('../models');
+let ProxyFunc = require('../proxy');
 const staticSetting = require("../config/staticSetting");
+const async = require('async'); 
 let { langConfig } = require("../config/lang_config");
 
 
@@ -138,32 +140,53 @@ exports.getDepartmentList = (req, res, next) => {
 	try{      
         let { pageNow, pageSize } = req.query;
 
-		let queryConfig = {
-			attributes: ['id','name'],
-			order: [['id', 'DESC']]
-		}
-		//如果有页数和条数限制
-		if(pageSize && pageNow ){
-			let limit = parseInt(pageSize);
-            let offset = (parseInt(pageNow)-1) * limit;
-            queryConfig.limit = limit;
-            queryConfig.offset = offset;
-		}
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		Department.findAndCountAll(queryConfig)
-		.then(result => {
-              res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: result
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+		let queryCriteria = { //获取部门列表查询条件
+           limit: limit,
+           offset: offset
+        }
+
+        async.series({
+            //部门列表
+            departmentList: cb => {
+                ProxyFunc.Department.getDepartmentList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有部门总数
+            allDepartmentCount: cb => {
+                ProxyFunc.Department.allDepartmentCount((err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.departmentList, //查询的部门列表
+                allDataCount: results.allDepartmentCount  //所有符合条件部门总数
+              }
+            }) 
         });
+
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({

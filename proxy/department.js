@@ -9,19 +9,20 @@ let { Department } = require('../models');
  */
 exports.getDepartmentList = (queryCriteria,cb) => {
 	try{      
+		console.log(queryCriteria)
 		let queryObj = {
 			attributes: ['id','name'],
 			order: [['id', 'DESC']]
 		}
 		// 如果有页数和条数限制
-		if(queryCriteria.limit && queryCriteria.offset){
-            queryObj.limit = queryCriteria.limit;
-            queryObj.offset = queryCriteria.offset;
-		}
+        queryObj.limit = queryCriteria.limit;
+        queryObj.offset = queryCriteria.offset;
+
 
 		Department.findAll(queryObj)
 		.then(result => {
             cb(null,result)
+
         })
         .catch(err => {
 	        cb(err,null)   
@@ -30,3 +31,29 @@ exports.getDepartmentList = (queryCriteria,cb) => {
 		cb(err,null)   
 	}
 }
+
+
+
+/**
+ * 查询所有部门总数
+ * @param  {Function} cb the next func
+ * @return {null}     
+ */
+ exports.allDepartmentCount = cb => {
+    try{
+        let queryObj = {
+            order: [['id', 'DESC']],
+            where: {}
+        }
+
+        Department.count(queryObj)
+        .then(result => {
+            cb(null,result)
+        })
+        .catch(err => {
+            cb(err,null)
+        })
+    }catch(err){
+        cb(err,null)
+    }
+ }

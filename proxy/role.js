@@ -18,10 +18,8 @@ exports.getRoleList = (queryCriteria,cb) => {
 			}]
 		}
 		// 如果有页数和条数限制
-		if(queryCriteria.limit && queryCriteria.offset){
-            queryObj.limit = queryCriteria.limit;
-            queryObj.offset = queryCriteria.offset;
-		}
+        queryObj.limit = queryCriteria.limit;
+        queryObj.offset = queryCriteria.offset;
 
 		Role.findAll(queryObj)
 		.then(result => {
@@ -34,4 +32,31 @@ exports.getRoleList = (queryCriteria,cb) => {
 		cb(err,null)   
 	}
 }
+
+
+
+
+/**
+ * 查询所有角色总数
+ * @param  {Function} cb the next func
+ * @return {null}     
+ */
+ exports.allRoleCount = cb => {
+    try{
+        let queryObj = {
+            order: [['id', 'DESC']],
+            where: {}
+        }
+
+        Role.count(queryObj)
+        .then(result => {
+            cb(null,result)
+        })
+        .catch(err => {
+            cb(err,null)
+        })
+    }catch(err){
+        cb(err,null)
+    }
+ }
 

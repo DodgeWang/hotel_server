@@ -200,7 +200,7 @@ exports.getEmployeeList = (req, res, next) => {
               msg: langConfig(req).resMsg.success,
               data: {
                 datalist: results.employeeList, //查询的员工列表
-                allEmployeeCount: results.allEmployeeCount,  //所有符合条件员工总数
+                allDataCount: results.allEmployeeCount,  //所有符合条件员工总数
               }
             }) 
         });

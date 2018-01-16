@@ -1,6 +1,7 @@
 let { logUtil, service, dataUtil} = require("../utils");
 let { Role, RolePower } = require('../models');
 let ProxyFunc = require('../proxy');
+const async = require('async');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
 
@@ -241,35 +242,55 @@ exports.getRoleList = (req, res, next) => {
 	try{      
         let { pageNow, pageSize } = req.query;
 
-		let queryConfig = {
-			attributes: ['id','name','describe'],
-			order: [['id', 'DESC']],
-			include: [{
-				model: RolePower,
-				attributes: ['id','powerCode']
-			}]
-		}
-		//如果有页数和条数限制
-		if(pageSize && pageNow ){
-			let limit = parseInt(pageSize);
-            let offset = (parseInt(pageNow)-1) * limit;
-            queryConfig.limit = limit;
-            queryConfig.offset = offset;
-		}
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		Role.findAll(queryConfig).then(result => {
-              res.json({
-	    	    state: 1,
-	    	    msg: langConfig(req).resMsg.success,
-	    	    data: result
-	          }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+		let queryCriteria = { //获取部门列表查询条件
+           limit: limit,
+           offset: offset
+        }
+
+
+
+        async.series({
+            //角色列表
+            roleList: cb => {
+                ProxyFunc.Role.getRoleList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有角色总数
+            allRoleCount: cb => {
+                ProxyFunc.Role.allRoleCount((err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.roleList, //查询的角色列表
+                allDataCount: results.allRoleCount  //所有角色总数
+              }
+            }) 
         });
+
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
