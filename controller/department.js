@@ -143,7 +143,7 @@ exports.getDepartmentList = (req, res, next) => {
         let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		let queryCriteria = { //获取部门列表查询条件
+		    let queryCriteria = { //获取部门列表查询条件
            limit: limit,
            offset: offset
         }

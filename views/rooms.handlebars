@@ -1,3 +1,8 @@
+{{#section 'head'}}
+    <link href="/assets/css/newStyle.css" rel="stylesheet">
+{{/section}}
+
+
 <div class="right_col">
           <div>
             <div class="row">
@@ -22,32 +27,54 @@
 
                     <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"  style="overflow: visible;">
                       <div class="row">
-                          <div class="col-sm-6">
+                          <div class="col-sm-12">
                               <div class="dataTables_length" style="width: auto;">
                                   <label>
-                                     分类 
-                                     <select name="datatable_length" class="form-control input-sm">
-                                         <option value="">全部</option>
-                                         <option value="">大床房</option>
-                                         <option value="">标间</option>
-                                         <option value="">豪华套房</option>
-                                         <option value="">商务间</option>
+                                     类型 
+                                     <select name="datatable_length" id="typeSelect" class="form-control input-sm">
+                                         <option value="0">全部</option>
+                                         {{#each roomTypeList}}
+                                         <option value={{id}}>{{name}}</option>
+                                         {{/each}}
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     入住状态 
+                                     <select name="datatable_length" id="isCheckInSelect" class="form-control input-sm">
+                                         <option value="-1">全部</option>
+                                         <option value="1">已入住</option>
+                                         <option value="0">空置</option>
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     清洁状态 
+                                     <select name="datatable_length" id="isCleanSelect" class="form-control input-sm">
+                                         <option value="-1">全部</option>
+                                         <option value="1">已打扫</option>
+                                         <option value="0">未打扫</option>
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     显示条数 
+                                     <select name="datatable_length" id="pageSizeSelect" class="form-control input-sm">
+                                         <option value="15">15</option>
+                                         <option value="20">20</option>
+                                         <option value="25">25</option>
+                                         <option value="30">30</option>
                                      </select>
                                    </label>
                                </div>
                           </div>
                           
-                          <div class="col-sm-6">
-                              <div id="datatable_filter" class="dataTables_filter">
-                                  <label>
-                                     Search:
-                                     <input type="search" class="form-control input-sm" placeholder="">
-                                  </label>
-                              </div>
-                          </div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="min-height:120px;">
                             <table class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
@@ -66,86 +93,46 @@
                                     </tr>
                                 </thead>
       
-                                <tbody>
-                                    <tr class="even pointer">
-                                      <td class="a-center ">
-                                        <input type="checkbox" class="flat" name="table_records">
-                                      </td>
-                                      <td>101</td>
-                                      <td>大床房</td>
-                                      <td>
-                                      	<button type="button" class="btn btn-primary btn-xs">已入住</span>
-                                      </td>
-                                      <td>
-                                      	<button type="button" class="btn btn-success btn-xs">已打扫</button>
-                                      </td>
-                                      <td style="position: relative;">
-                                        <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                      </td>
-                                    </tr>
-                                    
-                                    <tr class="odd pointer">
-                                      <td class="a-center ">
-                                        <input type="checkbox" class="flat" name="table_records">
-                                      </td>
-                                      <td>102</td>
-                                      <td>标间</td>
-                                      <td>
-                                      	<button type="button" class="btn btn-success btn-xs">空置</button>
-                                      </td>
-                                      <td>
-                                        <button type="button" class="btn btn-danger btn-xs">未打扫</button>
-                                      </td>
-                                      <td style="position: relative;">
-                                        <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                      </td>
-                                    </tr>
-                                    
+                                <tbody id="datalistBox">
+                                  
                                 </tbody>
                             </table>
+                            <div id="loadingBox" class="loadingBox_wdq">
+                                <div class="spinner">
+                                  <div class="rect1"></div>
+                                  <div class="rect2"></div>
+                                  <div class="rect3"></div>
+                                  <div class="rect4"></div>
+                                  <div class="rect5"></div>
+                                </div>
+                            </div>
+                            <div class="noDataBox_wdq" id="noDataBox">
+                                <p>暂时没有数据</p>
+                            </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info">Showing 1 to 20 of 60 entries</div>
+                            <div class="dataTables_info">总页数<span id="pageTotle"></span> 总条数<span id="dataTotle"></span></div>
                         </div>
                         <div class="col-sm-7">
                             <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                                <ul class="pagination" style="margin: 0px">
-                                    <li class="paginate_button previous disabled">
-                                       <a href="#">Previous</a>
-                                    </li>
-                                    <li class="paginate_button active">
-                                       <a href="#">1</a>
-                                    </li>
-                                    <li class="paginate_button">
-                                       <a href="#">2</a>
-                                    </li>
-                                    <li class="paginate_button ">
-                                       <a href="#">3</a>
-                                    </li>
-                                    <li class="paginate_button">
-                                       <a href="#">4</a>
-                                    </li>
-                                    <li class="paginate_button ">
-                                       <a href="#">5</a>
-                                    </li>
-                                    <li class="paginate_button next">
-                                       <a href="#">Next</a>
-                                    </li>
+                                <ul class="pagination" style="margin: 0px" id="paginationBox">
+                                    
                                 </ul>
                             </div>
                         </div>
                       </div>
 
                     </div>
-							
-						
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+
+{{#section 'script'}}
+    <script type="text/javascript" src="/assets/js/controller/rooms.js"></script>
+{{/section}}

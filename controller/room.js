@@ -2,6 +2,8 @@ let { logUtil, service, dataUtil} = require("../utils");
 let { RoomType, RoomInfo,RoomArticle } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
+let ProxyFunc = require('../proxy');
+const async = require('async');
 
 
 
@@ -84,6 +86,10 @@ exports.addRoomType = (req, res, next) => {
 
 
 
+
+
+
+
 /**
  * 获取房间类型列表
  * @param  {object}   req  the request object
@@ -92,35 +98,55 @@ exports.addRoomType = (req, res, next) => {
  * @return {null}     
  */
 exports.getRoomTypeList = (req, res, next) => {    	
-	try{	
+	try{
 	    let { pageNow, pageSize } = req.query;
 
-        let queryConfig = {
-			attributes: ['id','name'],
-			order: [['id', 'DESC']]
-		}
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-        //如果有页数和条数限制
-		if(pageSize && pageNow ){
-			let limit = parseInt(pageSize);
-            let offset = (parseInt(pageNow)-1) * limit;
-            queryConfig.limit = limit;
-            queryConfig.offset = offset;
-		}
+		let queryCriteria = { //获取部门列表查询条件
+           limit: limit,
+           offset: offset
+        }
 
-		RoomType.findAndCountAll(queryConfig).then(result => { 
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: result
-	        })
-	    }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+        async.series({
+            //查询的房间类型列表
+            roomTypeList: cb => {
+                ProxyFunc.Room.getRoomTypeList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有房间类型总数
+            allRoomTypeCount: cb => {
+                ProxyFunc.Room.allRoomTypeCount((err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.roomTypeList, //查询的房间类型列表
+                allDataCount: results.allRoomTypeCount  //所有房间类型总数
+              }
+            }) 
+        });	
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -186,43 +212,70 @@ exports.editRoomType = (req, res) => {
  */
 exports.getRoomList = (req, res, next) => {    	
 	try{
-		let { pageSize,pageNow } = req.query;
-		let limit = pageSize ? parseInt(pageSize) : 20;
+		let { pageNow, pageSize, typeId, status, cleanStatus } = req.query;
+
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		RoomInfo.findAll({
-			// attributes: ['id','number','status','cleanStatus'],	    
-			order: [['id', 'DESC']],
-			limit: limit,
-			offset: offset,
-			include:[{
-				model: RoomType,
-				attributes: ['id','name']
-			}
-			,{
-				model: RoomArticle,
-				as: 'articles',
-				attributes: ['id','name','isCheck','isClean'],
-				through: {
-					attributes: []
-				}
-			  }
-			],
+		let queryCriteria = { //获取部门列表查询条件
+           limit: limit,
+           offset: offset
+        }
 
-			
-		}).then(result => { 
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: result
-	        })
-	    }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+        //如果要根据房间类型查询
+        if(typeId){
+           queryCriteria.typeId = parseInt(typeId);
+        }
+
+        //如果要根据入住状态查询
+        if(status){
+           queryCriteria.status = parseInt(status);
+        }
+
+        //如果要根据保洁状态查询
+        if(cleanStatus){
+           queryCriteria.cleanStatus = parseInt(cleanStatus);
+        }
+
+        async.series({
+            //查询符合条件的房间列表
+            roomList: cb => {
+                ProxyFunc.Room.getRoomList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有符合条件的房间总数
+            allRoomCount: cb => {
+                ProxyFunc.Room.allRoomCount(queryCriteria,(err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.roomList, //查询的房间列表
+                allDataCount: results.allRoomCount  //所有符合条件的房间总数
+              }
+            }) 
+        });	
+		
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -389,6 +442,49 @@ exports.addRoom = (req, res, next) => {
  }
 
 
+
+
+
+
+
+
+
+/**
+ * 房间管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_Rooms = (req, res, next) => {
+    try{
+        async.series({
+            //全部房间类型列表
+            allTypeList: cb => {
+                ProxyFunc.Room.getRoomTypeList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('rooms',{
+               roomTypeList: results.allTypeList, //所有房间列表
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
 
 
 

@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { Employee } = require('../controller');
+const { Employee, Room } = require('../controller');
 const _ = require('lodash');
 let langConfig = {};
 
@@ -54,9 +54,10 @@ router.get('/roles', (req, res) => {
 });
 
 //客房管理页面
-router.get('/rooms', checkUserSession, (req, res) => {
-	res.render('rooms');
-});
+// router.get('/rooms', checkUserSession, (req, res) => {
+// 	res.render('rooms');
+// });
+router.get('/rooms', Room.page_Rooms);
 
 //客房类型管理页面
 router.get('/roomtypes', (req, res) => {

@@ -23,12 +23,12 @@
 
                     <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"  style="overflow: visible;">
                       <div class="row">
-                          <div class="col-sm-6">
+                          <div class="col-sm-12">
                               <div class="dataTables_length" style="width: auto;">
                                   <label>
                                      部门 
                                      <select name="datatable_length" id="departmentSelect" class="form-control input-sm">
-                                         <option value="">全部</option>
+                                         <option value="0">全部</option>
                                          {{#each departmentList}}
                                          <option value={{id}}>{{name}}</option>
                                          {{/each}}
@@ -39,7 +39,7 @@
                                   <label>
                                      角色 
                                      <select name="datatable_length" id="roleSelect" class="form-control input-sm">
-                                         <option value="">全部</option>
+                                         <option value="0">全部</option>
                                          {{#each roleList}}
                                          <option value={{id}}>{{name}}</option>
                                          {{/each}}
@@ -69,14 +69,6 @@
                                </div>
                           </div>
                           
-                          <div class="col-sm-6">
-                              <div id="datatable_filter" class="dataTables_filter">
-                                  <label>
-                                     Search:
-                                     <input type="search" class="form-control input-sm" placeholder="">
-                                  </label>
-                              </div>
-                          </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-12" style="min-height:120px;">

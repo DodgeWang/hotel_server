@@ -2,6 +2,8 @@ let { logUtil, service, dataUtil} = require("../utils");
 let { RoomArticle } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
+let ProxyFunc = require('../proxy');
+const async = require('async'); 
 
 
 /**
@@ -190,33 +192,54 @@ exports.deleteArticle = (req, res, next) => {
 exports.getArticleList = (req, res, next) => {    	
 	try{	
 
-	    let { pageNow,pageSize } = req.query;
+		let { pageNow, pageSize } = req.query;
 
-        let queryConfig = {
-			attributes: ['id','name','isCheck','isClean'],
-			order: [['id', 'DESC']]
-		}
-        //如果有页数和条数限制
-		if(pageSize && pageNow ){
-			let limit = parseInt(pageSize);
-            let offset = (parseInt(pageNow)-1) * limit;
-            queryConfig.limit = limit;
-            queryConfig.offset = offset;
-		}
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		RoomArticle.findAndCountAll(queryConfig).then(result => { 
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success,
-	    	  data: result
-	        })
-	    }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+		let queryCriteria = { //获取物品列表查询条件
+           limit: limit,
+           offset: offset
+        }
+
+        async.series({
+            //查询的物品列表
+            articleList: cb => {
+                ProxyFunc.RoomArticle.getRoomArticleList(queryCriteria, (err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //所有物品总数
+            allArticleCount: cb => {
+                ProxyFunc.RoomArticle.allRoomArticleCount((err,result) => {
+                    if(err){
+                       return cb(err,null)
+                    }
+                    cb(null,result)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.articleList, //查询的物品列表
+                allDataCount: results.allArticleCount  //所有符合条件物品总数
+              }
+            }) 
+        });
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
