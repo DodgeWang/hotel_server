@@ -36,10 +36,28 @@ exports.addRole = (req, res, next) => {
                model: RolePower
             }]
 		}).then(role => {
-            res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
+            var newArray = [];
+            for(var i = 0; i < powerList.length; i++){
+               newArray.push({
+                  roleId: role.id,
+                  powerCode: powerList[i]
+               })
+            }
+            RolePower.bulkCreate(newArray)
+            .then(result => {
+                res.json({
+                  state: 1,
+                  msg: langConfig(req).resMsg.success
+                }) 
+            }).catch(err => {
+               logUtil.error(err, req);
+               return res.json({
+                  state: 0,
+                  msg: langConfig(req).resMsg.error
+               })   
+            });
+
+            
         }).catch(err => {
 	       logUtil.error(err, req);
            return res.json({

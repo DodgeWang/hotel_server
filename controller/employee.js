@@ -24,11 +24,23 @@ exports.loginAction = (req, res, next) => {
         }
 
       Employee.findOne({
-        attributes: ['username','password','roleId'],
+        attributes: ['username','password','roleId','status'],
         where: userObj,
-        order: [['id', 'DESC']]
+        order: [['id', 'DESC']],
+        include: [
+            {
+                model: Role,
+                attributes: ['id','name']
+            },{
+                model: Department,
+                attributes: ['id','name']
+            },{
+                model: EmployeeInfo,
+                attributes: ['id','name','phone']
+            }]
       })
       .then(result => {
+        console.log(result)
         if(!result) {
           return res.json({
             state: 0,
@@ -36,15 +48,17 @@ exports.loginAction = (req, res, next) => {
           })
         }
 
-            req.session.userInfo = result.dataValues;
-            result.dataValues.powerList = [2001,3002];
-            // req.session.LANG = 2;
+
+        req.session.userInfo = result.toJSON();
+        
+        // result.dataValues.powerList = [2001,3002];
+        req.session.LANG = 2;
         res.json({
           state: 1,
           msg: langConfig(req).resMsg.success
         })
 
-        })
+      })
       .catch(err => {
           logUtil.error(err, req);
           return res.json({
@@ -94,6 +108,7 @@ exports.logOut = (req, res, next) => {
  */
 exports.page_Employees = (req, res, next) => {
     try{
+      console.log('个人信息：',req.session.userInfo)
         async.series({
             //全部角色列表
             allRoleList: cb => {

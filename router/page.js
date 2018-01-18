@@ -36,7 +36,7 @@ router.get('/login', (req, res) => {
 });
 
 //员工管理页面
-router.get('/employees', Employee.page_Employees);
+router.get('/employees', checkUserSession, Employee.page_Employees);
 
 //创建员工页面
 router.get('/employees/create', (req, res) => {
@@ -48,9 +48,19 @@ router.get('/departments', (req, res) => {
 	res.render('departments');
 });
 
+//创建部门页面
+router.get('/departments/create', (req, res) => {
+	res.render('createDepartment');
+});
+
 //角色管理页面
 router.get('/roles', (req, res) => {
 	res.render('roles');
+});
+
+//创建角色页面
+router.get('/roles/create', (req, res) => {
+	res.render('createRole');
 });
 
 //客房管理页面
@@ -62,6 +72,11 @@ router.get('/rooms', Room.page_Rooms);
 //客房类型管理页面
 router.get('/roomtypes', (req, res) => {
 	res.render('roomTypes');
+});
+
+//创建客房类型页面
+router.get('/roomtypes/create', (req, res) => {
+	res.render('createRoomType');
 });
 
 //物品管理页面
