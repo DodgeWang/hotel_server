@@ -38,7 +38,31 @@ $(function(){
     	changTable(pageNow); 
     })
 
+
+    //删除物品
+    $('#datalistBox').on('click','.delInfoBtn',function(){
+        if(confirm("是否确认删除?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/roomarticle/delete",paramObj,function(obj){
+                if(obj.state == 1){
+                  window.location.replace("/admin/articles");
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+            
+    })
+
     
+
+
+
+
+
 
 
 /**
@@ -59,7 +83,6 @@ function changTable(pageNow){
 			"/api/roomarticle/list",
 			paramObj,
 			function(result){
-               console.log(result)
                var newDom = '';
                var dataList = result.data.datalist; //当前页数据
                dataAllTotle = result.data.allDataCount; //所有符合条件数据总数
@@ -93,8 +116,8 @@ function changTable(pageNow){
                                            <td>'+ isCheckDom +'</td>\
                                            <td>'+ isCleanDom +'</td>\
                                            <td style="position: relative;">\
-                                             <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
+                                             <a href= href="/admin/articles/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                             <a class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
                                            </td>\
                                          </tr>'
                           newDom += itermDom;
@@ -119,6 +142,14 @@ function changTable(pageNow){
             }
         );
 	}
+
+
+
+
+
+
+
+
 
 
 

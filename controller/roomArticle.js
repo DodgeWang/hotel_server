@@ -23,18 +23,43 @@ exports.addArticle = (req, res, next) => {
         	isClean: isClean
         }
 
-		RoomArticle.create(paramObj).then(result => { 
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
+        RoomArticle.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+            if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRoomArticle
+              })
+            }
+            RoomArticle.create(paramObj)
+		    .then(result => { 
+		        res.json({
+	    	      state: 1,
+	    	      msg: langConfig(req).resMsg.success
+	            })
 	        })
-	    }).catch(err => {
+	        .catch(err => {
+	           logUtil.error(err, req);
+               return res.json({
+	    	      state: 0,
+	    	      msg: langConfig(req).resMsg.error
+	           })  
+	        })
+
+        })
+        .catch(err => {
 	       logUtil.error(err, req);
            return res.json({
 	    	  state: 0,
 	    	  msg: langConfig(req).resMsg.error
 	       })  
 	    })
+
+
+
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -136,9 +161,8 @@ exports.getArticleById = (req, res, next) => {
 
 
 
-
 /**
- * 批量删除物品
+ * 根据物品id删除物品
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -146,12 +170,11 @@ exports.getArticleById = (req, res, next) => {
  */
 exports.deleteArticle = (req, res, next) => {
 	try{      
-		let ids = req.body.ids;
-        let idList = dataUtil.strToArray(ids);
+		let id = req.body.id;
 		
 		RoomArticle.destroy({
 			where: {
-				id: idList
+				id: id
 			}
 		}).then(result => {
             res.json({
@@ -173,6 +196,44 @@ exports.deleteArticle = (req, res, next) => {
 	    })   
 	}
 }
+
+
+/**
+ * 批量删除物品
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+// exports.deleteArticle = (req, res, next) => {
+// 	try{      
+// 		let ids = req.body.ids;
+//         let idList = dataUtil.strToArray(ids);
+		
+// 		RoomArticle.destroy({
+// 			where: {
+// 				id: idList
+// 			}
+// 		}).then(result => {
+//             res.json({
+// 	    	  state: 1,
+// 	    	  msg: langConfig(req).resMsg.success
+// 	        }) 
+//         }).catch(err => {
+// 	       logUtil.error(err, req);
+//            return res.json({
+// 	    	  state: 0,
+// 	    	  msg: langConfig(req).resMsg.error
+// 	       })   
+//         });
+// 	}catch(err){
+// 		logUtil.error(err, req);
+//         return res.json({
+// 	    	state: 0,
+// 	    	msg: langConfig(req).resMsg.error
+// 	    })   
+// 	}
+// }
 
 
 

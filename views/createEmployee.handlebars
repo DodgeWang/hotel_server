@@ -1,65 +1,66 @@
-        <div class="right_col">
-          <div>
-            <div class="row">
-              <div class="clearfix"></div>
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>添加员工 <small>different form elements</small></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">密码 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="password" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">部门</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>保洁部</option>
-                            <option>人事部</option>
-                            <option>维修部</option>
-                            <option>检查部</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">角色</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>角色1</option>
-                            <option>角色2</option>
-                            <option>角色3</option>
-                            <option>角色4</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						              <button class="btn btn-primary" type="reset">重置</button>
-                          <button type="submit" class="btn btn-success">提交</button>
-                        </div>
-                      </div>
-                    </form>
- 
-                  </div>
+<div class="right_col">
+  <div>
+    <div class="row">
+      <div class="clearfix"></div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>添加员工 <small>different form elements</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div class="form-horizontal form-label-left" id="formBox">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">密码 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="password" required="required" class="form-control col-md-7 col-xs-12"  name="password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">部门</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="departmentSelect">
+                    {{#each departmentList}}
+                        <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">角色</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="roleSelect">
+                    {{#each roleList}}
+                        <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						      <button class="btn btn-primary" type="reset">Reset</button>
+                  <button class="btn btn-success" id="submitBtn">Submit</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#section 'script'}}
+    <script type="text/javascript" src="/assets/js/controller/createEmployee.js"></script>
+{{/section}}

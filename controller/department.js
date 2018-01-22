@@ -21,18 +21,40 @@ exports.addDepartment = (req, res, next) => {
         let paramObj = {
         	name: name
         }
-		Department.create(paramObj).then(result => {
-            res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+        Department.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+           if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasDepartment
+              })
+           }
+           Department.create(paramObj)
+           .then(obj => {
+              res.json({
+                 state: 1,
+                 msg: langConfig(req).resMsg.success
+              }) 
+            })
+           .catch(err => {
+             logUtil.error(err, req);
+                return res.json({
+                  state: 0,
+                  msg: langConfig(req).resMsg.error
+                })   
+            });
+        })
+        .catch(err => {
+          logUtil.error(err, req);
+            return res.json({
+              state: 0,
+              msg: langConfig(req).resMsg.error
+            })   
         });
+		    
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -55,26 +77,48 @@ exports.addDepartment = (req, res, next) => {
  */
 exports.editDepartment = (req, res, next) => {
 	try{
-        let { id, name } = req.body;
+    let { id, name } = req.body;
+    let paramObj = {
+      name: name
+    }
 
-        let paramObj = {
-        	name: name
+    Department.findOne({
+      where: { name: name},
+      order: [['id', 'DESC']]
+    })
+    .then(result => {
+        if(result && result.dataValues.id != parseInt(id)) {
+          return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.hasDepartment
+          })
         }
-
-		Department.update(paramObj,{
-			where: {id: parseInt(id)}
-		}).then(result => {
+        Department.update(paramObj,{
+          where: {id: parseInt(id)}
+        })
+        .then(result => {
             res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
-        });
+              state: 1,
+              msg: langConfig(req).resMsg.success
+             }) 
+          })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+              state: 0,
+              msg: langConfig(req).resMsg.error
+            })   
+          });
+    })
+    .catch(err => {
+      logUtil.error(err, req);
+        return res.json({
+          state: 0,
+          msg: langConfig(req).resMsg.error
+        })   
+    });
+
+		    
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -88,7 +132,7 @@ exports.editDepartment = (req, res, next) => {
 
 
 /**
- * 批量删除部门
+ * 单个删除部门
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -96,25 +140,26 @@ exports.editDepartment = (req, res, next) => {
  */
 exports.deleteDepartment = (req, res, next) => {
 	try{      
-		let ids = req.body.ids;
-        let idList = dataUtil.strToArray(ids);
+		let id = req.body.id;
 		
 		Department.destroy({
 			where: {
-				id: idList
+				id: id
 			}
-		}).then(result => {
-            res.json({
+		})
+    .then(result => {
+       res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
+	     }) 
+    })
+    .catch(err => {
+	     logUtil.error(err, req);
+       return res.json({
 	    	  state: 0,
 	    	  msg: langConfig(req).resMsg.error
-	       })   
-        });
+	     })   
+    });
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -123,6 +168,47 @@ exports.deleteDepartment = (req, res, next) => {
 	    })   
 	}
 }
+
+
+
+/**
+ * 批量删除部门
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+// exports.deleteDepartment = (req, res, next) => {
+//   try{      
+//     let id = req.body.id;
+//     // let idList = dataUtil.strToArray(ids);
+    
+//     Department.destroy({
+//       where: {
+//         id: idList
+//       }
+//     })
+//     .then(result => {
+//        res.json({
+//           state: 1,
+//           msg: langConfig(req).resMsg.success
+//        }) 
+//     })
+//     .catch(err => {
+//        logUtil.error(err, req);
+//        return res.json({
+//           state: 0,
+//           msg: langConfig(req).resMsg.error
+//        })   
+//     });
+//   }catch(err){
+//     logUtil.error(err, req);
+//         return res.json({
+//         state: 0,
+//         msg: langConfig(req).resMsg.error
+//       })   
+//   }
+// }
 
 
 
@@ -194,6 +280,36 @@ exports.getDepartmentList = (req, res, next) => {
 	    	msg: langConfig(req).resMsg.error
 	    })   
 	}
+}
+
+
+
+
+
+/**
+ * 进入修改部门信息页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_EditDepartment = (req, res, next) => {
+  try{
+    let id = req.query.id;
+    Department.findById(id)
+    .then(result => {
+        res.render('editDepartment',{
+            data: result.dataValues
+        })
+    })
+    .catch(err => {
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});   
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
 }
 
 

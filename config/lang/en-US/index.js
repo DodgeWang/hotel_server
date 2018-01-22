@@ -12,6 +12,10 @@ module.exports = {
     	noPower: 'You do not have permission to access this interface',
     	paramError: 'param error',
     	hasUser: 'The user has already existed',
+        hasDepartment: 'The department has already existed',
+        hasRole: 'The role has already existed',
+        hasRoomType: 'The roomtype has already existed',
+        hasRoomArticle: 'The article has already existed',
         roomHasCheckIn: 'This room has been check-in by other people'
     }
 }

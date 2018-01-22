@@ -94,11 +94,11 @@ $(function(){
                                              <td class="a-center ">\
                                                <input type="checkbox" class="flat" name="table_records">\
                                              </td>\
-                                             <td>'+ itermDate.EmployeeInfo.name +'</td>\
+                                             <td>'+ (itermDate.EmployeeInfo ? itermDate.EmployeeInfo.name : '') +'</td>\
                                              <td>'+ itermDate.username +'</td>\
-                                             <td>'+ itermDate.Department.name +'</td>\
-                                             <td>'+ itermDate.Role.name +'</td>\
-                                             <td>'+ itermDate.EmployeeInfo.phone +'</td>\
+                                             <td>'+ (itermDate.Department ? itermDate.Department.name : '') +'</td>\
+                                             <td>'+ (itermDate.Role ? itermDate.Role.name : '') +'</td>\
+                                             <td>'+ (itermDate.EmployeeInfo ? itermDate.EmployeeInfo.phone : '') +'</td>\
                                              <td>\
                                                <button type="button" class="btn btn-success btn-xs">正常</button>\
                                              </td>\

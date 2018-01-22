@@ -22,18 +22,41 @@ exports.addRoomType = (req, res, next) => {
         	name: name
         }
 
-		RoomType.create(paramObj).then(roomtype => {
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        })
-	    }).catch(err => {
-	       logUtil.error(err, req);
+        RoomType.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+            if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRoomType
+              })
+            }
+            RoomType.create(paramObj)
+            .then(roomtype => {
+                res.json({
+                  state: 1,
+                  msg: langConfig(req).resMsg.success
+                })
+            })
+            .catch(err => {
+               logUtil.error(err, req);
+               return res.json({
+                  state: 0,
+                  msg: langConfig(req).resMsg.error
+               })  
+            })
+        })
+        .catch(err => {
+           logUtil.error(err, req);
            return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+              state: 0,
+              msg: langConfig(req).resMsg.error
+           })  
+        })
+
+		    
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -44,6 +67,44 @@ exports.addRoomType = (req, res, next) => {
 }
 
 
+/**
+ * 根据id删除房间类型
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.deleteRoomType = (req, res, next) => {
+  try{
+    let id = req.body.id;
+
+    RoomType.destroy({
+          where: {
+            id: id
+          }
+        })
+    .then(roomtype => {
+        res.json({
+          state: 1,
+          msg: langConfig(req).resMsg.success
+          })
+      })
+      .catch(err => {
+         logUtil.error(err, req);
+           return res.json({
+          state: 0,
+          msg: langConfig(req).resMsg.error
+         })  
+      })
+  }catch(err){
+    logUtil.error(err, req);
+        return res.json({
+        state: 0,
+        msg: langConfig(req).resMsg.error
+      })   
+  }
+ }
+
 
 /**
  * 批量删除房间类型
@@ -52,37 +113,37 @@ exports.addRoomType = (req, res, next) => {
  * @param  {Function} next the next func
  * @return {null}     
  */
- exports.deleteRoomType = (req, res, next) => {
- 	try{
-		let ids = req.body.ids;
-        let idList = dataUtil.strToArray(ids);
+ // exports.deleteRoomType = (req, res, next) => {
+ // 	try{
+	// 	let ids = req.body.ids;
+ //    let idList = dataUtil.strToArray(ids);
 
-		RoomType.destroy({
-        	where: {
-        		id: idList
-        	}
-        })
-		.then(roomtype => {
-		    res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        })
-	    })
-	    .catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
-	}catch(err){
-		logUtil.error(err, req);
-        return res.json({
-	    	state: 0,
-	    	msg: langConfig(req).resMsg.error
-	    })   
-	}
- }
+	// 	RoomType.destroy({
+ //        	where: {
+ //        		id: idList
+ //        	}
+ //        })
+	// 	.then(roomtype => {
+	// 	    res.json({
+	//     	  state: 1,
+	//     	  msg: langConfig(req).resMsg.success
+	//         })
+	//     })
+	//     .catch(err => {
+	//        logUtil.error(err, req);
+ //           return res.json({
+	//     	  state: 0,
+	//     	  msg: langConfig(req).resMsg.error
+	//        })  
+	//     })
+	// }catch(err){
+	// 	logUtil.error(err, req);
+ //        return res.json({
+	//     	state: 0,
+	//     	msg: langConfig(req).resMsg.error
+	//     })   
+	// }
+ // }
 
 
 
@@ -169,25 +230,47 @@ exports.getRoomTypeList = (req, res, next) => {
 exports.editRoomType = (req, res) => {
 	try{       
 		let id = parseInt(req.body.id);
-        let { name } = req.body;
-        let paramObj = {
-        	name: name
-        }
+    let { name } = req.body;
+    let paramObj = {
+      name: name
+    }
 
-		RoomType.update(paramObj,{
-			where: {id: id}
-		}).then(roomtype => {
+    RoomType.findOne({
+      where: { name: name},
+      order: [['id', 'DESC']]
+    })
+    .then(result => {
+        if(result && result.dataValues.id != id) {
+          return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.hasRoomType
+          })
+        }
+        RoomType.update(paramObj,{
+          where: {id: id}
+        })
+        .then(roomtype => {
             res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
-	       logUtil.error(err, req);
-           return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+              state: 1,
+              msg: langConfig(req).resMsg.success
+            }) 
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+              state: 0,
+              msg: langConfig(req).resMsg.error
+            })   
         });
+    })
+    .catch(err => {
+        logUtil.error(err, req);
+        return res.json({
+          state: 0,
+          msg: langConfig(req).resMsg.error
+        })   
+    });
+		
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -476,6 +559,47 @@ exports.page_Rooms = (req, res, next) => {
             }
             res.render('rooms',{
                roomTypeList: results.allTypeList, //所有房间列表
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+/**
+ * 进入编辑房间类型信息页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_EditRoomType = (req, res, next) => {
+    try{
+        let id = req.query.id;
+        async.series({
+            //根据id查询房间类型信息
+            roomTypeInfo: cb => {
+                RoomType.findById(id)
+                .then(result => {
+                    cb(null,result.dataValues)
+                })
+                .catch(err => {
+                    cb(err,null)   
+                });
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('editRoomType',{
+               data: results.roomTypeInfo, //查询的房间类型信息
             });
 
         });

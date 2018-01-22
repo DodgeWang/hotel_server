@@ -31,39 +31,62 @@ exports.addRole = (req, res, next) => {
         	describe: describe,
         	powerList: newPowerList
         }
-		Role.create(paramObj,{
-			include: [{
-               model: RolePower
-            }]
-		}).then(role => {
-            var newArray = [];
-            for(var i = 0; i < powerList.length; i++){
-               newArray.push({
-                  roleId: role.id,
-                  powerCode: powerList[i]
-               })
+
+        Role.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+            if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRole
+              })
             }
-            RolePower.bulkCreate(newArray)
-            .then(result => {
-                res.json({
-                  state: 1,
-                  msg: langConfig(req).resMsg.success
-                }) 
-            }).catch(err => {
-               logUtil.error(err, req);
-               return res.json({
-                  state: 0,
-                  msg: langConfig(req).resMsg.error
-               })   
+
+            Role.create(paramObj,{
+              include: [{
+                      model: RolePower
+                    }]
+            })
+            .then(role => {
+                var newArray = [];
+                for(var i = 0; i < powerList.length; i++){
+                  newArray.push({
+                      roleId: role.id,
+                      powerCode: powerList[i]
+                  })
+                }
+                RolePower.bulkCreate(newArray)
+                .then(result => {
+                    res.json({
+                      state: 1,
+                      msg: langConfig(req).resMsg.success
+                    }) 
+                })
+                .catch(err => {
+                  logUtil.error(err, req);
+                  return res.json({
+                      state: 0,
+                      msg: langConfig(req).resMsg.error
+                  })   
+                });   
+            })
+            .catch(err => {
+              logUtil.error(err, req);
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.error
+                })   
             });
 
-            
-        }).catch(err => {
-	       logUtil.error(err, req);
+        })
+        .catch(err => {
+           logUtil.error(err, req);
            return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+             state: 0,
+             msg: langConfig(req).resMsg.error
+           })   
         });
 
 	}catch(err){
@@ -98,59 +121,81 @@ exports.editRole = (req, res, next) => {
         	describe: describe
         }
 
-
-		Role.update(paramObj,{
-			where: {id: roleId}
-		})
-		.then(() => {
-			return Role.findById(roleId)
-		})
-		.then(role => {
-            RolePower.destroy({
-            	where: {
-            		role_id: roleId
-            	}
+        Role.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+          console.log(result)
+            if(result && result.dataValues.id !== roleId) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRole
+              })
+            }
+            Role.update(paramObj,{
+             where: {id: roleId}
             })
             .then(() => {
-            	let list = dataUtil.strToArray(powerList);
-                let dataObj = [];
-                for(let i = 0; i < list.length; i++){
-                   let obj = {
-                       powerCode: list[i],
-                   }
-                   dataObj.push(obj)
-                } 
-                return RolePower.bulkCreate(dataObj)
+             return Role.findById(roleId)
             })
-            .then(result => {
-                //绑定员工与新添加的权限关联
-                return role.setRolePowers(result)
-            })
-            .then(() => {
-            	res.json({
-	    	      state: 1,
-	    	      msg: langConfig(req).resMsg.success
-	            }) 
+            .then(role => {
+                RolePower.destroy({
+                  where: {
+                    role_id: roleId
+                  }
+                })
+                .then(() => {
+                    let list = powerList.split("_&_")
+                    let dataObj = [];
+                    if(list.length > 0){
+                      for(let i = 0; i < list.length; i++){
+                         let obj = {
+                             powerCode: list[i],
+                         }
+                         dataObj.push(obj)
+                      } 
+                    }   
+                    return RolePower.bulkCreate(dataObj)
+                })
+                .then(result => {
+                    //绑定员工与新添加的权限关联
+                    return role.setRolePowers(result)
+                })
+                .then(() => {
+                  res.json({
+                  state: 1,
+                  msg: langConfig(req).resMsg.success
+                  }) 
+                })
+                .catch(err => {
+                 logUtil.error(err, req);
+                   return res.json({
+                  state: 0,
+                  msg: langConfig(req).resMsg.error
+                 })   
+                }); 
             })
             .catch(err => {
-	           logUtil.error(err, req);
+               logUtil.error(err, req);
                return res.json({
-	    	      state: 0,
-	    	      msg: langConfig(req).resMsg.error
-	           })   
-            }); 
+                  state: 0,
+                  msg: langConfig(req).resMsg.error
+                 })   
+            });
 
         })
         .catch(err => {
-	       logUtil.error(err, req);
+           logUtil.error(err, req);
            return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })   
+              state: 0,
+              msg: langConfig(req).resMsg.error
+             })   
         });
+		    
 	}catch(err){
-		logUtil.error(err, req);
-        return res.json({
+		  logUtil.error(err, req);
+      return res.json({
 	    	state: 0,
 	    	msg: langConfig(req).resMsg.error
 	    })   
@@ -216,7 +261,7 @@ exports.getRoleById = (req, res, next) => {
  */
  exports.deleteRole = (req, res, next) => {
  	try{
-        let id = parseInt(req.query.id);
+        let id = parseInt(req.body.id);
         Role.destroy({
         	where: {
         		id: id
@@ -317,3 +362,36 @@ exports.getRoleList = (req, res, next) => {
 	    })   
 	}
 }
+
+
+
+
+
+
+
+/**
+ * 进入修改角色信息页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_EditRole = (req, res, next) => {
+  try{
+    let id = req.query.id;
+    Role.findById(id)
+    .then(result => {
+        res.render('editRole',{
+            data: result.dataValues
+        })
+    })
+    .catch(err => {
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});   
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+

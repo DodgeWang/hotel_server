@@ -100,60 +100,6 @@ exports.logOut = (req, res, next) => {
 
 
 /**
- * 员工管理页面
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-exports.page_Employees = (req, res, next) => {
-    try{
-      console.log('个人信息：',req.session.userInfo)
-        async.series({
-            //全部角色列表
-            allRoleList: cb => {
-                ProxyFunc.Role.getRoleList({},(err, result) => {
-                    if(err){
-                       return cb(err, null)
-                    }
-                    cb(null,result)
-                })
-            },
-            //全部部门列表
-            allDepartmentList: cb => {
-                ProxyFunc.Department.getDepartmentList({},(err, result) => {
-                    if(err){
-                       return cb(err, null)
-                    }
-                    cb(null,result)
-                })
-            }
-            
-        }, (err, results) => {
-            if(err){
-               logUtil.error(err, req);
-               return res.render('page500',{layout: null});
-            }
-            res.render('employees',{
-               departmentList: results.allDepartmentList, //所有部门
-               roleList: results.allRoleList, //所有角色
-            });
-
-        });
-        
-    }catch(err){
-        logUtil.error(err, req);
-        return res.render('page500',{layout: null});
-    }
-}
-
-
-
-
-
-
-
-/**
  * 根据条件分页获取员工列表
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
@@ -232,10 +178,6 @@ exports.getEmployeeList = (req, res, next) => {
 
 
 
-
-
-
-
 /**
  * 添加员工
  * @param  {object}   req  the request object
@@ -245,48 +187,14 @@ exports.getEmployeeList = (req, res, next) => {
  */
 exports.addEmployee = (req, res, next) => {
     try{
-      let { username, password, departmentId, roleId, positionId } = req.body;
+        let { username, password, departmentId, roleId } = req.body;
 
       let paramObj = {
            username: username,  //用户名
            password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
-           positionId: positionId,  //职位id
-           status: 1  //用户状态
-      }
-       
-    }catch(err){
-      logUtil.error(err, req);
-        return res.json({
-        state: 0,
-        msg: langConfig(req).resMsg.error
-      })  
-    }
-}
-
-
-
-
-
-
-/**
- * 添加员工
- * @param  {object}   req  the request object
- * @param  {object}   res  the response object
- * @param  {Function} next the next func
- * @return {null}     
- */
-exports.addEmployee = (req, res, next) => {
-    try{
-        let { username, password, departmentId, roleId, positionId } = req.body;
-
-      let paramObj = {
-           username: username,  //用户名
-           password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
-           departmentId: departmentId,  //部门id
-           roleId: roleId,  //角色id
-           positionId: positionId,  //职位id
+           positionId: 1,  //职位id
            status: 1  //用户状态
       }
         //先判断用户是否存在
@@ -621,6 +529,117 @@ exports.resetPassword = (req, res, next) => {
           state: 0,
           msg: langConfig(req).resMsg.error
         })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 员工管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_Employees = (req, res, next) => {
+    try{
+        async.series({
+            //全部角色列表
+            allRoleList: cb => {
+                ProxyFunc.Role.getRoleList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部部门列表
+            allDepartmentList: cb => {
+                ProxyFunc.Department.getDepartmentList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('employees',{
+               departmentList: results.allDepartmentList, //所有部门
+               roleList: results.allRoleList, //所有角色
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+/**
+ * 员工管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateEmployee = (req, res, next) => {
+    try{
+        async.series({
+            //全部角色列表
+            allRoleList: cb => {
+                ProxyFunc.Role.getRoleList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部部门列表
+            allDepartmentList: cb => {
+                ProxyFunc.Department.getDepartmentList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('createEmployee',{
+               departmentList: results.allDepartmentList, //所有部门
+               roleList: results.allRoleList, //所有角色
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
     }
 }
 

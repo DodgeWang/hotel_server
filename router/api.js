@@ -103,17 +103,17 @@ router.post('/employee/resetpassword', Employee.resetPassword);
 
 
 //添加部门信息
-router.post('/department/add', Department.addDepartment);
+router.post('/department/add', checkUserSession, Department.addDepartment);
 
 //修改部门信息
-router.post('/department/edit', Department.editDepartment);
+router.post('/department/edit', checkUserSession, Department.editDepartment);
 
-//批量删除部门信息
-router.post('/department/delete', Department.deleteDepartment);
+//删除部门信息
+router.post('/department/delete', checkUserSession, Department.deleteDepartment);
 
 //获取部门列表信息
 // router.get('/department/list', checkUserSession, checkUserPower, Department.getDepartmentList);
-router.get('/department/list', Department.getDepartmentList);
+router.get('/department/list', checkUserSession, Department.getDepartmentList);
 
 
 
@@ -132,7 +132,7 @@ router.get('/role/findbyid', Role.getRoleById);
 router.get('/role/list', Role.getRoleList);
 
 //根据id删除角色
-router.get('/role/delete', Role.deleteRole);
+router.post('/role/delete', Role.deleteRole);
 
 
 
@@ -147,7 +147,7 @@ router.get('/roomtype/list',Room.getRoomTypeList);
 //根据id修改房间类型信息
 router.post('/roomtype/edit',Room.editRoomType);
 
-//批量删除房间类型
+//根据id删除房间类型
 router.post('/roomtype/delete',Room.deleteRoomType);
 
 
@@ -161,7 +161,7 @@ router.post('/roomarticle/add',RoomArticle.addArticle);
 //根据id修改房间物品
 router.post('/roomarticle/edit',RoomArticle.editArticle);
 
-//根据id批量删除房间物品
+//根据id删除房间物品
 router.post('/roomarticle/delete',RoomArticle.deleteArticle);
 
 //获取物品列表

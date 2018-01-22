@@ -6,7 +6,7 @@ $(function(){
 	
     
     //初始查询
-	changTable(pageNow)
+	  changTable(pageNow)
 
 
     //条数筛选
@@ -38,6 +38,25 @@ $(function(){
     	changTable(pageNow); 
     })
 
+
+    //删除角色
+    $('#datalistBox').on('click','.delInfoBtn',function(){
+        if(confirm("是否确认删除?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/role/delete",paramObj,function(obj){
+                if(obj.state == 1){
+                  window.location.replace("/admin/roles");
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+            
+    })
+
     
 
 
@@ -59,7 +78,10 @@ function changTable(pageNow){
 			"/api/role/list",
 			paramObj,
 			function(result){
-               console.log(result)
+               if(result.state !== 1){
+                 $('#loadingBox').hide(); //显示loading加载动画
+                  return alert(result.msg) 
+               }
                var newDom = '';
                var dataList = result.data.datalist; //当前页数据
                dataAllTotle = result.data.allDataCount; //所有符合条件数据总数
@@ -77,8 +99,8 @@ function changTable(pageNow){
                                            </td>\
                                            <td>'+ itermDate.name +'</td>\
                                            <td style="position: relative;">\
-                                             <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
+                                             <a href="/admin/roles/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                             <a class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
                                            </td>\
                                          </tr>'
                           newDom += itermDom;
