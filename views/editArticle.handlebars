@@ -1,0 +1,84 @@
+{{#section 'head'}}
+    
+{{/section}}
+
+<div class="right_col">
+  <div>
+    <div class="row">
+      <div class="clearfix"></div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>添加物品 <small>fdsfsdfsddifferent form elements</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div data-parsley-validate class="form-horizontal form-label-left" id="formBox">
+              <div class="form-group" style="display:none;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">ID
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="articleId" value={{data.id}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">物品 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="name" value={{data.name}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">是否检查</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="row">
+                      <div class="radio col-md-3 col-sm-3 col-xs-3">
+                        <label>
+                            <input type="radio" {{#if_eq data.isCheck 1}} checked="checked" {{/if_eq}} value="1" name="isCheck"> 是
+                        </label>
+                      </div>
+                      <div class="radio col-md-3 col-sm-3 col-xs-3">
+                        <label>
+                            <input type="radio" {{#if_eq data.isCheck 0}} checked="checked" {{/if_eq}} value="0" name="isCheck"> 否
+                        </label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">是否打扫</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="row">
+                      <div class="radio col-md-3 col-sm-3 col-xs-3">
+                        <label>
+                            <input type="radio" {{#if_eq data.isClean 1}} checked="checked" {{/if_eq}} value="1" name="isClean"> 是
+                        </label>
+                      </div>
+                      <div class="radio col-md-3 col-sm-3 col-xs-3">
+                        <label>
+                            <input type="radio" {{#if_eq data.isClean 0}} checked="checked" {{/if_eq}} value="0" name="isClean"> 否
+                        </label>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button class="btn btn-success" id="submitBtn">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{{#section 'script'}}
+  <script type="text/javascript" src="/assets/js/controller/editArticle.js"></script>
+{{/section}}

@@ -48,7 +48,7 @@ $(function(){
             }
             $.post("/api/roomtype/delete",paramObj,function(obj){
                 if(obj.state == 1){
-                  window.location.replace("/admin/roomtypes");
+                  changTable(pageNow)
                 }else{
                   alert(obj.msg)
                 }

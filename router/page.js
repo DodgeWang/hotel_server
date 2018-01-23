@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { Employee, Room, Department, Role } = require('../controller');
+const { Employee, Room, Department, Role, RoomArticle } = require('../controller');
 const _ = require('lodash');
 let langConfig = {};
 
@@ -84,7 +84,18 @@ router.get('/roles/edit', Role.page_EditRole);
 
 
 //客房管理页面
-router.get('/rooms', checkUserSession, Room.page_Rooms);
+router.get('/rooms',Room.page_Rooms);
+
+//添加客房页面
+router.get('/rooms/create', Room.page_createRoom);
+
+//编辑客房页面
+router.get('/rooms/edit', Room.page_editRoom);
+
+
+
+
+
 
 //客房类型管理页面
 router.get('/roomtypes', (req, res) => {
@@ -115,9 +126,7 @@ router.get('/articles/create', (req, res) => {
 });
 
 //修改物品信息页面
-router.get('/articles/edit', (req, res) => {
-	res.render('editArticle');
-});
+router.get('/articles/edit', RoomArticle.page_EditArticle);
 
 
 

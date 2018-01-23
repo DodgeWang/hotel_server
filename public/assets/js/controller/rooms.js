@@ -55,6 +55,24 @@ $(function(){
     	changTable(pageNow); 
     })
 
+    //删除房间
+    $('#datalistBox').on('click','.delInfoBtn',function(){
+        if(confirm("是否确认删除?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/room/delete",paramObj,function(obj){
+                if(obj.state == 1){
+                  changTable(pageNow)
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+            
+    })
+
     
 
 
@@ -125,8 +143,8 @@ $(function(){
                                              <td>'+ isCheckInDom +'</td>\
                                              <td>'+ isCleanDom +'</td>\
                                              <td style="position: relative;">\
-                                                 <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                                 <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
+                                                 <a href="/admin/rooms/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                                 <a href="#" class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
                                              </td>\
                                            </tr>'
                           newDom += itermDom;

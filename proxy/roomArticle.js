@@ -34,7 +34,7 @@ exports.getRoomArticleList = (queryCriteria,cb) => {
 
 
 /**
- * 查询所有部门总数
+ * 查询所有物品总数
  * @param  {Function} cb the next func
  * @return {null}     
  */

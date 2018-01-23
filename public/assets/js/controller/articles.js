@@ -48,7 +48,7 @@ $(function(){
             }
             $.post("/api/roomarticle/delete",paramObj,function(obj){
                 if(obj.state == 1){
-                  window.location.replace("/admin/articles");
+                  changTable(pageNow)
                 }else{
                   alert(obj.msg)
                 }
@@ -116,7 +116,7 @@ function changTable(pageNow){
                                            <td>'+ isCheckDom +'</td>\
                                            <td>'+ isCleanDom +'</td>\
                                            <td style="position: relative;">\
-                                             <a href= href="/admin/articles/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                             <a href="/admin/articles/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
                                              <a class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
                                            </td>\
                                          </tr>'

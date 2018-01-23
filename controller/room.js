@@ -381,38 +381,56 @@ exports.getRoomList = (req, res, next) => {
  */
 exports.addRoom = (req, res, next) => { 	
 	try{    
-     let { number, qrCode, typeId, articleList } = req.body;
-     let artList = [];
-     artList = dataUtil.strToArray(articleList)
+     let { number, typeId, articleList } = req.body;
+     let artList = articleList.split('_&_');
+     // let qrCode = "123456";
      let paramObj = {
      	number: number,
-     	qrCode: qrCode,
+     	// qrCode: qrCode,
      	typeId: typeId
      }
 
-     Promise.all([
-         RoomInfo.create(paramObj),
-         RoomArticle.findAll({
-         	where:{
-         		id: artList
-         	}
-         })
-     ]).then(results => {
-         let roominfo = results[0];
-         let articles= results[1];
-         roominfo.addArticles(articles);
-         res.json({
-	    	    state: 1,
-	    	    msg: langConfig(req).resMsg.success
-	         })
-	      
-     }).catch(err => {
-	       logUtil.error(err, req);
+     RoomInfo.findOne({
+          where: { number: number},
+          order: [['id', 'DESC']]
+     })
+     .then(result => {
+          if(result) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRoom
+              })
+          }
+          Promise.all([
+              RoomInfo.create(paramObj),
+              RoomArticle.findAll({
+              where:{
+                 id: artList
+              }
+              })
+          ]).then(results => {
+              let roominfo = results[0];
+              let articles= results[1];
+              roominfo.addArticles(articles);
+              res.json({
+                state: 1,
+                msg: langConfig(req).resMsg.success
+               })       
+          }).catch(err => {
+             logUtil.error(err, req);
+                return res.json({
+              state: 0,
+              msg: langConfig(req).resMsg.error
+             })  
+           })
+     })
+     .catch(err => {
+           logUtil.error(err, req);
            return res.json({
-	    	  state: 0,
-	    	  msg: langConfig(req).resMsg.error
-	       })  
-	    })
+             state: 0,
+             msg: langConfig(req).resMsg.error
+           })   
+      });       
 
 	}catch(err){
 		logUtil.error(err, req);
@@ -434,12 +452,11 @@ exports.addRoom = (req, res, next) => {
  */
  exports.editRoomById = (req, res, next) => {
  	try{
- 		let { id, number, qrCode, typeId, articleList } = req.body;
- 		id = parseInt(req.body.id);
+ 		let { number, typeId, articleList } = req.body;
+ 		let id = parseInt(req.body.id);
  		artList = dataUtil.strToArray(articleList);
         let paramObj = {
      	   number: number,
-     	   qrCode: qrCode,
      	   typeId: typeId
         }
 
@@ -488,7 +505,7 @@ exports.addRoom = (req, res, next) => {
 
 
  /**
- * 批量删除客房
+ * 根据id删除客房
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -496,15 +513,13 @@ exports.addRoom = (req, res, next) => {
  */
  exports.deleteRoom = (req, res, next) => {
  	try{      
-		let ids = req.body.ids;
-        let idList = dataUtil.strToArray(ids);
-		
+		let id = req.body.id;		
 		RoomInfo.destroy({
 			where: {
-				id: idList
+				id: id
 			}
 		}).then(result => {
-            res.json({
+        res.json({
 	    	  state: 1,
 	    	  msg: langConfig(req).resMsg.success
 	        }) 
@@ -568,6 +583,154 @@ exports.page_Rooms = (req, res, next) => {
         return res.render('page500',{layout: null});
     }
 }
+
+
+
+/**
+ * 创建房间页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_createRoom = (req, res, next) => {
+    try{
+        async.series({
+            //全部房间类型列表
+            allTypeList: cb => {
+                ProxyFunc.Room.getRoomTypeList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部物品
+            allArticlesList: cb => {
+                ProxyFunc.RoomArticle.getRoomArticleList({},(err,result) => {
+                   if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('createRoom',{
+               roomTypeList: results.allTypeList, //所有房间类型列表
+               articleList: results.allArticlesList //所有的物品列表
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+
+
+/**
+ * 编辑房间信息页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_editRoom = (req, res, next) => {
+    try{
+        let id = req.query.id;
+        id = parseInt(id);
+
+        async.series({
+            //根据房间id查询房间信息
+            roomInfo: cb => {
+                RoomInfo.findById(id,{
+                  include:[{
+                      model: RoomType,
+                      attributes: ['id','name']
+                  }
+                  ,{
+                      model: RoomArticle,
+                      as: 'articles',
+                      attributes: ['id','name'],
+                      through: {
+                          attributes: []
+                      }
+                    }
+                  ]
+                }).then(result => {
+                  cb(null,result.dataValues)
+                }).catch(err => {
+                  cb(err,null)
+                })
+            },
+            //全部房间类型列表
+            allTypeList: cb => {
+                ProxyFunc.Room.getRoomTypeList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部物品
+            allArticlesList: cb => {
+                ProxyFunc.RoomArticle.getRoomArticleList({},(err,result) => {
+                   if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            let allArticles = results.allArticlesList;
+            let allArticlesList = [];
+            let isCheckArt = results.roomInfo.articles;
+            for(let i=0; i<allArticles.length; i++){
+                let checked = 0;
+                two: for(let x = 0; x < isCheckArt.length; x++ ){
+                   if(isCheckArt[x].id == allArticles[i].id){
+                      checked = 1;
+                      break two; 
+                   }
+                }
+                allArticles[i].dataValues.checked = checked;
+                allArticlesList.push(allArticles[i].dataValues)
+
+            }
+              
+            res.render('editRoom',{
+               roomInfo: results.roomInfo, //查询的房间数据
+               roomTypeList: results.allTypeList, //所有房间类型列表
+               articleList: allArticlesList //所有的物品列表
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+
 
 
 

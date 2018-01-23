@@ -15,7 +15,8 @@ module.exports = {
         hasDepartment: '部门已经存在',
         hasRole: '角色已经存在',
         hasRoomType: '房间类型已经存在',
-        hasRoomArticle: '该房间物品已存在',
+        hasRoomArticle: '该物品已存在',
+        hasRoom: '该房间已存在',
         roomHasCheckIn: '该房间已经有人入住'
     }
 }

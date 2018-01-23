@@ -16,6 +16,7 @@ module.exports = {
         hasRole: 'The role has already existed',
         hasRoomType: 'The roomtype has already existed',
         hasRoomArticle: 'The article has already existed',
+        hasRoom: 'The room has already existed',
         roomHasCheckIn: 'This room has been check-in by other people'
     }
 }

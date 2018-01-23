@@ -48,7 +48,7 @@ $(function(){
             }
             $.post("/api/department/delete",paramObj,function(obj){
                 if(obj.state == 1){
-                  window.location.replace("/admin/departments");
+                  changTable(pageNow)
                 }else{
                   alert(obj.msg)
                 }

@@ -48,7 +48,7 @@ $(function(){
             }
             $.post("/api/role/delete",paramObj,function(obj){
                 if(obj.state == 1){
-                  window.location.replace("/admin/roles");
+                  changTable(pageNow)
                 }else{
                   alert(obj.msg)
                 }

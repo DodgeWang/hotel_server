@@ -1,0 +1,75 @@
+{{#section 'head'}}
+    
+{{/section}}
+
+<div class="right_col">
+  <div>
+    <div class="row">
+      <div class="clearfix"></div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>添加客房 <small>different form elements</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div data-parsley-validate class="form-horizontal form-label-left" id="formBox">
+              <div class="form-group" style="display:none;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">ID
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" name="roomId" required="required" class="form-control col-md-7 col-xs-12" value={{roomInfo.id}} disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">房间号
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" name="number" required="required" class="form-control col-md-7 col-xs-12" value={{roomInfo.number}} disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">房间类型</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="roomTypeSelect">
+                      {{#each roomTypeList}}
+                        <option value={{id}} {{#if_eq id ../roomInfo.RoomType.id}}selected{{/if_eq}}>{{name}}</option>
+                      {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">物品<span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+
+                    {{#each articleList}}
+                      <div class="checkbox col-md-4 col-sm-4 col-xs-4">
+                        <label>
+                          <input type="checkbox" {{#if_eq checked 1}}checked="checked"{{/if_eq}} value={{id}} name="articleCheck"> {{name}}
+                        </label>
+                      </div>
+                    {{/each}}
+                      
+                    </div>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button class="btn btn-success" id="submitBtn">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#section 'script'}}
+  <script type="text/javascript" src="/assets/js/controller/editRoom.js"></script>
+{{/section}}

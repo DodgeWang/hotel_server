@@ -83,7 +83,8 @@ exports.addArticle = (req, res, next) => {
  */
 exports.editArticle = (req, res, next) => {
 	try{      
-        let {id, name, isCheck, isClean} = req.body;
+        let {name, isCheck, isClean} = req.body;
+        let id = parseInt(req.body.id);
 
         let paramObj = {
         	name: name,
@@ -91,20 +92,41 @@ exports.editArticle = (req, res, next) => {
         	isClean: isClean
         }
 
-		RoomArticle.update(paramObj,{
-			where: {id: parseInt(id)}
-		}).then(article => {
-            res.json({
-	    	  state: 1,
-	    	  msg: langConfig(req).resMsg.success
-	        }) 
-        }).catch(err => {
+        RoomArticle.findOne({
+          where: { name: name},
+          order: [['id', 'DESC']]
+        })
+        .then(result => {
+        	if(result && result.dataValues.id != id) {
+              return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.hasRoomArticle
+              })
+            }
+            RoomArticle.update(paramObj,{
+			    where: {id: id}
+		    }).then(article => {
+                res.json({
+	    	      state: 1,
+	    	      msg: langConfig(req).resMsg.success
+	            }) 
+            }).catch(err => {
+	           logUtil.error(err, req);
+               return res.json({
+	    	      state: 0,
+	    	      msg: langConfig(req).resMsg.error
+	           })   
+            });
+        })
+        .catch(err => {
 	       logUtil.error(err, req);
            return res.json({
 	    	  state: 0,
 	    	  msg: langConfig(req).resMsg.error
 	       })   
         });
+
+		    
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -309,3 +331,51 @@ exports.getArticleList = (req, res, next) => {
 	    })   
 	}
 }
+
+
+
+
+
+
+
+/**
+ * 进入修改物品信息详情页
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_EditArticle = (req, res, next) => {
+	try{      
+		let id = parseInt(req.query.id);
+
+		async.series({
+            //根据id查询房间类型信息
+            articleInfo: cb => {
+                RoomArticle.findOne({
+			        where: {id: id},
+	 	            order: [['id', 'DESC']]
+		        }).then(article => {
+                    cb(null,article.dataValues) 
+                }).catch(err => {
+	                cb(err,null);  
+                });
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('editArticle',{
+               data: results.articleInfo //查询的物品详细信息
+            });
+
+        });
+		    
+	}catch(err){
+		logUtil.error(err, req);
+        return res.render('page500',{layout: null}); 
+	}
+}
+
