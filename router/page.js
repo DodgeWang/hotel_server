@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { Employee, Room, Department, Role, RoomArticle } = require('../controller');
+const { Employee, Room, Department, Role, RoomArticle, Task } = require('../controller');
 const _ = require('lodash');
 let langConfig = {};
 
@@ -129,6 +129,20 @@ router.get('/articles/create', (req, res) => {
 router.get('/articles/edit', RoomArticle.page_EditArticle);
 
 
+
+
+//任务管理页面
+router.get('/tasks', (req, res) => {
+	res.render('tasks');
+});
+
+//创建任务页面
+router.get('/tasks/create', Task.page_createTask);
+
+//任务链管理页面
+router.get('/taskchains', (req, res) => {
+	res.render('taskChain');
+});
 
 
 

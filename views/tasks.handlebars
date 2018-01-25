@@ -1,0 +1,255 @@
+{{#section 'head'}}
+    <link href="/assets/css/newStyle.css" rel="stylesheet">
+{{/section}}
+
+<div class="right_col">
+          <div>
+            <div class="row">
+              <div class="clearfix"></div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>任务记录 <small>Custom design</small></h2>
+                    <!-- <ul class="nav navbar-right panel_toolbox" style="min-width: 0px;">
+                      <li><a href="createEmployee.html"><i class="fa fa-plus"></i></a>                 
+                    </ul> -->
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content"  style="overflow: visible;">
+
+                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"  style="overflow: visible;">
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <div class="dataTables_length" style="width: auto;">
+                                  <label>
+                                     任务类型 
+                                     <select id="taskTypeSelect" class="form-control input-sm">
+                                         <option value="-1">全部</option>
+                                         <option value="1">保洁任务</option>
+                                         <option value="2">维修任务</option>
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length"  style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     状态 
+                                     <select id="statusSelect" class="form-control input-sm">
+                                         <option value="-1">全部</option>
+                                         <option value="1">完成</option>
+                                         <option value="0">未完成</option>
+                                         <!-- <option value="">待分配</option>
+                                         <option value="">待执行</option>
+                                         <option value="">待检查</option>
+                                         <option value="">完成</option> -->
+                                     </select>
+                                   </label>
+                               </div>
+                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                                  <label>
+                                     显示条数 
+                                     <select name="datatable_length" id="pageSizeSelect" class="form-control input-sm">
+                                         <option value="15">15</option>
+                                         <option value="20">20</option>
+                                         <option value="25">25</option>
+                                         <option value="30">30</option>
+                                     </select>
+                                   </label>
+                               </div>
+                               
+                          </div>
+                          
+                          
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12" style="min-height:120px;">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                      <th>
+                                        <input type="checkbox" id="check-all" class="flat">
+                                      </th>
+                                      <th class="column-title">房间号 </th>
+                                      <th class="column-title">任务类型 </th>
+                                      <th class="column-title">发布者 </th>
+                                      <th class="column-title">分配者 </th>
+                                      <th class="column-title">执行者 </th>
+                                      <th class="column-title">检查者 </th>
+                                      <th class="column-title">发布时间 </th>
+                                      <th class="column-title">更新时间 </th>
+                                      <th class="column-title">状态 </th>
+                                      <th class="column-title no-link last"><span class="nobr">操作</span>
+                                      </th>
+                                      <th class="bulk-actions" colspan="7">
+                                         <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                      </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="datalistBox">
+                                  
+                                </tbody>
+      
+                                <!-- <tbody>
+                                    <tr class="even pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>101</td>
+                                      <td>保洁任务</td>
+                                      <td>王代强</td>
+                                      <td>向玉</td>
+                                      <td>王梓霖</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                        <button type="button" class="btn btn-success btn-xs">完成</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr class="odd pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>102</td>
+                                      <td>维修任务</td>
+                                      <td>系统</td>
+                                      <td>王世泽</td>
+                                      <td>邓秋</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-info btn-xs">待分配</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>103</td>
+                                      <td>保洁任务</td>
+                                      <td>王代强</td>
+                                      <td>向玉</td>
+                                      <td>王梓霖</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                        <button type="button" class="btn btn-warning btn-xs">待执行</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr class="odd pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>201</td>
+                                      <td>维修任务</td>
+                                      <td>王代强</td>
+                                      <td>王世泽</td>
+                                      <td>邓秋</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-primary btn-xs">待检查</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                    <tr class="even pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>202</td>
+                                      <td>保洁任务</td>
+                                      <td>系统</td>
+                                      <td>向玉</td>
+                                      <td>王梓霖</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                        <button type="button" class="btn btn-success btn-xs">完成</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                    
+                                    <tr class="odd pointer">
+                                      <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                      </td>
+                                      <td>203</td>
+                                      <td>维修任务</td>
+                                      <td>王代强</td>
+                                      <td>王世泽</td>
+                                      <td>邓秋</td>
+                                      <td>潘章萍</td>
+                                      <td>2018-08-01 12:00:00</td>
+                                      <td>2018-08-01 16:00:00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-success btn-xs">完成</button>
+                                      </td>
+                                      <td>
+                                          <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>
+                                      </td>
+                                    </tr>
+                                </tbody> -->
+                            </table>
+
+                            <div id="loadingBox" class="loadingBox_wdq">
+                                <div class="spinner">
+                                  <div class="rect1"></div>
+                                  <div class="rect2"></div>
+                                  <div class="rect3"></div>
+                                  <div class="rect4"></div>
+                                  <div class="rect5"></div>
+                                </div>
+                            </div>
+                            <div class="noDataBox_wdq" id="noDataBox">
+                                <p>暂时没有数据</p>
+                            </div>
+
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info">总页数<span id="pageTotle"></span> 总条数<span id="dataTotle"></span></div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                                <ul class="pagination" style="margin: 0px" id="paginationBox">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                    </div>				
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+{{#section 'script'}}
+    <script type="text/javascript" src="/assets/js/controller/tasks.js"></script>
+{{/section}}

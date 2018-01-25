@@ -79,9 +79,9 @@ RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id',as:'roomCheckIn'});
 RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
 
 //任务链与角色关联
-TaskType.belongsTo(Role,{foreignKey:'allocator_role'});
-TaskType.belongsTo(Role,{foreignKey:'executor_role'});
-TaskType.belongsTo(Role,{foreignKey:'examiner_role'});
+TaskType.belongsTo(Role,{foreignKey:'allocator_role',as:'allocator'});
+TaskType.belongsTo(Role,{foreignKey:'executor_role',as:'executor'});
+TaskType.belongsTo(Role,{foreignKey:'examiner_role',as:'examiner'});
 
 //任务流程与员工关联
 TaskFlow.belongsTo(Employee, {foreignKey:'employee_id'});
@@ -94,7 +94,7 @@ Task.belongsTo(TaskType,{foreignKey:'tasktype_id'});
 
 //任务与任务流程的关联关系
 Task.hasMany(TaskFlow, {foreignKey:'task_id'});
-TaskFlow.belongsTo(Task, {foreignKey:'task_id'});
+TaskFlow.belongsTo(Task, {foreignKey:'task_id'});	
 
 //事件与事件类型的关联关系
 EventType.hasMany(Event, {foreignKey:'type_id'});

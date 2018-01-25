@@ -181,7 +181,7 @@ router.post('/room/add', Room.addRoom);
 //根据id编辑房间信息
 router.post('/room/edit', Room.editRoomById);
 
-//批量删除房间
+//根绝id删除房间
 router.post('/room/delete', Room.deleteRoom);
 
 //分页房间列表
@@ -212,6 +212,11 @@ router.get('/task/list', Task.getTaskList);
 
 //获取自己的任务
 router.get('/task/self', Task.selfTaskList);
+
+
+
+//获取任务类型链列表
+router.get('/taskchain/list', Task.getTaskChainList);
 
 
 

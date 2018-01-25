@@ -1,7 +1,9 @@
 let { logUtil, service, dataUtil} = require("../utils");
-let { Task,TaskType,WorkSchedule,Employee,TaskFlow } = require('../models');
+let { Task,TaskType,WorkSchedule,Employee,EmployeeInfo,TaskFlow,RoomInfo,Role } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
+const async = require('async');
+
 
 
 
@@ -17,8 +19,26 @@ let { langConfig } = require("../config/lang_config");
  		let { pageNow, pageSize, tasktypeId, status } = req.query;
 
         let queryConfig = {
-        	// where: {},
-			order: [['id', 'DESC']]
+        	where: {},
+			order: [['id', 'DESC']],
+            // attributes: ['id','describe','status'],
+            include:[{
+                      model: RoomInfo,
+                      attributes: ['id','number']
+                    },{
+                      model: TaskType,
+                      attributes: ['id','name']
+                    },{
+                      model: TaskFlow,
+                      include: [{
+                        model: Employee,
+                        attributes: ['id','username'],
+                        include: [{
+                           model: EmployeeInfo,
+                           attributes: ['name']
+                        }]
+                      }]
+                    }]
 		}
 
 		//如果有页数和条数限制
@@ -41,21 +61,68 @@ let { langConfig } = require("../config/lang_config");
 			queryConfig.where.status = status;
 		}
 
-        Task.findAll(queryConfig)
-        .then(result => {
+        async.series({
+            //查询的任务列表
+            taskList: cb => {
+                Task.findAll(queryConfig)
+                .then(result => {
+                    let dataList = [];
+                    let data = result;
+                    for(let i = 0; i<data.length; i++){
+                        let obj = {}
+                        obj.id = data.id;
+                        obj.roomNumber = data[i].RoomInfo.number;
+                        obj.taskType = data[i].TaskType.name;
+                        obj.describe = data[i].describe;
+                        obj.status = data[i].status;
+                        obj.taskFlows = [];
+                        for(let x=0; x<data[i].TaskFlows.length; x++){
+                            let flowObj = {};
+                            flowObj.employee = data[i].TaskFlows[x].Employee.EmployeeInfo.name;
+                            flowObj.record = data[i].TaskFlows[x].record;
+                            flowObj.type = data[i].TaskFlows[x].type;
+                            flowObj.status = data[i].TaskFlows[x].status;
+                            obj.taskFlows.push(flowObj);
+                        }
+                        dataList.push(obj)
+                    }
+                    cb(null,dataList);
+                })
+                .catch(err => {
+                    cb(err,null)
+                })
+            },
+            //所有符合条件任务总数
+            allTaskCount: cb => {
+                Task.count({
+                    where: queryConfig.where
+                })
+                .then(result => {
+                    cb(null,result)
+                })
+                .catch(err => {
+                    cb(err,null)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
             res.json({
-	    	    state: 0,
-	    	    msg: langConfig(req).resMsg.success,
-	    	    data: result
-	        })
-        })
-        .catch(err => {
-        	logUtil.error(err, req);
-            return res.json({
-	    	    state: 0,
-	    	    msg: langConfig(req).resMsg.error
-	        })
-        })
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: results.taskList, //查询的任务列表
+                allDataCount: results.allTaskCount  //所有符合条件的任务总数
+              }
+            }) 
+        }); 
 	}catch(err){
 		logUtil.error(err, req);
         return res.json({
@@ -121,7 +188,6 @@ let { langConfig } = require("../config/lang_config");
             //筛选出符合分配的分配者id
             for(let i = 0; i < result.length; i++){
                 if(result[i].WorkSchedules){
-                    console.log("有")
                    allocatorId = result[i].id;
                    break;
                 }
@@ -179,6 +245,77 @@ let { langConfig } = require("../config/lang_config");
             state: 0,
             msg: langConfig(req).resMsg.error
         })   
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 获取任务类型链列表
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.getTaskChainList = (req, res, next) => {
+    try{
+        TaskType.findAll({
+            order: [['id', 'DESC']],
+            include:[{
+                model: Role,
+                as: 'allocator',
+                attributes: ['id','name']
+            },{
+                model: Role,
+                as: 'executor',
+                attributes: ['id','name']
+            },{
+                model: Role,
+                as: 'examiner',
+                attributes: ['id','name']
+            }]
+        })
+        .then(result => {
+           let dataList = [];
+           for(let i=0; i<result.length; i++){
+              let obj = {};
+              obj.id = result[i].id;
+              obj.name = result[i].name;
+              obj.allocatorRole = result[i].allocator.name;
+              obj.executorRole = result[i].executor.name;
+              obj.examinerRole = result[i].examiner.name;
+              dataList.push(obj);
+           }
+           res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: dataList //所有任务类型列表
+              }
+            }) 
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.error
+            })
+        })
+
+    }catch(err){
+        logUtil.error(err, req);
+        return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.error
+        })  
     }
 }
 
@@ -274,6 +411,64 @@ exports.assignTask = (req, res, next) => {
         })  
     }
  }
+
+
+
+
+
+
+
+
+ /**
+ * 创建任务页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_createTask = (req, res, next) => {
+    try{      
+        async.series({
+            //获取所有房间
+            allRoomList: cb => {
+                RoomInfo.findAll({
+                    order: [['id', 'DESC']],
+                    attributes: ['id','number']
+                }).then(result => {
+                    cb(null,result) 
+                }).catch(err => {
+                    cb(err,null);  
+                });
+            },
+            //获取所有任务类型
+            allTaskTypeList: cb => {
+                TaskType.findAll({
+                    order: [['id', 'DESC']],
+                    attributes: ['id','name']
+                }).then(result => {
+                    cb(null,result) 
+                }).catch(err => {
+                    cb(err,null);  
+                });
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('createTask',{
+               allRoomList: results.allRoomList, //查询的物品详细信息
+               allTaskTypeList: results.allTaskTypeList //查询所有任务类型
+            });
+
+        });
+            
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null}); 
+    }
+}
 
 
 
