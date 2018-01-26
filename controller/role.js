@@ -6,6 +6,8 @@ const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
 
 
+/*** API接口start ****************/
+
 /**
  * 添加角色
  * @param  {object}   req  the request object
@@ -363,6 +365,61 @@ exports.getRoleList = (req, res, next) => {
 	}
 }
 
+/*** API接口end ****************/
+
+
+
+
+
+
+
+
+
+
+
+
+/*** 页面start ****************/
+
+
+/**
+ * 角色管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_Roles = (req, res, next) => {
+  try{
+    res.render('roles',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+/**
+ * 创建角色页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateRole = (req, res, next) => {
+  try{
+    res.render('createRole',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
 
 
 
@@ -370,7 +427,7 @@ exports.getRoleList = (req, res, next) => {
 
 
 /**
- * 进入修改角色信息页面
+ * 修改编辑角色信息页面
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -382,6 +439,7 @@ exports.page_EditRole = (req, res, next) => {
     Role.findById(id)
     .then(result => {
         res.render('editRole',{
+            userInfo: req.session.userInfo,   //登录者个人信息
             data: result.dataValues
         })
     })
@@ -395,3 +453,9 @@ exports.page_EditRole = (req, res, next) => {
   }
 }
 
+
+
+
+
+
+/*** 页面end ****************/

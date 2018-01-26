@@ -24,7 +24,7 @@ exports.loginAction = (req, res, next) => {
         }
 
       Employee.findOne({
-        attributes: ['username','password','roleId','status'],
+        attributes: ['username','status'],
         where: userObj,
         order: [['id', 'DESC']],
         include: [
@@ -40,7 +40,6 @@ exports.loginAction = (req, res, next) => {
             }]
       })
       .then(result => {
-        console.log(result)
         if(!result) {
           return res.json({
             state: 0,
@@ -49,9 +48,11 @@ exports.loginAction = (req, res, next) => {
         }
 
 
-        req.session.userInfo = result.toJSON();
+        req.session.userInfo = result;
+        req.session.powerList = [1004,3002];
         
-        // result.dataValues.powerList = [2001,3002];
+
+
         req.session.LANG = 2;
         res.json({
           state: 1,

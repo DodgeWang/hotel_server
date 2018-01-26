@@ -547,6 +547,17 @@ exports.addRoom = (req, res, next) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 房间管理页面
  * @param  {object}   req  the request object
@@ -574,6 +585,7 @@ exports.page_Rooms = (req, res, next) => {
             }
             res.render('rooms',{
                roomTypeList: results.allTypeList, //所有房间列表
+               userInfo: req.session.userInfo   //登录者个人信息
             });
 
         });
@@ -622,7 +634,8 @@ exports.page_createRoom = (req, res, next) => {
             }
             res.render('createRoom',{
                roomTypeList: results.allTypeList, //所有房间类型列表
-               articleList: results.allArticlesList //所有的物品列表
+               articleList: results.allArticlesList, //所有的物品列表
+               userInfo: req.session.userInfo   //登录者个人信息
             });
 
         });
@@ -714,9 +727,10 @@ exports.page_editRoom = (req, res, next) => {
             }
               
             res.render('editRoom',{
+               userInfo: req.session.userInfo,   //登录者个人信息
                roomInfo: results.roomInfo, //查询的房间数据
                roomTypeList: results.allTypeList, //所有房间类型列表
-               articleList: allArticlesList //所有的物品列表
+               articleList: allArticlesList, //所有的物品列表
             });
 
         });
@@ -727,6 +741,48 @@ exports.page_editRoom = (req, res, next) => {
     }
 }
 
+
+
+
+
+/**
+ * 房间类型管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_RoomTypes = (req, res, next) => {
+  try{
+    res.render('roomTypes',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+/**
+ * 创建房间类型页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateRoomType = (req, res, next) => {
+  try{
+    res.render('createRoomType',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
 
 
 
@@ -762,6 +818,7 @@ exports.page_EditRoomType = (req, res, next) => {
                return res.render('page500',{layout: null});
             }
             res.render('editRoomType',{
+               userInfo: req.session.userInfo,   //登录者个人信息
                data: results.roomTypeInfo, //查询的房间类型信息
             });
 

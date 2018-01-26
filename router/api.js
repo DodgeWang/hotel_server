@@ -8,7 +8,7 @@ const router = express.Router();
 const { Employee, Department, Room, RoomArticle, Role, RoomCheckIn, Task, Event, WorkSchedule } = require('../controller');
 const _ = require('lodash');
 let { langConfig } = require("../config/lang_config");
-const apiPowerConfig = require('../config/apiPowerConfig')();
+const powerConfig = require('../config/powerConfig')();
 
 
 

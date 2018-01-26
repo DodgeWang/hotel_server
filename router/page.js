@@ -4,11 +4,13 @@
  */
 const express = require('express');
 const router = express.Router();
+let url = require('url');
 
 
 const { Employee, Room, Department, Role, RoomArticle, Task } = require('../controller');
 const _ = require('lodash');
-let langConfig = {};
+// let langConfig = {};
+const powerConfig = require('../config/powerConfig')();
 
 
 
@@ -28,12 +30,50 @@ function checkUserSession(req, res, next) {
 //   next();
 // });
 
+//权限判断
+function checkUserPower(req, res, next) {
+	let urlPath = url.parse(req.originalUrl).pathname;
+	let powerCode = null;
+
+	out: for(let i = 0; i < powerConfig.length; i++){
+	   let iterm = powerConfig[i].list;
+       for(let x = 0; x < iterm.length; x++){
+       	  if(iterm[x].path === urlPath){
+       	  	  powerCode = powerConfig[i].code;
+       	  	  break out;
+       	  }
+       }
+	}
+
+	if(powerCode == null){
+		next();
+	}else{
+		let isPower = false;
+        let userPowerList = req.session.powerList;
+        for(let i = 0; i < userPowerList.length; i++){
+        	if(powerCode == userPowerList[i]){
+        		isPower = true;
+        		break;
+        	}
+        }
+
+        if(isPower){
+        	next();
+        }else{
+        	res.render('nopower',{
+               userInfo: req.session.userInfo   //登录者个人信息
+            });
+        }
+	}
+}
+
 
 
 //后台登录页面
 router.get('/login', (req, res) => {
 	res.render('login',{layout: null});
 });
+
 
 //员工管理页面
 router.get('/employees', checkUserSession, Employee.page_Employees);
@@ -46,17 +86,13 @@ router.get('/employees/create', Employee.page_CreateEmployee);
 
 
 //部门管理页面
-router.get('/departments', checkUserSession, (req, res) => {
-	res.render('departments');
-});
+router.get('/departments', checkUserSession, checkUserPower, Department.page_Departments);
 
 //创建部门页面
-router.get('/departments/create', (req, res) => {
-	res.render('createDepartment');
-});
+router.get('/departments/create', checkUserSession, checkUserPower, Department.page_CreateDepartment);
 
 //修改部门信息页面
-router.get('/departments/edit', Department.page_EditDepartment);
+router.get('/departments/edit', checkUserSession, checkUserPower,Department.page_EditDepartment);
 
 
 
@@ -64,51 +100,39 @@ router.get('/departments/edit', Department.page_EditDepartment);
 
 
 //角色管理页面
-router.get('/roles', (req, res) => {
-	res.render('roles');
-});
+router.get('/roles', checkUserSession, Role.page_Roles);
 
 //创建角色页面
-router.get('/roles/create', (req, res) => {
-	res.render('createRole');
-});
+router.get('/roles/create', checkUserSession, Role.page_CreateRole);
 
 //修改角色信息页面
-router.get('/roles/edit', Role.page_EditRole);
-
-
-
+router.get('/roles/edit', checkUserSession, Role.page_EditRole);
 
 
 
 
 
 //客房管理页面
-router.get('/rooms',Room.page_Rooms);
+router.get('/rooms', checkUserSession, Room.page_Rooms);
 
 //添加客房页面
-router.get('/rooms/create', Room.page_createRoom);
+router.get('/rooms/create', checkUserSession, Room.page_createRoom);
 
 //编辑客房页面
-router.get('/rooms/edit', Room.page_editRoom);
-
+router.get('/rooms/edit', checkUserSession, Room.page_editRoom);
 
 
 
 
 
 //客房类型管理页面
-router.get('/roomtypes', (req, res) => {
-	res.render('roomTypes');
-});
+router.get('/roomtypes', checkUserSession, Room.page_RoomTypes);
 
 //创建客房类型页面
-router.get('/roomtypes/create', (req, res) => {
-	res.render('createRoomType');
-});
+router.get('/roomtypes/create', checkUserSession, Room.page_CreateRoomType);
 
 //编辑客房类型信息页面
-router.get('/roomtypes/edit', Room.page_EditRoomType);
+router.get('/roomtypes/edit', checkUserSession, Room.page_EditRoomType);
 
 
 
@@ -116,33 +140,26 @@ router.get('/roomtypes/edit', Room.page_EditRoomType);
 
 
 //物品管理页面
-router.get('/articles', (req, res) => {
-	res.render('articles');
-});
+router.get('/articles', checkUserSession, RoomArticle.page_Articles);
 
 //创建物品页面
-router.get('/articles/create', (req, res) => {
-	res.render('createArticle');
-});
+router.get('/articles/create', checkUserSession, RoomArticle.page_CreateArticle);
 
 //修改物品信息页面
-router.get('/articles/edit', RoomArticle.page_EditArticle);
+router.get('/articles/edit', checkUserSession, RoomArticle.page_EditArticle);
+
 
 
 
 
 //任务管理页面
-router.get('/tasks', (req, res) => {
-	res.render('tasks');
-});
+router.get('/tasks', checkUserSession, Task.page_tasks);
 
 //创建任务页面
-router.get('/tasks/create', Task.page_createTask);
+router.get('/tasks/create', checkUserSession, Task.page_createTask);
 
 //任务链管理页面
-router.get('/taskchains', (req, res) => {
-	res.render('taskChain');
-});
+router.get('/taskchains', checkUserSession, Task.page_taskChain);
 
 
 

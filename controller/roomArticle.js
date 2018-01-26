@@ -337,9 +337,54 @@ exports.getArticleList = (req, res, next) => {
 
 
 
+/**
+ * 物品管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_Articles = (req, res, next) => {
+  try{
+    res.render('articles',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
 
 /**
- * 进入修改物品信息详情页
+ * 创建物品页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateArticle = (req, res, next) => {
+  try{
+    res.render('createArticle',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+
+
+
+/**
+ * 修改编辑物品信息页
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -368,7 +413,8 @@ exports.page_EditArticle = (req, res, next) => {
                return res.render('page500',{layout: null});
             }
             res.render('editArticle',{
-               data: results.articleInfo //查询的物品详细信息
+               data: results.articleInfo, //查询的物品详细信息
+               userInfo: req.session.userInfo   //登录者个人信息
             });
 
         });

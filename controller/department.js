@@ -8,6 +8,8 @@ let { langConfig } = require("../config/lang_config");
 
 
 
+/*** API接口start ****************/
+
 /**
  * 添加部门
  * @param  {object}   req  the request object
@@ -283,11 +285,73 @@ exports.getDepartmentList = (req, res, next) => {
 }
 
 
+/*** API接口end ****************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*** 页面start ****************/
 
 
 
 /**
- * 进入修改部门信息页面
+ * 部门管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_Departments = (req, res, next) => {
+  try{
+    res.render('departments',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+
+
+/**
+ * 创建部门页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateDepartment = (req, res, next) => {
+  try{
+    res.render('createDepartment',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+
+
+/**
+ * 修改编辑部门信息页面
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -299,6 +363,7 @@ exports.page_EditDepartment = (req, res, next) => {
     Department.findById(id)
     .then(result => {
         res.render('editDepartment',{
+            userInfo: req.session.userInfo,   //登录者个人信息
             data: result.dataValues
         })
     })
@@ -311,6 +376,13 @@ exports.page_EditDepartment = (req, res, next) => {
     return res.render('page500',{layout: null});
   }
 }
+
+
+/*** 页面end ****************/
+
+
+
+
 
 
 

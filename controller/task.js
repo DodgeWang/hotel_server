@@ -418,6 +418,29 @@ exports.assignTask = (req, res, next) => {
 
 
 
+/**
+ * 任务记录管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_tasks = (req, res, next) => {
+  try{
+    res.render('tasks',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
+
+
+
 
  /**
  * 创建任务页面
@@ -459,7 +482,8 @@ exports.page_createTask = (req, res, next) => {
             }
             res.render('createTask',{
                allRoomList: results.allRoomList, //查询的物品详细信息
-               allTaskTypeList: results.allTaskTypeList //查询所有任务类型
+               allTaskTypeList: results.allTaskTypeList, //查询所有任务类型
+               userInfo: req.session.userInfo   //登录者个人信息
             });
 
         });
@@ -471,6 +495,25 @@ exports.page_createTask = (req, res, next) => {
 }
 
 
+
+
+/**
+ * 任务链管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_taskChain = (req, res, next) => {
+  try{
+    res.render('taskChain',{
+        userInfo: req.session.userInfo   //登录者个人信息
+    });
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
 
 
 
