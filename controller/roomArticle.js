@@ -106,9 +106,9 @@ exports.editArticle = (req, res, next) => {
             RoomArticle.update(paramObj,{
 			    where: {id: id}
 		    }).then(article => {
-                res.json({
-	    	      state: 1,
-	    	      msg: langConfig(req).resMsg.success
+              res.json({
+	    	        state: 1,
+	    	        msg: langConfig(req).resMsg.success
 	            }) 
             }).catch(err => {
 	           logUtil.error(err, req);

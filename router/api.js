@@ -27,39 +27,43 @@ function checkUserSession(req, res, next) {
 
 
 
+
 //权限判断
-function checkUserPower(req, res, next) { 
-   let powerCode = null;
-   out:
-   for(let item of apiPowerConfig){
-   	   for(let a of item.list){
-            if(a.path === req.path){
-                powerCode = a.powerCode;
-                break out;
-            }
-   	   }
-   }
+function checkUserPower(req, res, next) {
+  let urlPath = url.parse(req.originalUrl).pathname;
+  let powerCode = null;
 
-   if(powerCode === null){
-       next();
-   }else{
-   	   var isPower = false;
-   	   for(let item of req.session.userInfo.powerList){
-   	       if(item == powerCode){
-               isPower = true;
-               break;
-   	       }
+  out: for(let i = 0; i < powerConfig.length; i++){
+     let iterm = powerConfig[i].list;
+       for(let x = 0; x < iterm.length; x++){
+          if(iterm[x].path === urlPath){
+              powerCode = powerConfig[i].code;
+              break out;
+          }
        }
+  }
 
-       if(isPower){
-       	   next()
-       }else{
-       	   return res.json({
-   	          state: 0,
-   	          msg: langConfig(req).resMsg.noPower
+  if(powerCode == null){
+    next();
+  }else{
+    let isPower = false;
+        let userPowerList = req.session.userInfo.powerList;
+        for(let i = 0; i < userPowerList.length; i++){
+          if(powerCode == parseInt(userPowerList[i].powerCode)){
+            isPower = true;
+            break;
+          }
+        }
+
+        if(isPower){
+          next();
+        }else{
+          return res.json({
+              state: 0,
+              msg: langConfig(req).resMsg.noPower
            })
-       }
-   }
+        }
+  }
 }
 
 
@@ -217,6 +221,9 @@ router.get('/task/self', Task.selfTaskList);
 
 //获取任务类型链列表
 router.get('/taskchain/list', Task.getTaskChainList);
+
+//根据id编辑任务类型链
+router.post('/taskchain/edit', Task.editTaskChain);
 
 
 

@@ -4,6 +4,7 @@ let ProxyFunc = require('../proxy');
 const async = require('async');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
+const powerConfig = require('../config/powerConfig')();
 
 
 /*** API接口start ****************/
@@ -411,8 +412,16 @@ exports.page_Roles = (req, res, next) => {
  */
 exports.page_CreateRole = (req, res, next) => {
   try{
+    let powerList = []
+    for(let i = 0; i < powerConfig.length; i++){
+       let obj = {};
+       obj.name = powerConfig[i].name;
+       obj.code = powerConfig[i].code;
+       powerList.push(obj);
+    }
     res.render('createRole',{
-        userInfo: req.session.userInfo   //登录者个人信息
+        userInfo: req.session.userInfo,   //登录者个人信息
+        powerList: powerList //权限列表
     });
   }catch(err){
     logUtil.error(err, req);
@@ -435,12 +444,46 @@ exports.page_CreateRole = (req, res, next) => {
  */
 exports.page_EditRole = (req, res, next) => {
   try{
+    let powerList = []
+    for(let i = 0; i < powerConfig.length; i++){
+       let obj = {};
+       obj.name = powerConfig[i].name;
+       obj.code = powerConfig[i].code;
+       powerList.push(obj);
+    }
     let id = req.query.id;
-    Role.findById(id)
+    Role.findById(id,{
+      include: [{
+         model: RolePower,
+         attributes: ['powerCode']
+      }]
+    })
     .then(result => {
+        
+        let allPowerList = []
+        for(let i = 0; i < powerConfig.length; i++){
+           let obj = {};
+           obj.name = powerConfig[i].name;
+           obj.code = powerConfig[i].code;
+           allPowerList.push(obj);
+        }
+
+        let userPowerList = result.RolePowers;
+        for(let i=0; i<allPowerList.length; i++){
+            let checked = 0;
+            two: for(let x = 0; x < userPowerList.length; x++ ){
+                if(parseInt(userPowerList[x].powerCode) == allPowerList[i].code){
+                  checked = 1;
+                  break two; 
+                }
+            }
+            allPowerList[i].checked = checked;
+        }
+
         res.render('editRole',{
             userInfo: req.session.userInfo,   //登录者个人信息
-            data: result.dataValues
+            data: result.dataValues,
+            powerList: allPowerList //权限列表
         })
     })
     .catch(err => {

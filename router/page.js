@@ -49,9 +49,9 @@ function checkUserPower(req, res, next) {
 		next();
 	}else{
 		let isPower = false;
-        let userPowerList = req.session.powerList;
+        let userPowerList = req.session.userInfo.powerList;
         for(let i = 0; i < userPowerList.length; i++){
-        	if(powerCode == userPowerList[i]){
+        	if(powerCode == parseInt(userPowerList[i].powerCode)){
         		isPower = true;
         		break;
         	}
@@ -76,10 +76,10 @@ router.get('/login', (req, res) => {
 
 
 //员工管理页面
-router.get('/employees', checkUserSession, Employee.page_Employees);
+router.get('/employees', checkUserSession, checkUserPower, Employee.page_Employees);
 
 //创建员工页面
-router.get('/employees/create', Employee.page_CreateEmployee);
+router.get('/employees/create', checkUserSession, checkUserPower, Employee.page_CreateEmployee);
 
 
 
@@ -100,39 +100,39 @@ router.get('/departments/edit', checkUserSession, checkUserPower,Department.page
 
 
 //角色管理页面
-router.get('/roles', checkUserSession, Role.page_Roles);
+router.get('/roles', checkUserSession, checkUserPower, Role.page_Roles);
 
 //创建角色页面
-router.get('/roles/create', checkUserSession, Role.page_CreateRole);
+router.get('/roles/create', checkUserSession, checkUserPower, Role.page_CreateRole);
 
 //修改角色信息页面
-router.get('/roles/edit', checkUserSession, Role.page_EditRole);
+router.get('/roles/edit', checkUserSession, checkUserPower, Role.page_EditRole);
 
 
 
 
 
 //客房管理页面
-router.get('/rooms', checkUserSession, Room.page_Rooms);
+router.get('/rooms', checkUserSession, checkUserPower, Room.page_Rooms);
 
 //添加客房页面
-router.get('/rooms/create', checkUserSession, Room.page_createRoom);
+router.get('/rooms/create', checkUserSession, checkUserPower, Room.page_createRoom);
 
 //编辑客房页面
-router.get('/rooms/edit', checkUserSession, Room.page_editRoom);
+router.get('/rooms/edit', checkUserSession, checkUserPower, Room.page_editRoom);
 
 
 
 
 
 //客房类型管理页面
-router.get('/roomtypes', checkUserSession, Room.page_RoomTypes);
+router.get('/roomtypes', checkUserSession, checkUserPower, Room.page_RoomTypes);
 
 //创建客房类型页面
-router.get('/roomtypes/create', checkUserSession, Room.page_CreateRoomType);
+router.get('/roomtypes/create', checkUserSession, checkUserPower, Room.page_CreateRoomType);
 
 //编辑客房类型信息页面
-router.get('/roomtypes/edit', checkUserSession, Room.page_EditRoomType);
+router.get('/roomtypes/edit', checkUserSession, checkUserPower, Room.page_EditRoomType);
 
 
 
@@ -140,14 +140,22 @@ router.get('/roomtypes/edit', checkUserSession, Room.page_EditRoomType);
 
 
 //物品管理页面
-router.get('/articles', checkUserSession, RoomArticle.page_Articles);
+router.get('/articles', checkUserSession, checkUserPower, RoomArticle.page_Articles);
 
 //创建物品页面
-router.get('/articles/create', checkUserSession, RoomArticle.page_CreateArticle);
+router.get('/articles/create', checkUserSession, checkUserPower, RoomArticle.page_CreateArticle);
 
 //修改物品信息页面
-router.get('/articles/edit', checkUserSession, RoomArticle.page_EditArticle);
+router.get('/articles/edit', checkUserSession, checkUserPower, RoomArticle.page_EditArticle);
 
+
+
+
+//任务链管理页面
+router.get('/taskchains', checkUserSession, checkUserPower, Task.page_taskChain);
+
+//编辑任务链信息页面
+router.get('/taskchains/edit', checkUserSession, checkUserPower, Task.page_editTaskChain);
 
 
 
@@ -158,8 +166,8 @@ router.get('/tasks', checkUserSession, Task.page_tasks);
 //创建任务页面
 router.get('/tasks/create', checkUserSession, Task.page_createTask);
 
-//任务链管理页面
-router.get('/taskchains', checkUserSession, Task.page_taskChain);
+
+
 
 
 

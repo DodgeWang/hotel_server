@@ -324,6 +324,56 @@ exports.getTaskChainList = (req, res, next) => {
 
 
 
+/**
+ * 根据id编辑任务类型链
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.editTaskChain = (req, res, next) => {
+    try{       
+        let {allocatorRole, executorRole, examinerRole} = req.body;
+        let id = parseInt(req.body.id);
+
+        let paramObj = {
+            allocatorRole: parseInt(allocatorRole),
+            executorRole: parseInt(executorRole),
+            examinerRole: parseInt(examinerRole),
+        }
+
+        TaskType.update(paramObj,{
+            where: {id: id}
+        })
+        .then(result => {          
+           res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success
+            }) 
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+                state: 0,
+                msg: langConfig(req).resMsg.error
+            })
+        })
+
+    }catch(err){
+        logUtil.error(err, req);
+        return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.error
+        })  
+    }
+}
+
+
+
+
+
+
+
 
 /**
  * 获取自身的任务列表
@@ -514,6 +564,95 @@ exports.page_taskChain = (req, res, next) => {
     return res.render('page500',{layout: null});
   }
 }
+
+
+
+
+
+/**
+ * 修改编辑任务链页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_editTaskChain = (req, res, next) => {
+  try{
+    let id = parseInt(req.query.id);
+
+    async.series({
+        //查询符合条件的房间列表
+        taskTypeInfo: cb => {
+            TaskType.findOne({
+                where:{
+                    id: id
+                },
+                order: [['id', 'DESC']],
+            })
+            .then(result => {
+                cb(null,result);
+            })
+            .catch(err => {
+                cb(err,null)
+            })
+        },
+        //所有符合条件的房间总数
+        allRole: cb => {
+            Role.findAll({
+                order: [['id', 'DESC']],
+            })
+            .then(result => {
+                cb(null,result);
+            })
+            .catch(err => {
+                cb(err,null)
+            })
+        },           
+    }, (err, results) => {
+        if(err){
+            logUtil.error(err, req);
+            return res.render('page500',{layout: null});
+        }
+        
+
+        let allRole = results.allRole;
+        let taskTypeInfo = results.taskTypeInfo;
+        
+        for(let i = 0; i < allRole.length; i++){
+            allRole[i].isAllocator = 0;
+            allRole[i].isExecutor = 0;
+            allRole[i].isExaminer = 0;
+            if(taskTypeInfo){
+                if(allRole[i].id == taskTypeInfo.allocatorRole){
+                    allRole[i].isAllocator = 1;
+                }
+                if(allRole[i].id == taskTypeInfo.executorRole){
+                    allRole[i].isExecutor = 1;
+                }
+                if(allRole[i].id == taskTypeInfo.examinerRole){
+                    allRole[i].isExaminer = 1;
+                }
+            } 
+        }
+                   
+
+
+        res.render('editTaskChain',{
+            userInfo: req.session.userInfo,   //登录者个人信息
+            allRoleList: allRole,  //所有角色
+            taskTypeInfo: taskTypeInfo
+        });
+    }); 
+
+    
+  }catch(err){
+    logUtil.error(err, req);
+    return res.render('page500',{layout: null});
+  }
+}
+
+
+
 
 
 

@@ -36,8 +36,7 @@ function changTable(){
                                            <td>'+ itermDate.executorRole +'</td>\
                                            <td>'+ itermDate.examinerRole +'</td>\
                                            <td style="position: relative;">\
-                                             <a href="/admin/roomtypes/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                             <a class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
+                                             <a href="/admin/taskchains/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
                                            </td>\
                                          </tr>'
                           newDom += itermDom;

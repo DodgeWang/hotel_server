@@ -1,0 +1,649 @@
+[2018-01-29T11:13:57.945] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:14:12.165] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:14:56.737] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:15:38.940] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:16:26.841] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:18:10.635] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:21:00.984] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:21:47.991] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:25:18.020] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:28:31.164] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:192.168.1.9
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:32:27.080] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:37:37.576] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:40:24.149] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:40:35.382] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:41:52.216] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:43:35.836] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: ReferenceError
+err message: RolePowers is not defined
+err stack: ReferenceError: RolePowers is not defined
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:35:28)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-29T11:44:25.774] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T11:45:31.820] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeEagerLoadingError
+err message: WorkExperience is not associated to EmployeeInfo!
+err stack: SequelizeEagerLoadingError: WorkExperience is not associated to EmployeeInfo!
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:582:13)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:572:38)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-29T11:49:05.183] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeEagerLoadingError
+err message: RolePower is associated to Role using an alias. You've included an alias (powerList), but it does not match the alias defined in your association.
+err stack: SequelizeEagerLoadingError: RolePower is associated to Role using an alias. You've included an alias (powerList), but it does not match the alias defined in your association.
+    at Function._getIncludedAssociation (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:587:17)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:498:53)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Function._validateIncludedElement (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:572:38)
+    at options.include.options.include.map.include (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:394:37)
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:390:39)
+    at Promise.try.then.then (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/model.js:1533:14)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-29T11:49:43.008] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T13:07:36.233] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T13:08:11.711] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T13:56:28.137] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T13:57:23.563] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'Employee.role_id' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'Employee.role_id' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T13:59:48.198] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /doLogin
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: ReferenceError
+err message: RolePowers is not defined
+err stack: ReferenceError: RolePowers is not defined
+    at exports.loginAction (/Users/user/workspace/hotel_server/controller/employee.js:35:28)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/user/workspace/hotel_server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/user/workspace/hotel_server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/user/workspace/hotel_server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate.<anonymous> (/Users/user/workspace/hotel_server/node_modules/express-session/index.js:489:7)
+    at runCallback (timers.js:793:20)
+    at tryOnImmediate (timers.js:751:5)
+    at processImmediate [as _immediateCallback] (timers.js:722:5)
+***************  node  error log end ***************
+
+[2018-01-29T20:03:48.838] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-29T20:03:52.950] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /task/add
+request method: POST
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeForeignKeyConstraintError
+err message: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+err stack: SequelizeForeignKeyConstraintError: Cannot add or update a child row: a foreign key constraint fails (`hotel`.`task_flow`, CONSTRAINT `task_flow_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:217:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+

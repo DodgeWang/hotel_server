@@ -1,5 +1,5 @@
 let { logUtil, service, dataUtil } = require("../utils");
-let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Role, Department } = require('../models');
+let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Role, RolePower, Department } = require('../models');
 let ProxyFunc = require('../proxy');
 const staticSetting = require("../config/staticSetting");
 const async = require('async');  
@@ -24,13 +24,16 @@ exports.loginAction = (req, res, next) => {
         }
 
       Employee.findOne({
-        attributes: ['username','status'],
         where: userObj,
         order: [['id', 'DESC']],
         include: [
             {
                 model: Role,
-                attributes: ['id','name']
+                attributes: ['id','name'],
+                include: [{
+                    model: RolePower,
+                    attributes: ['powerCode']
+                }]
             },{
                 model: Department,
                 attributes: ['id','name']
@@ -46,16 +49,26 @@ exports.loginAction = (req, res, next) => {
             msg: langConfig(req).resMsg.loginError
           })
         }
-
-
-        req.session.userInfo = result;
-        req.session.powerList = [1004,3002];
         
+        let userInfo = {}  
+        userInfo.id = result.id;  
+        userInfo.username = result.username;
+        userInfo.EmployeeInfo = result.EmployeeInfo;
+        userInfo.Role = result.Role;
+        userInfo.Department = result.Department;
+        userInfo.powerList = result.Role.RolePowers;       
 
 
-        req.session.LANG = 2;
+
+        /* 存入session start */
+        req.session.userInfo = userInfo;  //登录者个人信息
+        req.session.LANG = 2;  //默认语言
+        /* 存入session end */
+
+
         res.json({
           state: 1,
+          data: result,
           msg: langConfig(req).resMsg.success
         })
 
@@ -88,12 +101,8 @@ exports.loginAction = (req, res, next) => {
  * @return {null}     
  */
 exports.logOut = (req, res, next) => {
-  try{
-    console.log("haha")
-  }catch(err){
-    res.sendStatus(500)
-  }
-
+    req.session.destroy();
+    res.render('login',{layout: null}) 
 }
 
 
@@ -584,6 +593,7 @@ exports.page_Employees = (req, res, next) => {
             res.render('employees',{
                departmentList: results.allDepartmentList, //所有部门
                roleList: results.allRoleList, //所有角色
+               userInfo: req.session.userInfo,   //登录者个人信息
             });
 
         });
@@ -634,6 +644,7 @@ exports.page_CreateEmployee = (req, res, next) => {
             res.render('createEmployee',{
                departmentList: results.allDepartmentList, //所有部门
                roleList: results.allRoleList, //所有角色
+               userInfo: req.session.userInfo,   //登录者个人信息
             });
 
         });
