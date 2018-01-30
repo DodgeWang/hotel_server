@@ -245,8 +245,15 @@ router.get('/event/getshare/shared', Event.allSharedEvent);
 
 
 
+
+//获取员工起止时间内所有的工作安排
+router.get('/schedule/list', WorkSchedule.getSchedulelist)
+
+//根据id删除工作安排
+router.post('/schedule/delete',WorkSchedule.deleteSchedule)
+
 //获取起止时间内所有的工作安排
-router.get('/schedule/list', WorkSchedule.getScheduleByTime)
+// router.get('/schedule/list', WorkSchedule.getScheduleByTime)
 
 
 

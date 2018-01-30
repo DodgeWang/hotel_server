@@ -7,7 +7,7 @@ const router = express.Router();
 let url = require('url');
 
 
-const { Employee, Room, Department, Role, RoomArticle, Task } = require('../controller');
+const { Employee, Room, Department, Role, RoomArticle, Task, WorkSchedule } = require('../controller');
 const _ = require('lodash');
 // let langConfig = {};
 const powerConfig = require('../config/powerConfig')();
@@ -165,6 +165,11 @@ router.get('/tasks', checkUserSession, Task.page_tasks);
 
 //创建任务页面
 router.get('/tasks/create', checkUserSession, Task.page_createTask);
+
+
+
+//工作排班页面
+router.get('/schedule', WorkSchedule.page_WorkSchedule);
 
 
 

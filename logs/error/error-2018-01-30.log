@@ -1,0 +1,110 @@
+[2018-01-30T16:25:57.167] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /schedule/list
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+err name: ReferenceError
+err message: dataList is not defined
+err stack: ReferenceError: dataList is not defined
+    at Employee.findAll.then.result (/Users/user/workspace/hotel_server/controller/workSchedule.js:83:19)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+***************  node  error log end ***************
+
+[2018-01-30T18:07:19.719] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /schedule/list
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+err name: TypeError
+err message: Cannot read property 'name' of null
+err stack: TypeError: Cannot read property 'name' of null
+    at Employee.findAll.then.result (/Users/user/workspace/hotel_server/controller/workSchedule.js:98:47)
+    at tryCatcher (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at Promise._resolveCallback (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:432:57)
+    at Promise._settlePromiseFromHandler (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:524:17)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Promise._fulfill (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:638:18)
+    at MappingPromiseArray.PromiseArray._resolve (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise_array.js:126:19)
+    at MappingPromiseArray._promiseFulfilled (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/map.js:101:18)
+    at Promise._settlePromise (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:574:26)
+    at Promise._settlePromise0 (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/user/workspace/hotel_server/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:789:20)
+***************  node  error log end ***************
+
+[2018-01-30T19:58:03.925] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /schedule/list?startTime=NaN&endTime=NaN
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'NaN' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'NaN' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
+[2018-01-30T19:58:07.088] [ERROR] errorLogger - 
+***************  node error log start ***************
+request url: /schedule/list?startTime=NaN&endTime=NaN
+request method: GET
+request client ip:  ::ffff:127.0.0.1
+err name: SequelizeDatabaseError
+err message: Unknown column 'NaN' in 'on clause'
+err stack: SequelizeDatabaseError: Unknown column 'NaN' in 'on clause'
+    at Query.formatError (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:228:16)
+    at Query.connection.query [as onResult] (/Users/user/workspace/hotel_server/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/user/workspace/hotel_server/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+***************  node  error log end ***************
+
