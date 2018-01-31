@@ -86,9 +86,19 @@
     padding: 5px 4px;
     background: #fcf8e3;
 }
+
+.thead_wdq th{
+    height: 30px;
+    line-height: 30px;
+}
+
 .tbody_wdq .nameBox{
   width: 40px;
   background: #ffffff!important;
+}
+
+.tbody_wdq td{
+  position: relative;
 }
 .tbody_wdq td .timeBox{
   width: 100%;
@@ -100,6 +110,26 @@
   position: relative;    
 }
 
+.tbody_wdq td .dataAddBox{
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: #000000;
+  opacity:0.7;
+  display: none;
+  top:0;
+  left: 0;
+  z-index: 100; 
+  text-align: center;
+}
+
+.tbody_wdq td .dataAddBox span{
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 16px;
+}
+
 .tbody_wdq td .timeBox .delBtn{
    position: absolute;
    right: 0;
@@ -109,6 +139,7 @@
    color: #ffffff;
    font-size: 14px;
    line-height: 20px;
+   display: none;
 }
 
 .tbody_wdq td .timeBox:last-child{

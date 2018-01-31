@@ -169,7 +169,7 @@ router.get('/tasks/create', checkUserSession, Task.page_createTask);
 
 
 //工作排班页面
-router.get('/schedule', WorkSchedule.page_WorkSchedule);
+router.get('/schedule', checkUserSession, checkUserPower, WorkSchedule.page_WorkSchedule);
 
 
 

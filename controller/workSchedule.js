@@ -111,7 +111,7 @@ exports.addSchedule = (req, res, next) => {
             dataList.push(obj);
         }
         return res.json({
-          state: 0,
+          state: 1,
           msg: langConfig(req).resMsg.success,
           data: dataList
         })

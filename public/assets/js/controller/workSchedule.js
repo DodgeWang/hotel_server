@@ -39,8 +39,20 @@ $(function(){
         changTable(nowDateStamp)
 	})
 
+
+  //添加排班按钮 
+  $('#addDateBtn').click(function(){
+      $('#dataBox .dataAddBox').fadeToggle(200,"linear");
+  })
+
+
+  //删除排班按钮 
+  $('#delDateBtn').click(function(){
+      $('#dataBox .delBtn').fadeToggle(200,"linear");
+  })
+
     
-    //删除工作安排
+  //删除工作安排
 	$('#dataBox').on('click','.delBtn',function(){
 		if(confirm("是否确认删除?")){  
             var id = parseInt($(this).attr('data-id'));
@@ -59,6 +71,91 @@ $(function(){
 
 
 
+  //显示添加工作安排表单框
+  $('#dataBox').on('click','.dataAddBox span',function(){
+     var name = $(this).attr('data-name');
+     var userId = $(this).attr('data-userid');
+     var date = $(this).attr('data-date');
+     $('#addForm_name').val(name);
+     $('#addForm_userId').val(userId);
+     $('#addForm_date').val(date);
+     $('#addForm_startHours').val('00');
+     $('#addForm_startMinutes').val('00');
+     $('#addForm_endHours').val('00');
+     $('#addForm_endMinutes').val('00');
+     $('#addFormModal').modal('show');
+  })
+
+
+
+  //添加上传新增数据
+  $('#addFormSubBtn').click(function(){
+      var dateList = $('#addForm_date').val().split("/");
+      var startDate = new Date();
+      var endDate = new Date();
+      
+      startDate.setFullYear(parseInt(dateList[0]));
+      startDate.setMonth(parseInt(dateList[1])-1);
+      startDate.setDate(parseInt(dateList[2]));
+      startDate.setHours(parseInt($('#addForm_startHours').val()));
+      startDate.setMinutes(parseInt($('#addForm_startMinutes').val()));
+      startDate.setSeconds(0);
+      startDate.setMilliseconds(0);
+
+
+      endDate.setFullYear(parseInt(dateList[0]));
+      endDate.setMonth(parseInt(dateList[1])-1);
+      endDate.setDate(parseInt(dateList[2]));
+      endDate.setHours(parseInt($('#addForm_endHours').val()));
+      endDate.setMinutes(parseInt($('#addForm_endMinutes').val()));
+      endDate.setSeconds(0);
+      endDate.setMilliseconds(0);
+      
+      var employeeId = parseInt($('#addForm_userId').val());
+      var paramObj = {
+         employeeId: employeeId,
+         startTime: Date.parse(startDate)/1000,
+         endTime: Date.parse(endDate)/1000
+      };
+
+      console.log(paramObj)
+      $.post(
+        "/api/schedule/create",
+        paramObj,
+        function(result){
+           if(result.state == 1){
+              $('#addFormModal').modal('hide');
+              changTable(nowDateStamp)
+
+           }else{
+              alert(result.msg)
+           }
+      })
+      
+  })
+
+
+  
+
+  //双击显示添加按钮  
+  $('#dataBox').on('dblclick','.tdDataBox',function(){
+      $('#dataBox .dataAddBox').fadeToggle(200,"linear");
+  })
+
+
+  //鼠标移动到单个安排记录上面显示删除按钮
+  $('#dataBox').on('mouseover','.timeBox',function(){
+      $(this).find('.delBtn').show();
+  })
+
+  //鼠标移开单个安排记录上面隐藏删除按钮
+  $('#dataBox').on('mouseout','.timeBox',function(){
+      $(this).find('.delBtn').hide();
+  })
+
+
+
+
 
 /**
  * 根据条件查询
@@ -73,10 +170,35 @@ $(function(){
         var thDom = $("#theadBox tr .dateth");
         //循环改变table头部日期信息
         for(var i = 0; i < thDom.length; i++){
+           var weekStr = '';
+           switch(i)
+            {
+            case 0:
+              weekStr = 'Sun';
+              break;
+            case 1:
+              weekStr = 'Mon';
+              break;
+            case 2:
+              weekStr = 'Tue';
+              break;
+            case 3:
+              weekStr = 'Wed';
+              break;
+            case 4:
+              weekStr = 'Thu';
+              break;
+            case 5:
+              weekStr = 'Fri';
+              break;
+            case 6:
+              weekStr = 'Sat';
+              break;
+            }
            var date = new Date((startDateStamp+i*86400)*1000);
            var thisMonth = date.getMonth()+1 >= 10 ? ''+(date.getMonth()+1) : '0'+(date.getMonth()+1);
            var thisDayNum = date.getDate() >= 10 ? ''+date.getDate() : '0'+date.getDate();
-           thDom.eq(i).html(thisMonth+' / '+thisDayNum)
+           thDom.eq(i).html(weekStr+'  '+thisMonth+'/'+thisDayNum);
         }
 
         var dateTitle = timeToStr(startDateStamp)+' -- '+timeToStr(endDateStamp-1);
@@ -91,7 +213,8 @@ $(function(){
 			"/api/schedule/list",
 			paramObj,
 			function(result){
-			   var tbodyDom = '';
+        if(result.state == 1){
+			         var tbodyDom = '';
                for(var i = 0; i < result.data.length; i++){
                	  var trBox = '' 
                	  var tdNameBox = '<td class="nameBox">'+result.data[i].name+'</td>'; 
@@ -106,15 +229,29 @@ $(function(){
                            hasData = true;
                	  	 	}
                	  	 }
-               	  	 tdDataBox = '<td '+ (hasData ? 'style="background:#ffffff"' : '') +'>'+ tdDataBox + '</td>'
+
+                     var date = new Date((startDateStamp+x*86400)*1000);
+                     var thisYear = date.getFullYear();
+                     var thisMonth = date.getMonth()+1;
+                     var thisDayNum = date.getDate();
+                     var cdDateStr = thisYear+'/'+thisMonth+'/'+thisDayNum;
+
+               	  	 tdDataBox = '<td class="tdDataBox"'+ (hasData ? 'style="background:#ffffff"' : '') +'>'+ tdDataBox + '\
+                                      <div class="dataAddBox">\
+                                         <span class="glyphicon glyphicon-plus" data-name="'+result.data[i].name+'" data-userid="'+result.data[i].employeeId+'" data-date="'+cdDateStr+'"></span>\
+                                      </div>\
+                                  </td>'
                      tdDataList += tdDataBox;
                	  }
                	  trBox = '<tr>' + tdNameBox + tdDataList + '</tr>';
                	  tbodyDom += trBox;
                }
                $('#dataBox').html(tbodyDom);
+            }else{
+               alert(result.msg)
             }
-        );
+
+      });
 	}
 
 

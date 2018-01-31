@@ -92,5 +92,13 @@ module.exports = () => {
                              des: '编辑任务链页面'
                          }]              
                },
+               {   
+                 name: '工作排班管理',
+                 code: 8001,
+                 list: [{
+                             path: '/admin/schedule',
+                             des: '排班管理首页'
+                         }]              
+               },
 	       ]
 }
