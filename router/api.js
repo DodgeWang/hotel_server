@@ -30,6 +30,10 @@ function checkUserSession(req, res, next) {
 
 //权限判断
 function checkUserPower(req, res, next) {
+  if(req.session.userInfo.isSuper == 1){ //如果是超级管理员直接不用判断
+     return next();
+  }
+  
   let urlPath = url.parse(req.originalUrl).pathname;
   let powerCode = null;
 
@@ -224,6 +228,23 @@ router.get('/taskchain/list', Task.getTaskChainList);
 
 //根据id编辑任务类型链
 router.post('/taskchain/edit', Task.editTaskChain);
+
+
+
+
+//获取事件类型列表
+router.get('/eventtypes/list', Event.getEventTypeList);
+
+//创建事件类型
+router.post('/eventtype/add', Event.addEventType);
+
+//根据id修改事件类型信息
+router.post('/eventtype/edit',Event.editEventType);
+
+//根据id删除事件类型
+router.post('/eventtype/delete',Event.deleteEventType);
+
+
 
 
 

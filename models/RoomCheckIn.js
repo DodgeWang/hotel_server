@@ -33,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
 		    type: DataTypes.STRING(50),
 		    field: 'check_out_time',
 		    comment: '退房时间，时间戳'
+	    },
+	    isCheckOut: {
+		    type: DataTypes.INTEGER,
+		    field: 'is_checkout',
+		    comment: '是否退房(1代表已退房，0代表未退房)' 
 	    }
     }, {
 	    tableName: 'room_checkin',

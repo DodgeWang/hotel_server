@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'id',
 		comment: '员工信息id',
 	},
-	name: {
-		type: DataTypes.STRING(100),
-		field: 'name',
-		comment: '真实姓名'
+	employeeId: {
+		type: DataTypes.INTEGER,
+		field: 'employee_id',
+		comment: '员工id'
 	},
 	ssn: {
 		type: DataTypes.STRING(100),
@@ -33,32 +33,22 @@ module.exports = (sequelize, DataTypes) => {
 		type: DataTypes.STRING(10),
 		field: 'age',
 		comment: '年龄'
-	},
-	email: {
-		type: DataTypes.STRING(50),
-		field: 'email',
-		comment: '邮箱'
-	},
-	phone: {
-		type: DataTypes.STRING(30),
-		field: 'phone',
-		comment: '电话号码'
-	},
-	workDay: {
-		type: DataTypes.STRING(30),
-		field: 'work_day',
-		comment: '工作日（多选），1~7（星期一~星期天），0没有要求'
-	},
-	workHoursWeek: {
-		type: DataTypes.STRING(10),
-		field: 'work_hours_week',
-		comment: '工作几小时/周'
-	},
-	canNight: {
-		type: DataTypes.INTEGER,
-		field: 'can_night',
-		comment: '是否能晚上工作，1能，0不能'
-	},
+	},	
+	// workDay: {
+	// 	type: DataTypes.STRING(30),
+	// 	field: 'work_day',
+	// 	comment: '工作日（多选），1~7（星期一~星期天），0没有要求'
+	// },
+	// workHoursWeek: {
+	// 	type: DataTypes.STRING(10),
+	// 	field: 'work_hours_week',
+	// 	comment: '工作几小时/周'
+	// },
+	// canNight: {
+	// 	type: DataTypes.INTEGER,
+	// 	field: 'can_night',
+	// 	comment: '是否能晚上工作，1能，0不能'
+	// },
 	workNature: {
 		type: DataTypes.INTEGER,
 		field: 'work_nature',
@@ -114,11 +104,7 @@ module.exports = (sequelize, DataTypes) => {
 		field: 'military_specialty',
 		comment: '军事专业'
 	},
-	employeeId: {
-		type: DataTypes.INTEGER,
-		field: 'employee_id',
-		comment: '员工id'
-	}
+	
 
 
 }, {

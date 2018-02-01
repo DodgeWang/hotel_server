@@ -75,8 +75,8 @@ RoomInfo.belongsToMany(RoomArticle, { through: RoomArticleRel,foreignKey:'room_i
 RoomArticle.belongsToMany(RoomInfo, { through: RoomArticleRel,foreignKey:'article_id'});
 
 //房间和入住信息关联关系（一对多）
-RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id',as:'roomCheckIn'});
-RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id',as:'roomInfo'});
+RoomInfo.hasMany(RoomCheckIn, {foreignKey:'room_id'});
+RoomCheckIn.belongsTo(RoomInfo, {foreignKey:'room_id'});
 
 //任务链与角色关联
 TaskType.belongsTo(Role,{foreignKey:'allocator_role',as:'allocator'});

@@ -2,6 +2,7 @@
     <link href="/assets/css/newStyle.css" rel="stylesheet">
 {{/section}}
 
+
 <div class="right_col">
           <div>
             <div class="row">
@@ -10,12 +11,15 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>员工管理 <small>Custom design</small></h2>
-                    
+                    <h2>入住登记管理 <small>Custom design</small></h2>
+
                     <div style="float: right;">
-                      <a href="/admin/employees/create" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> 新增 </a>
+                      <a href="/admin/rooms/create" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> 登记 </a>
                     </div>
                     
+                    <!-- <ul class="nav navbar-right panel_toolbox" style="min-width: 0px;">
+                      <li><a href="createRoom.html"><i class="fa fa-plus"></i></a>                 
+                    </ul> -->
                     <div class="clearfix"></div>
                   </div>
 
@@ -23,39 +27,17 @@
 
                     <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"  style="overflow: visible;">
                       <div class="row">
-                          <div class="col-sm-12">
-                              <div class="dataTables_length" style="width: auto;">
-                                  <label>
-                                     部门 
-                                     <select name="datatable_length" id="departmentSelect" class="form-control input-sm">
-                                         <option value="0">全部</option>
-                                         {{#each departmentList}}
-                                         <option value={{id}}>{{name}}</option>
-                                         {{/each}}
-                                     </select>
-                                   </label>
-                               </div>
-                               <div class="dataTables_length" style="width: auto; margin-left: 15px;">
-                                  <label>
-                                     角色 
-                                     <select name="datatable_length" id="roleSelect" class="form-control input-sm">
-                                         <option value="0">全部</option>
-                                         {{#each roleList}}
-                                         <option value={{id}}>{{name}}</option>
-                                         {{/each}}
-                                     </select>
-                                   </label>
-                               </div>
-                               <!-- <div class="dataTables_length" style="width: auto; margin-left: 15px;">
+                          <div class="col-sm-12">    
+                               <div class="dataTables_length" style="width: auto;">
                                   <label>
                                      状态 
-                                     <select name="datatable_length" class="form-control input-sm">
-                                         <option value="">全部</option>
-                                         <option value="">正常</option>
-                                         <option value="">禁用</option>
+                                     <select name="datatable_length" id="checkStatusSelect" class="form-control input-sm">
+                                         <option value="-1">全部</option>
+                                         <option value="0">入住中</option>
+                                         <option value="1">已退房</option>
                                      </select>
                                    </label>
-                               </div> -->
+                               </div>
                                <div class="dataTables_length" style="width: auto; margin-left: 15px;">
                                   <label>
                                      显示条数 
@@ -67,7 +49,6 @@
                                      </select>
                                    </label>
                                </div>
-                               
                           </div>
                           
                       </div>
@@ -79,14 +60,15 @@
                                       <th>
                                         <input type="checkbox" id="check-all" class="flat">
                                       </th>
-                                      <th class="column-title">真实姓名 </th>
-                                      <th class="column-title">用户名 </th>
-                                      <th class="column-title">部门 </th>
-                                      <th class="column-title">角色 </th>
-                                      <th class="column-title">联系电话 </th>
-                                      <th class="column-title">用户性质 </th>
-                                      <th class="column-title">状态 </th>
-                                      <th class="column-title no-link last"><span class="nobr"></span>
+                                      <th class="column-title">房间号 </th>
+                                      <th class="column-title">类型 </th>
+                                      <th class="column-title">入住时间 </th>
+                                      <th class="column-title">退房时间 </th>
+                                      <th class="column-title">客人名称 </th>
+                                      <th class="column-title">客人电话 </th>
+                                      <!--<th class="column-title">入住状态</th>
+                                      <th class="column-title">清洁状态 </th>-->
+                                      <th class="column-title no-link last"><span class="nobr">操作</span>
                                       </th>
                                       <th class="bulk-actions" colspan="7">
                                          <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -126,8 +108,6 @@
                       </div>
 
                     </div>
-							
-						
                   </div>
                 </div>
               </div>
@@ -135,6 +115,7 @@
           </div>
         </div>
 
+
 {{#section 'script'}}
-    <script type="text/javascript" src="/assets/js/controller/employees.js"></script>
+    <script type="text/javascript" src="/assets/js/controller/checkIn.js"></script>
 {{/section}}

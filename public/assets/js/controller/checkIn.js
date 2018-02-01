@@ -1,24 +1,21 @@
 $(function(){
-	var pageNow = 1; //当前页
-	var dataAllTotle = 0; //所有符合条件数据总数
+	  var pageNow = 1; //当前页
+	  var dataAllTotle = 0; //所有符合条件数据总数
     var pageTotle = 0; //总页数
     var pageLiShowNum = 11; //分页栏最大显示个数
 	
     
     //初始查询
-	changTable(pageNow)
+	  changTable(pageNow)
 
-	//部门筛选
-	$('#departmentSelect').change(function(){
-		pageNow = 1;
-	    changTable(pageNow);
-    })
 
-    //角色筛选
-    $('#roleSelect').change(function(){
+    //入住状态筛选
+    $('#checkStatusSelect').change(function(){
 	    pageNow = 1;
 	    changTable(pageNow);
     })
+
+    
 
     //条数筛选
     $('#pageSizeSelect').change(function(){
@@ -49,6 +46,24 @@ $(function(){
     	changTable(pageNow); 
     })
 
+    //退房
+    $('#datalistBox').on('click','.checkOutBtn',function(){
+        if(confirm("是否确认退房?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/checkin/checkout",paramObj,function(obj){
+                if(obj.state == 1){
+                  changTable(pageNow)
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+            
+    })
+
     
 
 
@@ -57,26 +72,26 @@ $(function(){
  * @param  pageNow  Number   当前页数  
  * @return {null}     
  */
-    function changTable(pageNow){
-        $('#loadingBox').show(); //显示loading加载动画
+function changTable(pageNow){
+    $('#loadingBox').show(); //显示loading加载动画
 
-		var departmentId = parseInt($('#departmentSelect').val()); //已选部门id
-		var roleId = parseInt($('#roleSelect').val()); //已选角色id
+
+		var isCheckOut = parseInt($('#checkStatusSelect').val()); //已选入住状态
 		var pageSize = parseInt($('#pageSizeSelect').val()); //已选查询条数
 		var paramObj = {
 			pageNow: pageNow,
 			pageSize: pageSize
 		};
-		if(departmentId !== 0){
-           paramObj.departmentId = departmentId;
+
+
+		if(isCheckOut != -1){
+           paramObj.isCheckOut = isCheckOut;
 		}
 
-		if(roleId !== 0){
-		   paramObj.roleId = roleId;
-		}
+
 
 		$.get(
-			"/api/employee/list",
+			"/api/checkin/list",
 			paramObj,
 			function(result){
                var newDom = '';
@@ -90,26 +105,23 @@ $(function(){
                       
                       for(var i = 0; i < dataList.length; i++){
                	         var itermDate = dataList[i];
-                         var editDom = '';
-                         if(itermDate.isSuper!=1){
-                            editDom = '<a href="editEmployee.html" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                       <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
-                                       <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-key"></i> 重置密码 </a>'
-                         }
+               	         var isCheckInDom = '';
+                         var isCleanDom = '';
+
                	         var itermDom = '<tr class="even pointer">\
                                              <td class="a-center ">\
                                                <input type="checkbox" class="flat" name="table_records">\
                                              </td>\
-                                             <td>'+ itermDate.name +'</td>\
-                                             <td>'+ itermDate.username +'</td>\
-                                             <td>'+ (itermDate.Department ? itermDate.Department.name : '') +'</td>\
-                                             <td>'+ (itermDate.Role ? itermDate.Role.name : '') +'</td>\
-                                             <td>'+ itermDate.phone +'</td>\
-                                             <td>'+ (itermDate.isSuper==1?"超级管理员":"普通用户") +'</td>\
-                                             <td>\
-                                               <button type="button" class="btn btn-success btn-xs">正常</button>\
+                                             <td>'+ itermDate.roomNumber +'</td>\
+                                             <td>'+ itermDate.roomType +'</td>\
+                                             <td>'+ itermDate.checkInTime +'</td>\
+                                             <td>'+ itermDate.checkOutTime +'</td>\
+                                             <td>'+ itermDate.guestName +'</td>\
+                                             <td>'+ itermDate.guestPhone +'</td>\
+                                             <td style="position: relative;">\
+                                                 <a href="/admin/rooms/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 续房 </a>\
+                                                 <a class="btn btn-danger btn-xs checkOutBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 退房 </a>\
                                              </td>\
-                                             <td style="position: relative;">'+editDom+'</td>\
                                            </tr>'
                           newDom += itermDom;
                       }

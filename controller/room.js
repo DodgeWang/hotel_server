@@ -165,7 +165,7 @@ exports.getRoomTypeList = (req, res, next) => {
         let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		let queryCriteria = { //获取部门列表查询条件
+		let queryCriteria = { //获取房间类型列表查询条件
            limit: limit,
            offset: offset
         }
@@ -295,12 +295,12 @@ exports.editRoomType = (req, res) => {
  */
 exports.getRoomList = (req, res, next) => {    	
 	try{
-		let { pageNow, pageSize, typeId, status, cleanStatus } = req.query;
+		    let { pageNow, pageSize, typeId, status, cleanStatus } = req.query;
 
         let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
         let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
 
-		let queryCriteria = { //获取部门列表查询条件
+		    let queryCriteria = { //获取列表查询条件
            limit: limit,
            offset: offset
         }

@@ -48,7 +48,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{userInfo.EmployeeInfo.name}}</h2>
+                <h2>{{userInfo.name}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -76,6 +76,7 @@
                     </ul>
                   </li>
                   <li><a href="/admin/schedule"><i class="fa fa-calendar"></i> 员工排班</a></li>
+                  <li><a href="/admin/checkin"><i class="fa fa-calendar"></i> 入住登记</a></li>
                   <li><a><i class="fa fa-tasks"></i> 任务管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/admin/tasks">任务记录</a></li>
@@ -86,7 +87,7 @@
                   <li><a><i class="fa fa-warning"></i> 事件管理 <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
                       <li><a href="events.html">事件记录</a></li>
-                      <li><a href="eventEmail.html">邮件配置</a></li>
+                      <li><a href="/admin/eventtypes">事件类型</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -124,7 +125,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="/assets/images/img.jpg" alt="">{{userInfo.EmployeeInfo.name}}
+                    <img src="/assets/images/img.jpg" alt="">{{userInfo.name}}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

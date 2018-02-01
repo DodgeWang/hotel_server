@@ -12,7 +12,7 @@ let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Ro
  exports.getEmployeeList = (queryCriteria, cb) => {
     try{
         let queryObj = {
-            attributes: ['id','username','password','status'],
+            attributes: ['id','username','password','status','name','phone','isSuper'],
             order: [['id', 'DESC']],
             where: {},
             include: [
@@ -22,9 +22,6 @@ let { Employee, EmployeeInfo, EduExperience, WorkExperience, SocialRelations, Ro
             },{
                 model: Department,
                 attributes: ['id','name']
-            },{
-                model: EmployeeInfo,
-                attributes: ['id','name','phone']
             }]
         }       
 

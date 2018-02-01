@@ -1,7 +1,9 @@
 let { logUtil, service, dataUtil } = require("../utils");
-let { RoomCheckIn, RoomInfo } = require('../models');
+let { RoomCheckIn, RoomInfo, RoomType } = require('../models');
 const staticSetting = require("../config/staticSetting");
 let { langConfig } = require("../config/lang_config");
+let ProxyFunc = require('../proxy');
+const async = require('async');
 
 
 /**
@@ -169,7 +171,7 @@ let { langConfig } = require("../config/lang_config");
 
 
  /**
- * 分页查询所有已经入住的房间
+ * 分页查询所有入住记录
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -177,38 +179,90 @@ let { langConfig } = require("../config/lang_config");
  */
  exports.checkInRoomList = (req, res, next) => {
  	try{
-        let { pageNow, pageSize } = req.query;
-        let limit = parseInt(pageSize);
-        let offset = (parseInt(pageNow)-1) * limit;
+        let { pageNow, pageSize, isCheckOut} = req.query;
 
-        RoomInfo.findAll({
-        	where:{
-        		roomStatus: 1
-        	},
-        	order: [['id', 'DESC']],
-            limit: limit,
-            offset: offset,
-            include: [{
-            	model: RoomCheckIn,
-            	as: 'roomCheckIn',
-            	limit: 1,
-                offset: 0,
-                order: [['id', 'DESC']]
-            }]
-        }).then(result => {
-        	res.json({
-	    	    state: 1,
-	    	    msg: langConfig(req).resMsg.success,
-	    	    data: result
-	        })
-        })
-        .catch(err => {
-            logUtil.error(err, req);
-            return res.json({
-	    	    state: 0,
-	    	    msg: langConfig(req).resMsg.error
-	        })
-        })
+        let limit = pageSize ? parseInt(pageSize) : envConfig.dataLimit;
+        let offset = pageNow ? (parseInt(pageNow)-1) * limit : 0;
+        
+
+        let queryObj = { //获取列表查询条件
+
+        }
+
+        if(typeof isCheckOut != 'undefined'){
+            queryObj.isCheckOut = isCheckOut;
+        }
+
+        async.series({
+            //查询符合条件的记录列表
+            checkInList: cb => {
+                RoomCheckIn.findAll({
+                    // attributes: ['id','name'],
+                    order: [['id', 'DESC']],
+                    limit: limit,
+                    offset: offset,
+                    where: queryObj,
+                    include: [{
+                        model: RoomInfo,
+                        include: [{
+                            model: RoomType
+                        }]
+                    }]
+                })
+                .then(result => {
+                    return cb(null,result);
+                })
+                .catch(err => {
+                    return cb(err,null);
+                })
+            },
+            //所有符合条件的记录总数
+            allCheckInCount: cb => {
+                RoomCheckIn.count({
+                    order: [['id', 'DESC']],
+                    where: queryObj
+                })
+                .then(result => {
+                    return cb(null,result)
+                })
+                .catch(err => {
+                    return cb(err,null)
+                })
+            },
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.json({
+                 state: 0,
+                 msg: langConfig(req).resMsg.error
+               }) 
+            }
+
+            let dataList = [];
+            for(let i=0; i<results.checkInList.length; i++){
+                let obj = results.checkInList[i];
+                let iterm = {
+                    id: obj.id,
+                    roomNumber: obj.RoomInfo.number,
+                    roomType: obj.RoomInfo.RoomType.name,
+                    guestName: obj.guestName,
+                    guestPhone: obj.guestPhone,
+                    checkInTime: getTimeStr(obj.checkInTime),
+                    checkOutTime: getTimeStr(obj.checkOutTime)
+                }
+                dataList.push(iterm)
+            }
+
+            res.json({
+              state: 1,
+              msg: langConfig(req).resMsg.success,
+              data: {
+                datalist: dataList, //查询的登记记录列表
+                allDataCount: results.allCheckInCount  //所有符合条件的记录总数
+              }
+            }) 
+        }); 
         
  	}catch(err){
         logUtil.error(err, req);
@@ -218,4 +272,61 @@ let { langConfig } = require("../config/lang_config");
 	    })
  	}
  }
+
+
+
+ //时间戳转时间 yyyy-mm-dd HH:MM
+ function getTimeStr(timestamp){
+     let date = new Date(timestamp * 1000);
+     var year = date.getFullYear();
+     var month = date.getMonth() + 1 >= 10 ? ''+(date.getMonth()+1) : '0'+(date.getMonth()+1);
+     var dateNum = date.getDate() >= 10 ? ''+date.getDate() : '0'+date.getDate();
+     let hours = date.getHours() >= 10 ? ''+date.getHours() : '0'+date.getHours();
+     let minutes = date.getMinutes() >= 10 ? ''+date.getMinutes() : '0'+date.getMinutes();
+     return year+'/'+month+'/'+dateNum+' '+hours +':'+ minutes;
+ }
+
+
+
+
+
+
+
+ /**
+ * 入住登记管理页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CheckIn = (req, res, next) => {
+    try{
+        async.series({
+            //全部房间类型列表
+            allTypeList: cb => {
+                ProxyFunc.Room.getRoomTypeList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('checkIn',{
+               roomTypeList: results.allTypeList, //所有房间列表
+               userInfo: req.session.userInfo   //登录者个人信息
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
 

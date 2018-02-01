@@ -8,17 +8,6 @@ $(function(){
     //初始查询
 	changTable(pageNow)
 
-	//部门筛选
-	$('#departmentSelect').change(function(){
-		pageNow = 1;
-	    changTable(pageNow);
-    })
-
-    //角色筛选
-    $('#roleSelect').change(function(){
-	    pageNow = 1;
-	    changTable(pageNow);
-    })
 
     //条数筛选
     $('#pageSizeSelect').change(function(){
@@ -49,7 +38,24 @@ $(function(){
     	changTable(pageNow); 
     })
 
-    
+
+    //删除房间类型
+    $('#datalistBox').on('click','.delInfoBtn',function(){
+        if(confirm("是否确认删除?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/eventtype/delete",paramObj,function(obj){
+                if(obj.state == 1){
+                  changTable(pageNow)
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+            
+    })
 
 
 /**
@@ -57,26 +63,17 @@ $(function(){
  * @param  pageNow  Number   当前页数  
  * @return {null}     
  */
-    function changTable(pageNow){
-        $('#loadingBox').show(); //显示loading加载动画
+function changTable(pageNow){
+    $('#loadingBox').show(); //显示loading加载动画
 
-		var departmentId = parseInt($('#departmentSelect').val()); //已选部门id
-		var roleId = parseInt($('#roleSelect').val()); //已选角色id
 		var pageSize = parseInt($('#pageSizeSelect').val()); //已选查询条数
 		var paramObj = {
 			pageNow: pageNow,
 			pageSize: pageSize
 		};
-		if(departmentId !== 0){
-           paramObj.departmentId = departmentId;
-		}
-
-		if(roleId !== 0){
-		   paramObj.roleId = roleId;
-		}
 
 		$.get(
-			"/api/employee/list",
+			"/api/eventtypes/list",
 			paramObj,
 			function(result){
                var newDom = '';
@@ -90,27 +87,16 @@ $(function(){
                       
                       for(var i = 0; i < dataList.length; i++){
                	         var itermDate = dataList[i];
-                         var editDom = '';
-                         if(itermDate.isSuper!=1){
-                            editDom = '<a href="editEmployee.html" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                       <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
-                                       <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-key"></i> 重置密码 </a>'
-                         }
                	         var itermDom = '<tr class="even pointer">\
-                                             <td class="a-center ">\
-                                               <input type="checkbox" class="flat" name="table_records">\
-                                             </td>\
-                                             <td>'+ itermDate.name +'</td>\
-                                             <td>'+ itermDate.username +'</td>\
-                                             <td>'+ (itermDate.Department ? itermDate.Department.name : '') +'</td>\
-                                             <td>'+ (itermDate.Role ? itermDate.Role.name : '') +'</td>\
-                                             <td>'+ itermDate.phone +'</td>\
-                                             <td>'+ (itermDate.isSuper==1?"超级管理员":"普通用户") +'</td>\
-                                             <td>\
-                                               <button type="button" class="btn btn-success btn-xs">正常</button>\
-                                             </td>\
-                                             <td style="position: relative;">'+editDom+'</td>\
-                                           </tr>'
+                                           <td class="a-center ">\
+                                             <input type="checkbox" class="flat" name="table_records">\
+                                           </td>\
+                                           <td>'+ itermDate.name +'</td>\
+                                           <td style="position: relative;">\
+                                             <a href="/admin/eventtypes/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                             <a class="btn btn-danger btn-xs delInfoBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 删除 </a>\
+                                           </td>\
+                                         </tr>'
                           newDom += itermDom;
                       }
                    

@@ -21,7 +21,6 @@ const async = require('async');
         let queryConfig = {
         	where: {},
 			order: [['id', 'DESC']],
-            // attributes: ['id','describe','status'],
             include:[{
                       model: RoomInfo,
                       attributes: ['id','number']
@@ -32,11 +31,7 @@ const async = require('async');
                       model: TaskFlow,
                       include: [{
                         model: Employee,
-                        attributes: ['id','username'],
-                        include: [{
-                           model: EmployeeInfo,
-                           attributes: ['name']
-                        }]
+                        attributes: ['id','username','name']
                       }]
                     }]
 		}
@@ -289,9 +284,9 @@ exports.getTaskChainList = (req, res, next) => {
               let obj = {};
               obj.id = result[i].id;
               obj.name = result[i].name;
-              obj.allocatorRole = result[i].allocator.name;
-              obj.executorRole = result[i].executor.name;
-              obj.examinerRole = result[i].examiner.name;
+              obj.allocatorRole = result[i].allocator?result[i].allocator.name:'';
+              obj.executorRole = result[i].executor?result[i].executor.name:'';
+              obj.examinerRole = result[i].examiner?result[i].examiner.name:'';
               dataList.push(obj);
            }
            res.json({

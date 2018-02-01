@@ -17,6 +17,7 @@ module.exports = {
         hasRoomType: '房间类型已经存在',
         hasRoomArticle: '该物品已存在',
         hasRoom: '该房间已存在',
+        hasEventType: '该事件类型已存在',
         roomHasCheckIn: '该房间已经有人入住'
     }
 }

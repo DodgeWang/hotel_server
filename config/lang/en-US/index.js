@@ -17,6 +17,7 @@ module.exports = {
         hasRoomType: 'The roomtype has already existed',
         hasRoomArticle: 'The article has already existed',
         hasRoom: 'The room has already existed',
+        hasEventType: 'The event type has already existed',
         roomHasCheckIn: 'This room has been check-in by other people'
     }
 }

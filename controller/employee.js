@@ -22,7 +22,7 @@ exports.loginAction = (req, res, next) => {
             userName: req.body.username,
             password: service.encrypt(req.body.password, staticSetting.encrypt_key)
         }
-
+        
       Employee.findOne({
         where: userObj,
         order: [['id', 'DESC']],
@@ -37,9 +37,6 @@ exports.loginAction = (req, res, next) => {
             },{
                 model: Department,
                 attributes: ['id','name']
-            },{
-                model: EmployeeInfo,
-                attributes: ['id','name','phone']
             }]
       })
       .then(result => {
@@ -53,10 +50,12 @@ exports.loginAction = (req, res, next) => {
         let userInfo = {}  
         userInfo.id = result.id;  
         userInfo.username = result.username;
-        userInfo.EmployeeInfo = result.EmployeeInfo;
+        userInfo.name = result.name;
+        userInfo.isSuper = result.isSuper;
+        // userInfo.EmployeeInfo = result.EmployeeInfo;
         userInfo.Role = result.Role;
         userInfo.Department = result.Department;
-        userInfo.powerList = result.Role.RolePowers;       
+        userInfo.powerList = result.Role?result.Role.RolePowers:[];       
 
 
 
@@ -197,15 +196,19 @@ exports.getEmployeeList = (req, res, next) => {
  */
 exports.addEmployee = (req, res, next) => {
     try{
-        let { username, password, departmentId, roleId } = req.body;
+        let { username, password, name, phone, email, departmentId, roleId } = req.body;
 
       let paramObj = {
            username: username,  //用户名
            password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
+           name: name, //真实姓名
+           phone: phone, //电话号码
+           email: email, //邮箱
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
-           positionId: 1,  //职位id
-           status: 1  //用户状态
+           status: 1,  //用户状态
+           isSuper: 0, //用户性质（超级管理员还是普通用户，默认为普通用户）
+           createTime: Date.parse(new Date())/1000 //当前时间戳
       }
         //先判断用户是否存在
       Employee.findOne({

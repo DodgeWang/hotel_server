@@ -259,10 +259,10 @@ $(function(){
 	//时间戳转换为yyyy-mm-dd格式
 	function timeToStr(timeStamp){
 		var date = new Date(timeStamp * 1000);
-		let year = date.getFullYear();
-		let month = date.getMonth() + 1 >= 10 ? ''+(date.getMonth()+1) : '0'+(date.getMonth()+1);
-        let dateNum = date.getDate() >= 10 ? ''+date.getDate() : '0'+date.getDate();
-        return year+'/'+month+'/'+dateNum;
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1 >= 10 ? ''+(date.getMonth()+1) : '0'+(date.getMonth()+1);
+    var dateNum = date.getDate() >= 10 ? ''+date.getDate() : '0'+date.getDate();
+    return year+'/'+month+'/'+dateNum;
 	}
 })
 

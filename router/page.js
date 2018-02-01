@@ -7,7 +7,7 @@ const router = express.Router();
 let url = require('url');
 
 
-const { Employee, Room, Department, Role, RoomArticle, Task, WorkSchedule } = require('../controller');
+const { Employee, Room, Department, Role, RoomArticle, Task, WorkSchedule, Event, RoomCheckIn } = require('../controller');
 const _ = require('lodash');
 // let langConfig = {};
 const powerConfig = require('../config/powerConfig')();
@@ -32,6 +32,11 @@ function checkUserSession(req, res, next) {
 
 //权限判断
 function checkUserPower(req, res, next) {
+
+  if(req.session.userInfo.isSuper == 1){ //如果是超级管理员直接不用判断
+     return next();
+  }
+
 	let urlPath = url.parse(req.originalUrl).pathname;
 	let powerCode = null;
 
@@ -80,6 +85,8 @@ router.get('/employees', checkUserSession, checkUserPower, Employee.page_Employe
 
 //创建员工页面
 router.get('/employees/create', checkUserSession, checkUserPower, Employee.page_CreateEmployee);
+// router.get('/employees/create', Employee.page_CreateEmployee);
+
 
 
 
@@ -171,6 +178,18 @@ router.get('/tasks/create', checkUserSession, Task.page_createTask);
 //工作排班页面
 router.get('/schedule', checkUserSession, checkUserPower, WorkSchedule.page_WorkSchedule);
 
+//事件类型管理页面
+router.get('/eventtypes', checkUserSession, checkUserPower, Event.page_EventTypes);
+
+//创建事件类型页面
+router.get('/eventtypes/create', checkUserSession, checkUserPower, Event.page_CreateEventTypes);
+
+//编辑事件类型信息页面
+router.get('/eventtypes/edit', checkUserSession, checkUserPower, Event.page_EditEventType);
+
+
+//入住登记页面
+router.get('/checkin', RoomCheckIn.page_CheckIn);
 
 
 

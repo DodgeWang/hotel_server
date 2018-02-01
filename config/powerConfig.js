@@ -100,5 +100,19 @@ module.exports = () => {
                              des: '排班管理首页'
                          }]              
                },
+               {   
+                 name: '事件类型管理',
+                 code: 9001,
+                 list: [{
+                             path: '/admin/eventtypes',
+                             des: '事件类型管理首页'
+                         },{
+                             path: '/admin/eventtypes/create',
+                             des: '添加事件类型首页'
+                         },{
+                             path: '/admin/eventtypes/edit',
+                             des: '编辑事件类型首页'
+                         }]              
+               },
 	       ]
 }
