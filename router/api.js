@@ -99,8 +99,12 @@ router.post('/employee/basicinfo/edit',Employee.editBasicInfo);
 //编辑员工个人信息
 router.post('/employee/personalinfo/edit',Employee.editPersonalInfo)
 
-//批量重置用户密码
+//重置用户密码
 router.post('/employee/resetpassword', Employee.resetPassword);
+
+//禁止用户
+router.post('/employee/forbid', Employee.forbidUser);
+
 
 //根据id获取员工信息
 // router.get('/employee/info', Employee.getEmployeeById);

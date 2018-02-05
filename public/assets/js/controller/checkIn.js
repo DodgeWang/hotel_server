@@ -50,8 +50,9 @@ $(function(){
     $('#datalistBox').on('click','.checkOutBtn',function(){
         if(confirm("是否确认退房?")){  
             var id = parseInt($(this).attr('data-id'));
+            console.log(id)
             var paramObj = {
-              id: id
+              roomId: id
             }
             $.post("/api/checkin/checkout",paramObj,function(obj){
                 if(obj.state == 1){
@@ -84,9 +85,10 @@ function changTable(pageNow){
 		};
 
 
-		if(isCheckOut != -1){
-           paramObj.isCheckOut = isCheckOut;
-		}
+		// if(isCheckOut != -1){
+  //          paramObj.isCheckOut = isCheckOut;
+		// }
+    paramObj.isCheckOut = isCheckOut;
 
 
 
@@ -120,7 +122,7 @@ function changTable(pageNow){
                                              <td>'+ itermDate.guestPhone +'</td>\
                                              <td style="position: relative;">\
                                                  <a href="/admin/rooms/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 续房 </a>\
-                                                 <a class="btn btn-danger btn-xs checkOutBtn" data-id="'+ itermDate.id +'"><i class="fa fa-trash-o"></i> 退房 </a>\
+                                                 <a class="btn btn-danger btn-xs checkOutBtn" data-id="'+ itermDate.roomId +'"><i class="fa fa-trash-o"></i> 退房 </a>\
                                              </td>\
                                            </tr>'
                           newDom += itermDom;

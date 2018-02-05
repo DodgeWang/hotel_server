@@ -46,6 +46,13 @@ exports.loginAction = (req, res, next) => {
             msg: langConfig(req).resMsg.loginError
           })
         }
+
+        if(result.status != 1){
+          return res.json({
+            state: 0,
+            msg: langConfig(req).resMsg.userForbid
+          })
+        }
         
         let userInfo = {}  
         userInfo.id = result.id;  
@@ -262,16 +269,16 @@ exports.addEmployee = (req, res, next) => {
  */
 exports.editBasicInfo = (req, res, next) => {
     try{
-        let { id, username, password, departmentId, roleId, positionId } = req.body;
+        let { id, name, phone, email, departmentId, roleId} = req.body;
 
         id = parseInt(id)
 
       let paramObj = {
-           username: username,  //用户名
-           password: service.encrypt(password, staticSetting.encrypt_key),  //密码（加密处理）
+           name: name,  //姓名
+           phone: phone,  //联系电话
+           email: email,  //邮箱
            departmentId: departmentId,  //部门id
            roleId: roleId,  //角色id
-           positionId: positionId//职位id
       }
 
       Employee.update(paramObj,{
@@ -298,6 +305,7 @@ exports.editBasicInfo = (req, res, next) => {
       })  
     }
 }
+
 
 
 
@@ -506,7 +514,7 @@ exports.editPersonalInfo = (req, res, next) => {
 
 
 /**
- * 批量重置用户密码
+ * 重置用户密码
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -514,12 +522,10 @@ exports.editPersonalInfo = (req, res, next) => {
  */
 exports.resetPassword = (req, res, next) => {
     try{
-        let { ids } = req.body;
-        let idList = dataUtil.strToArray(ids);
-        let updateList = [];
+        let id = req.body.id;
         Employee.update({password:service.encrypt('111111', staticSetting.encrypt_key)},{
            where: {
-               id: idList
+               id: id
            }
         })
         .then(result => {
@@ -545,6 +551,49 @@ exports.resetPassword = (req, res, next) => {
     }
 }
 
+
+
+
+
+
+
+/**
+ * 禁止用户
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.forbidUser = (req, res, next) => {
+    try{
+        let id = req.body.id;
+        Employee.update({status: 2},{
+           where: {
+               id: id
+           }
+        })
+        .then(result => {
+          res.json({
+            state: 1,
+            msg: langConfig(req).resMsg.success
+          })
+        })
+        .catch(err => {
+            logUtil.error(err, req);
+            return res.json({
+                      state: 0,
+                      msg: langConfig(req).resMsg.error
+                   })
+      })
+
+    }catch(err){
+        logUtil.error(err, req);
+        return res.json({
+          state: 0,
+          msg: langConfig(req).resMsg.error
+        })
+    }
+}
 
 
 
@@ -611,7 +660,7 @@ exports.page_Employees = (req, res, next) => {
 
 
 /**
- * 员工管理页面
+ * 创建员工页面
  * @param  {object}   req  the request object
  * @param  {object}   res  the response object
  * @param  {Function} next the next func
@@ -645,6 +694,87 @@ exports.page_CreateEmployee = (req, res, next) => {
                return res.render('page500',{layout: null});
             }
             res.render('createEmployee',{
+               departmentList: results.allDepartmentList, //所有部门
+               roleList: results.allRoleList, //所有角色
+               userInfo: req.session.userInfo,   //登录者个人信息
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+/**
+ * 编辑员工页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_EditEmployee = (req, res, next) => {
+    try{
+        var id = parseInt(req.query.id);
+        async.series({
+            //用户信息
+            employeeInfo: cb => {
+                Employee.findById(id,{
+                    attributes: {exclude: ['password']}
+                }).then(result => {
+                    return cb(null, result);
+                }).catch(err => {
+                    return cb(err, null);
+                })
+            },
+            //全部角色列表
+            allRoleList: cb => {
+                ProxyFunc.Role.getRoleList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            },
+            //全部部门列表
+            allDepartmentList: cb => {
+                ProxyFunc.Department.getDepartmentList({},(err, result) => {
+                    if(err){
+                       return cb(err, null)
+                    }
+                    cb(null,result)
+                })
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            
+
+            for(var i=0; i<results.allDepartmentList.length; i++){
+              results.allDepartmentList[i].isCheck = 0;
+              if(results.employeeInfo.departmentId == results.allDepartmentList[i].id){
+                 results.allDepartmentList[i].isCheck = 1;
+              }
+            }
+
+
+            for(var i=0; i<results.allRoleList.length; i++){
+              results.allRoleList[i].isCheck = 0;
+              if(results.employeeInfo.roleId == results.allRoleList[i].id){
+                 results.allRoleList[i].isCheck = 1;
+              }
+            }
+            
+
+            res.render('editEmployee',{
+               employeeInfo: results.employeeInfo, //员工信息
                departmentList: results.allDepartmentList, //所有部门
                roleList: results.allRoleList, //所有角色
                userInfo: req.session.userInfo,   //登录者个人信息

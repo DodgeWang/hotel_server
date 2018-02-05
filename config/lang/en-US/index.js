@@ -7,6 +7,7 @@ module.exports = {
     	success: 'success',
     	error: 'error',
     	loginError: 'username or password error',
+        userForbid: 'You are prohibited from landing',
     	loginFailure: 'login failure',
     	noLogin: 'please login',
     	noPower: 'You do not have permission to access this interface',

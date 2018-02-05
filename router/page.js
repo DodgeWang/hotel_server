@@ -85,6 +85,9 @@ router.get('/employees', checkUserSession, checkUserPower, Employee.page_Employe
 
 //创建员工页面
 router.get('/employees/create', checkUserSession, checkUserPower, Employee.page_CreateEmployee);
+
+//编辑员工页面
+router.get('/employees/edit', checkUserSession, checkUserPower, Employee.page_EditEmployee);
 // router.get('/employees/create', Employee.page_CreateEmployee);
 
 
@@ -188,8 +191,14 @@ router.get('/eventtypes/create', checkUserSession, checkUserPower, Event.page_Cr
 router.get('/eventtypes/edit', checkUserSession, checkUserPower, Event.page_EditEventType);
 
 
-//入住登记页面
-router.get('/checkin', RoomCheckIn.page_CheckIn);
+
+
+
+//入住登记记录管理页面
+router.get('/checkin', checkUserSession, checkUserPower, RoomCheckIn.page_CheckIn);
+
+//添加入住登记记录
+router.get('/checkin/create', checkUserSession, checkUserPower, RoomCheckIn.page_CreateCheckIn);
 
 
 

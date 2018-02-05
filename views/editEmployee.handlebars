@@ -1,0 +1,87 @@
+<div class="right_col">
+  <div>
+    <div class="row">
+      <div class="clearfix"></div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>编辑员工 <small>different form elements</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div class="form-horizontal form-label-left" id="formBox">
+              <div class="form-group" style="display:none;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">用户ID
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control col-md-7 col-xs-12" name="userId" value={{employeeInfo.id}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control col-md-7 col-xs-12" name="username" value={{employeeInfo.username}} disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">真实姓名
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="name" value={{employeeInfo.name}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">电话
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="phone" value={{employeeInfo.phone}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="email" value={{employeeInfo.email}}>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">部门</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="departmentSelect">
+                    {{#each departmentList}}
+                        <option value={{id}} {{#if_eq isCheck 1}}selected="selected"{{/if_eq}}>{{name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">角色</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="roleSelect">
+                    {{#each roleList}}
+                        <option value={{id}} {{#if_eq isCheck 1}}selected="selected"{{/if_eq}}>{{name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button class="btn btn-success" id="submitBtn">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#section 'script'}}
+    <script type="text/javascript" src="/assets/js/controller/editEmployee.js"></script>
+{{/section}}

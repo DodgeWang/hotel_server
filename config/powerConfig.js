@@ -114,5 +114,16 @@ module.exports = () => {
                              des: '编辑事件类型首页'
                          }]              
                },
+               {   
+                 name: '入住登记',
+                 code: 10001,
+                 list: [{
+                             path: '/admin/checkin',
+                             des: '入住登记管理页面'
+                         },{
+                             path: '/admin/create',
+                             des: '添加入住登记页面'
+                         }]              
+               },
 	       ]
 }

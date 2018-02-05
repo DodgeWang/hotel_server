@@ -7,6 +7,7 @@ module.exports = {
     	success: '成功',
     	error: '错误',
     	loginError: '用户名或密码错误',
+        userForbid: '你被禁止登陆',
     	loginFailure: '登录失败',
     	noLogin: '请登录',
     	noPower: '你没有权限访问此接口',

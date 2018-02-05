@@ -21,7 +21,8 @@ const async = require('async');
         	guestName: guestName,
         	guestPhone: guestPhone,
         	checkInTime: checkInTime,
-        	checkOutTime: checkOutTime
+        	checkOutTime: checkOutTime,
+            isCheckOut: 0
         }
         
         RoomInfo.findOne({
@@ -30,10 +31,11 @@ const async = require('async');
         	},
         	order: [['id', 'DESC']]
         }).then(obj => {
-        	if(obj && obj.roomStatus === 0){
+            console.log(obj)
+        	if(obj && obj.status === 0){
 	            RoomCheckIn.create(paramObj)
 	            .then(result => {             
-	                return RoomInfo.update({roomStatus:1},{
+	                return RoomInfo.update({status:1},{
                         where:{
                     	    id: parseInt(roomId)
                         }
@@ -91,19 +93,21 @@ const async = require('async');
  */
  exports.roomCheckOut = (req, res, next) => {
     try{
-        let { roomId, checkOutTime } = req.body;
-        let paramObj = {
-            checkOutTime: checkOutTime
-        }
-        
+        let { roomId } = req.body;
+        // let paramObj = {
+        //     checkOutTime: checkOutTime
+        // }
+        var checkOutTime = Date.parse(new Date())/1000;
+
         RoomInfo.findOne({
             where: {
                 id: parseInt(roomId)
             },
             order: [['id', 'DESC']]
         }).then(obj => {
-            if(obj && obj.roomStatus === 1){
-                RoomInfo.update({roomStatus:0},{
+            console.log(obj)
+            if(obj && obj.status == 1){
+                RoomInfo.update({status:0},{
                     where: {
                         id: parseInt(roomId)
                     }
@@ -118,7 +122,8 @@ const async = require('async');
                 })
                 .then(result => {
                    return RoomCheckIn.update({
-                       checkOutTime: checkOutTime
+                       checkOutTime: checkOutTime,
+                       isCheckOut: 1
                    },{
                        where: {
                            id: result.id
@@ -193,6 +198,8 @@ const async = require('async');
             queryObj.isCheckOut = isCheckOut;
         }
 
+        // queryObj.isCheckOut = 0;
+
         async.series({
             //查询符合条件的记录列表
             checkInList: cb => {
@@ -244,6 +251,7 @@ const async = require('async');
                 let obj = results.checkInList[i];
                 let iterm = {
                     id: obj.id,
+                    roomId: obj.roomId,
                     roomNumber: obj.RoomInfo.number,
                     roomType: obj.RoomInfo.RoomType.name,
                     guestName: obj.guestName,
@@ -319,6 +327,52 @@ exports.page_CheckIn = (req, res, next) => {
             }
             res.render('checkIn',{
                roomTypeList: results.allTypeList, //所有房间列表
+               userInfo: req.session.userInfo   //登录者个人信息
+            });
+
+        });
+        
+    }catch(err){
+        logUtil.error(err, req);
+        return res.render('page500',{layout: null});
+    }
+}
+
+
+
+
+ /**
+ * 添加入住登页面
+ * @param  {object}   req  the request object
+ * @param  {object}   res  the response object
+ * @param  {Function} next the next func
+ * @return {null}     
+ */
+exports.page_CreateCheckIn = (req, res, next) => {
+    try{
+        async.series({
+            //全部未入住房间列表
+            roomList: cb => {
+                RoomInfo.findAll({
+                    where: {
+                        status: 0
+                    }
+                })
+                .then(result => {
+                   cb(null,result)
+                })
+                .catch(err => {
+                   cb(err,null)   
+                });
+            }
+            
+        }, (err, results) => {
+            if(err){
+               logUtil.error(err, req);
+               return res.render('page500',{layout: null});
+            }
+            res.render('createCheckIn',{
+               roomList: results.roomList, //所有未入住房间列表
                userInfo: req.session.userInfo   //登录者个人信息
             });
 

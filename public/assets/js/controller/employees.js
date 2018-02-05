@@ -49,6 +49,42 @@ $(function(){
     	changTable(pageNow); 
     })
 
+    //重置密码
+    $('#datalistBox').on('click','.newPassBtn',function(){
+       if(confirm("是否确认重置密码?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/employee/resetpassword",paramObj,function(obj){
+                if(obj.state == 1){
+                  alert("密码重置成功")
+                  changTable(pageNow)
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+    })
+
+    //禁用用户
+    $('#datalistBox').on('click','.delUserBtn',function(){
+       if(confirm("是否禁用此用户?")){  
+            var id = parseInt($(this).attr('data-id'));
+            var paramObj = {
+              id: id
+            }
+            $.post("/api/employee/forbid",paramObj,function(obj){
+                if(obj.state == 1){
+                  alert("成功禁止此用户")
+                  changTable(pageNow)
+                }else{
+                  alert(obj.msg)
+                }
+            }); 
+        } 
+    })
+
     
 
 
@@ -92,9 +128,15 @@ $(function(){
                	         var itermDate = dataList[i];
                          var editDom = '';
                          if(itermDate.isSuper!=1){
-                            editDom = '<a href="editEmployee.html" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
-                                       <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除 </a>\
-                                       <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-key"></i> 重置密码 </a>'
+                            editDom = '<a  href="/admin/employees/edit?id='+ itermDate.id +'" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> 编辑 </a>\
+                                       <a class="btn btn-danger btn-xs delUserBtn" data-id="'+itermDate.id+'"><i class="fa fa-trash-o"></i> 禁用 </a>\
+                                       <a class="btn btn-primary btn-xs newPassBtn" data-id="'+itermDate.id+'"><i class="fa fa-key"></i> 重置密码 </a>'
+                         }
+                         var statusDom = '';
+                         if(itermDate.status == 1){
+                             statusDom = '<button type="button" class="btn btn-success btn-xs">正常</button>'
+                         }else{
+                             statusDom = '<button type="button" class="btn btn-danger btn-xs">禁用</button>'
                          }
                	         var itermDom = '<tr class="even pointer">\
                                              <td class="a-center ">\
@@ -106,9 +148,7 @@ $(function(){
                                              <td>'+ (itermDate.Role ? itermDate.Role.name : '') +'</td>\
                                              <td>'+ itermDate.phone +'</td>\
                                              <td>'+ (itermDate.isSuper==1?"超级管理员":"普通用户") +'</td>\
-                                             <td>\
-                                               <button type="button" class="btn btn-success btn-xs">正常</button>\
-                                             </td>\
+                                             <td>'+ statusDom +'</td>\
                                              <td style="position: relative;">'+editDom+'</td>\
                                            </tr>'
                           newDom += itermDom;

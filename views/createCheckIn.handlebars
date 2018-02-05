@@ -1,0 +1,92 @@
+{{#section 'head'}}
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+{{/section}}
+
+<div class="right_col">
+  <div>
+    <div class="row">
+      <div class="clearfix"></div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>入住登记 <small>different form elements</small></h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <div class="form-horizontal form-label-left" id="formBox">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">房间号</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select class="form-control" id="roomSelect">
+                    {{#each roomList}}
+                        <option value={{id}}>{{number}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">客人名称
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="guestName">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">联系电话
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" required="required" class="form-control col-md-7 col-xs-12" name="guestPhone">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">入住时间段
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <fieldset>
+                            <div class="control-group">
+                              <div class="controls">
+                                <div class="input-prepend input-group">
+                                  <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                  <input type="text" name="reservation-time" id="reservation-time" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                </div>
+              </div>
+
+
+
+
+
+
+                         
+
+
+              
+              
+              
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button class="btn btn-success" id="submitBtn">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#section 'script'}}
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/assets/js/controller/createCheckIn.js"></script>
+{{/section}}
